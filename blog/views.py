@@ -3,6 +3,10 @@ from django.views import generic
 from .models import Shop
 
 
+def home(request):
+    return render(request, 'index.html')
+
+
 def shop_category(request, shop_category_id):
     categories = ShopCategory.objects.all()
     selected_category = get_object_or_404(ShopCategory, id=shop_category_id)
