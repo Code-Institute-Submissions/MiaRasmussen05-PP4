@@ -1,5 +1,14 @@
 # Portfolio Project Website
 
+This website was created for my 4th Portfolio Project with Code Institute. I decided to create a website to promote my skills and what I do. By both having a gallery, shop, portfolio, and a blog I can use all the things I love and promote myself as well. I used the idea of a shop to reach a bussines point of view, because more and more people shop online so they can get everything from everywhere. With a blog that takes a more of a social network point of view so conversation can be made and discussions can get started. A gallery to see the beauty in the world througt someone elses eyes.
+
+[My Portfolio Project website on Heroku](https://portfolio-project4.herokuapp.com/)
+
+![GitHub shield last commit](https://img.shields.io/github/last-commit/MiaRasmussen05/pp4?color=red)
+![GitHub shield language count](https://img.shields.io/github/languages/count/MiaRasmussen05/pp4?color=orange)
+![GitHub shield contributors](https://img.shields.io/github/contributors/MiaRasmussen05/pp4?color=yellow)
+![GitHub shield top language](https://img.shields.io/github/languages/top/MiaRasmussen05/pp4?color=brightgree&label=html)
+
 # Contents
 
 [UX Design](#ux-design)
