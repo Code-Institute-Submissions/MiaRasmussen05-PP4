@@ -19,6 +19,7 @@ body {
 .link {
     color: #000;
     font-size: 20px;
+    text-decoration: none;
 }
 
 .link:hover {
@@ -33,7 +34,7 @@ body {
     margin-left: 20px;
 }
 
-.offcanvas, .dropdown-menu {
+.offcanvas, .dropdown-menu, .bg-sandcolor {
     background-color: #BBA58E;
 }
 
@@ -43,4 +44,28 @@ body {
 
 .logout-nav {
     font-size: 16px;
+}
+
+/* Footer */
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+footer .socials {
+    color: #9A005A;
+    font-size: 25px;
+    text-shadow: 1px -1px 1px #000;
+}
+
+.footer-contact {
+    border: 2px solid #9A005A;
+    color: #9A005A;
+    text-decoration: none;
+}
+
+.footer-contact:hover {
+    background-color: #9A005A;
+    color: #FFF;
 }
