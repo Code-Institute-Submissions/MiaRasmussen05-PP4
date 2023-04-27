@@ -27,6 +27,19 @@ body {
     text-decoration: underline;
 }
 
+.btn {
+    background-color: #9A005A;
+    border: 2px solid #9A005A;
+    color: #FFF;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background-color: #BBA58E;
+    border: 2px solid #BBA58E;
+    color: #000;
+}
+
 /* Header */
 
 .site-wide-alert {
@@ -60,6 +73,32 @@ body {
 
 .logout-nav {
     font-size: 16px;
+}
+
+/* Home Page */
+
+.hero-wrapper {
+    position: relative;
+}
+
+.hero-wrapper h1 {
+    font-size: 22px;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(to right, rgba(187, 165, 142, .9), rgb(187, 165, 142, .7), rgb(255, 255, 255, .6), rgba(255, 255, 255, 0.0));
+    letter-spacing: 1px;
+}
+
+.hero-image {
+    height: 500px;
+    background-color: #000;
+    background: url('https://imgur.com/fsJ5007.png') no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Footer */
