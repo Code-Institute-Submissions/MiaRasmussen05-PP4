@@ -2,6 +2,79 @@
 
 {% block title %}Shop{% endblock %}
 
+{% block signalert %}to get started on shopping{% endblock %}
+
 {% block content %}
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <h1 class="headings underline"><span>S</span>hop</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid shop">
+        <div class="row">
+            <div class="col-12 col-md-2 ms-5">
+                <div class="d-flex flex-column justify-content-center shop-category mt-5">
+                    <a href="{% url 'shop' %}" class="link mt-0 mb-4">All</a>
+                    {% for category in categories %}
+                    <a href="{% url 'shop' %}?category={{ category.id }}" class="link mt-0 mb-4">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-12 col-md-9 ms-5">
+                <div class="col-12 d-flex justify-content-between">
+                    <div class="col-12 d-flex justify-content-between pe-2">
+                        {% if selected_category %}
+                        <h2 class="mt-5 mb-2 ms-5">{{ selected_category.name }}</h2>
+                        {% else %}
+                        <h2 class="mt-5 mb-2 ms-5">All</h2>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap justify-content-center">
+                    {% for item in shop_items %}
+                    <div>
+                        <div class="card m-2">
+                            <a href="#">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
+                                {% else %}
+                                <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2"
+                                    alt="Placeholder Image">
+                                {% endif %}
+                            </a>
+
+                            <div class="card-body p-2">
+                                <div class="d-flex justify-content-between">
+                                    <a class="link" href="#">
+                                        <h2 class="category-link title mb-2">{{ item.title }}</h2>
+                                    </a>
+                                    <p class="heart-likes"><i class="far fa-heart"></i></p>
+                                </div>
+                                <p class="price mt-2 mb-2">£{{ item.price }}</p>
+                                <form action="#" method="post">
+                                    {% csrf_token %}
+
+                                    <button type="submit"
+                                        class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
