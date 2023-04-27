@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    min-height: 100vh;
+    position: relative;
+}
+
+body {
+    background-color: #ECE2D8;
+}
+
+/* All Pages */
+
+.link {
+    color: #000;
+    font-size: 20px;
+}
+
+.link:hover {
+    color: #9A005A;
+    text-decoration: underline;
+}
+
+/* Navbar */
+
+.logo {
+    width: 200px;
+    margin-left: 20px;
+}
+
+.offcanvas, .dropdown-menu {
+    background-color: #BBA58E;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+.logout-nav {
+    font-size: 16px;
+}
