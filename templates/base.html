@@ -28,8 +28,21 @@
 
 <body>
     <header>
+        <div class="container-fluid p-0 w-100">
+            {% if not user.is_authenticated %}
+            <div class="container-fluid alert-container">
+                <div class="row">
+                    <div class="m-0 p-0">
+                        <div class="site-wide-alert alert text-center text-white m-0 p-1">
+                            <strong>Sign Up</strong> So you don't miss out on anything!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
 
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <img class="logo" src="https://imgur.com/oZvKQcu.png" alt="Mia Rassmusen Name Logo">
@@ -45,24 +58,24 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-center align-self-center flex-grow-1 ms-0">
-                            <li class="nav-item">
+                    <div class="offcanvas-body p-0">
+                        <ul class="navbar-nav justify-content-center align-self-center flex-grow-1 ms-0 p-3 pb-2 p-lg-0">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link link" href="{% url 'home' %}">Home</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link link" href="#">Shop</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link link" href="#">Blog</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link link" href="#">Portfolio</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link link" href="#">Gallery</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link link" href="#">Contact</a>
                             </li>
                         </ul>
@@ -70,28 +83,28 @@
                         <ul class="navbar-nav justify-content-end align-self-center">
                             {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle d-none d-lg-block" href="#"
+                                <a class="nav-link dropdown-toggle d-none d-lg-block pe-3 ps-lg-0 me-4" href="#"
                                     id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Profile Image
                                     <!-- image of user -->
                                 </a>
-                                <a class="nav-link link dropdown-toggle d-block d-lg-none" href="#"
+                                <a class="nav-link link dropdown-toggle d-block d-lg-none ps-3 pe-lg-0 me-4" href="#"
                                     id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Username
                                     <!-- name of user -->
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                    <li><a class="dropdown-item link" href="#">Profile</a></li>
-                                    <li><a class="dropdown-item link" href="#">Favorites</a></li>
-                                    <li><a class="dropdown-item link" href="#">My Cart</a></li>
-                                    <li><a class="dropdown-item link" href="#">My Orders</a></li>
-                                    <li><a class="dropdown-item link" href="#">Edit</a></li>
+                                <ul class="dropdown-menu drop-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="#">Favorites</a></li>
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="#">My Cart</a></li>
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="#">My Orders</a></li>
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="#">Edit</a></li>
                                     <li>
                                         <hr class="dropdown-divider mt-3">
                                     </li>
-                                    <li><a class="dropdown-item link logout-nav mt-5"
+                                    <li><a class="dropdown-item link logout-nav p-0 mt-5 mb-2 ms-3"
                                             href="{% url 'account_logout' %}">Logout</a></li>
                                 </ul>
                             </li>
@@ -148,6 +161,19 @@
                     <p>
                         <a class="footer-contact p-1" href="#">Contact Me &raquo;</a>
                     </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid footeralert p-0 ps-2 w-100">
+            <div class="container-fluid alert-container">
+                <div class="row">
+                    <div class="m-0 p-1">
+                        ©Mia Rasmussen 2023 - Designed by <a class="link" href="https://github.com/MiaRasmussen05"
+                            target="_blank"><strong class="strong-name">Mia Rasmussen</strong></a> <span>- Disclaimer: This website was
+                            build
+                            as a project.</span>
+                    </div>
                 </div>
             </div>
         </div>
