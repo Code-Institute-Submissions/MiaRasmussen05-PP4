@@ -14,6 +14,14 @@ body {
     background-color: #ECE2D8;
 }
 
+.alert-message {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  }
+
 /* All Pages */
 
 .link {
@@ -38,6 +46,16 @@ body {
     background-color: #BBA58E;
     border: 2px solid #BBA58E;
     color: #000;
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+}
+
+.a-link {
+    color: #000;
+    text-decoration: none;
 }
 
 /* Header */
@@ -239,4 +257,9 @@ footer .socials {
     font-size: 18px;
     background-color: #FFF;
     border-radius: 5px;
+}
+
+.rating {
+    color: #9A005A;
+    font-size: 24px;
 }
