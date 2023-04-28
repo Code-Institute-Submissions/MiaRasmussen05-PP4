@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+
+<div class="countainer-fluid mt-5">
+    <br>
+    <br>
+    <br>
+    <div class="row col-12 d-flex justify-content-center align-self-center ms-0">
+        <div class="mt-5 crud-box">
+            <div>
+                <button class="go-back col-1 mt-3" title="Go back">
+                    <a href="{{request.META.HTTP_REFERER}}"><i class="fas fa-reply"></i></a>
+                </button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form class="col-10" method="POST" enctype="multipart/form-data" action="{% url 'edit_profile' %}">
+                    {% csrf_token %}
+                    <div class="col-12 d-flex justify-content-center">
+                        <h1>Edit Profile</h1>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center mt-4">
+
+                        <div class="justify-content-center">
+                            <label class="col-form-label" for="{{ form.fiName.id_for_label }}">First Name</label>
+                            <p>
+                                {{ form.fiName }}
+                            </p>
+
+                            <label for="{{ form.laName.id_for_label }}">Last Name:</label>
+                            <p>
+                                {{ form.laName }}
+                            </p>
+
+                            <label for="{{ form.email.id_for_label }}">Email Address:</label>
+                            <p>
+                                {{ form.email }}
+                            </p>
+
+                            <label for="{{ form.birth_date.id_for_label }}">Age:</label>
+                            <p>
+                                {{ form.birth_date }}
+                            </p>
+
+                            <p>
+                                {% if form.image_display.value %}
+                                <img style="width: 150px;" src="{{ form.image_display.value.url }}"
+                                    alt="{{ form.image_display.label }}">
+                                {% endif %}
+                            </p>
+                            <p>
+                                {{ form.image }}
+                            </p>
+                            <label for="{{ form.bio.id_for_label }}">Bio:</label>
+                            <p>
+                                {{ form.bio }}
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="field-contend mb-5 d-flex justify-content-end">
+                        <input class="btn form-btn input" type="submit" value="SAVE">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
