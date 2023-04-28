@@ -6,7 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.http import Http404
 from random import sample
 
-from .models import Shop, ShopCategory
+from .models import Shop, ShopCategory, Blog
 from .forms import ReviewForm
 
 
@@ -122,3 +122,10 @@ class AddShopItemView(View):
             Shop.shop_category.through.objects.create(shop_id=new_shop.id, shop_category_id=category.id)
         messages.success(request, f"Product '{ title }' added successfully.")
         return redirect('shop')
+
+
+class BlogList(generic.ListView):
+    model = Blog
+    queryset = Blog.objects.filter(status=1).order_by('-created_on')
+    template_name = 'blog.html'
+    paginate_by = 12

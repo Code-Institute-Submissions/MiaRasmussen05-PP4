@@ -10,4 +10,6 @@ urlpatterns = [
     path('shop_item/<int:shop_id>/', views.ShopItemView.as_view(), name='shop_item'),
     # path('add_shop/shop/', views.ShopCreateView, name='add_shop'),
     path('add/', views.AddShopItemView.as_view(), name='add_product'),
+
+    path("blog/", views.BlogList.as_view(), name="blog"),
 ]
