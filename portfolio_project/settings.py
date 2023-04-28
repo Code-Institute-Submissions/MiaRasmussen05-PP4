@@ -52,12 +52,15 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'blog',
+    'user_profile',
 ]
 
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,7 +77,10 @@ ROOT_URLCONF = 'portfolio_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'user_profile', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
