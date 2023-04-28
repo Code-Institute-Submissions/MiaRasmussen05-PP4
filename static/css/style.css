@@ -199,3 +199,44 @@ footer .socials {
 .price {
     font-size: 23px;
 }
+
+/* Shop Item Page */
+
+.shop-item-page .card-img-top {
+    height: 700px;
+}
+
+.shop-item-body h1 {
+    font-size: 30px;
+}
+
+.shop-item-body {
+    font-size: 22px;
+}
+
+.quantity {
+    font-size: 20px;
+}
+
+.quantity input {
+    width: 50px;
+}
+
+.quantity p {
+    font-size: 17px;
+}
+
+.limit {
+    background-color: transparent;
+}
+
+.shop-item-body .collapse .card {
+    box-shadow: none;
+}
+
+.item-description {
+    min-height: 360px;
+    font-size: 18px;
+    background-color: #FFF;
+    border-radius: 5px;
+}
