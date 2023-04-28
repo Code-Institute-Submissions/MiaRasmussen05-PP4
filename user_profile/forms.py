@@ -26,3 +26,10 @@ class ProfileForm(forms.ModelForm):
                 'rows': 5,
             }),
         }
+    
+    def save(self, commit=True):
+        profile = super().save(commit=False)
+        if commit:
+            profile.user = self.instance
+            profile.save()
+        return profile

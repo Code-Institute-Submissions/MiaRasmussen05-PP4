@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     fiName = models.CharField(max_length=150, null=True, blank=True)
     laName = models.CharField(max_length=150, null=True, blank=True)
     email = models.CharField(max_length=250, null=True, blank=True)
