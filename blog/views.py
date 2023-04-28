@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test
 from django.urls import reverse, reverse_lazy
+from django.http import Http404
 from random import sample
 
 from .models import Shop, ShopCategory
@@ -90,17 +90,8 @@ class ShopItemView(DetailView):
             return self.render_to_response(context)
 
 
-@user_passes_test(lambda u: u.is_staff)
-class ShopCreateView(CreateView):
-    model = Shop
-    template_name = 'shop.html'
-    fields = ['title', 'shop_category', 'item', 'image', 'description', 'price', 'status']
-    success_url = reverse_lazy('shop')
-    extra_context = {'categories': ShopCategory.objects.all()}
-
-
-@user_passes_test(lambda u: u.is_staff)
 class AddShopItemView(View):
+    model = Shop
     template_name = 'shop.html'
 
     def get(self, request, *args, **kwargs):
@@ -108,15 +99,23 @@ class AddShopItemView(View):
         return render(request, self.template_name, {'categories': categories})
 
     def post(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            raise Http404
         title = request.POST.get('title')
         shop_category_ids = request.POST.getlist('category')
         categories = ShopCategory.objects.filter(id__in=shop_category_ids)
         item = request.POST.get('item')
         image = request.FILES.get('image')
+        quantity = request.POST.get('quantity')
         description = request.POST.get('description')
         price = request.POST.get('price')
-        Shop.objects.create(title=title, item=item, image=image, description=description, price=price, status=1)
+        status = request.POST.get('status')
+        try:
+            new_shop = Shop.objects.create(title=title, item=item, image=image, description=description, price=price, status=status)
+        except Exception as e:
+            messages.warning(request, f"Failed to add product '{title}': {str(e)}")
+            return redirect('add_product')
         for category in categories:
-            Shop.shop_category.through.objects.create(shop_id=shop.id, shopcategory_id=category.id)
+            Shop.shop_category.through.objects.create(shop_id=new_shop.id, shop_category_id=category.id)
         messages.success(request, f"Product '{ title }' added successfully.")
         return redirect('shop')
