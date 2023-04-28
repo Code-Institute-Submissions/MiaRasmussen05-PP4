@@ -1,6 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.contrib import messages
+from django.urls import reverse
+
 from .models import Shop, ShopCategory
 
 
@@ -46,4 +49,20 @@ class ShopView(ListView):
         context = super().get_context_data(**kwargs)
         categories = ShopCategory.objects.all()
         context.update({'categories': categories, 'selected_category': self.selected_category})
+        return context
+
+
+class ShopItemView(DetailView):
+    template_name = 'shop_item.html'
+    context_object_name = 'shop_item'
+    model = Shop
+
+    def get_object(self, queryset=None):
+        shop_id = self.kwargs.get('shop_id')
+        return get_object_or_404(Shop, id=shop_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_items = Shop.objects.filter(status=1).exclude(id=self.kwargs['shop_id'])
+        context['all_items'] = all_items
         return context
