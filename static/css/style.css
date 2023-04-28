@@ -197,7 +197,7 @@ footer .socials {
     font-size: 32px;
 }
 
-.shop .dropdown-item:hover {
+.shop .dropdown-item:hover, .profile-page .dropdown-item:hover {
     background-color: #AC927C;
 }
 
@@ -291,4 +291,15 @@ footer .socials {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* Profile Page */
+
+.profile-page img {
+    border: 3px solid #000;
+    box-shadow: 3px 6px 8px #BBA58E;
+}
+
+.username {
+    font-size: 28px;
 }
