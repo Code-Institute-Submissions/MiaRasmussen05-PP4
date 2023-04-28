@@ -78,6 +78,55 @@
                 </form>
                 {% endif %}
             </div>
+            <div class="col-12 col-sm-8 card bg-transparent border-0 mb-4 mt-3">
+                <h3>Reviews:</h3>
+                <div class="review-wrapper">
+                    <div class="card-body">
+                        {% for review in shop_item.reviews.all %}
+                        <div class="row">
+                            <div class="d-flex">
+                                <div class="d-none d-md-block flex-shrink-0">
+                                    {% if review.user.profile.image %}
+                                    <img src="#" class="user-img" alt="Profile Image">
+                                    {% else %}
+                                    <img src="https://imgur.com/kUyQ94l.png" class="user-img"
+                                        alt="No image availible Placeholder">
+                                    {% endif %}
+                                </div>
+                                <div class="flex-grow-1 ms-3 col-12 col-md-9 col-xl-10">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="font-weight-bold">
+                                            <a href="#">
+                                                <strong>{{ review.user.username }}
+                                                    {% if review.rating == 0 %}
+                                                    <span class="rating">&#9734;&#9734;&#9734;&#9734;&#9734;</span>
+                                                    {% elif review.rating == 1 %}
+                                                    <span class="rating">&#9733;&#9734;&#9734;&#9734;&#9734;</span>
+                                                    {% elif review.rating == 2 %}
+                                                    <span class="rating">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
+                                                    {% elif review.rating == 3 %}
+                                                    <span class="rating">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                                                    {% elif review.rating == 4 %}
+                                                    <span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                                                    {% else %}
+                                                    <span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                                    {% endif %}
+                                                </strong>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    {{ review.text | linebreaks }}
+                                    <span class=" text-muted font-weight-normal">
+                                        {{ review.created_on }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-3 mb-4">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

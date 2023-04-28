@@ -124,6 +124,13 @@
 
     </header>
     <main>
+        {% if messages %}
+        {% for message in messages %}
+        <div id="messages" class="alert alert-success alert-message">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
         {% block content %}
 
         {% endblock content %}
