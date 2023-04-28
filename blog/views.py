@@ -3,6 +3,7 @@ from django.views import generic
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.urls import reverse
+from random import sample
 
 from .models import Shop, ShopCategory
 from .forms import ReviewForm
@@ -65,8 +66,11 @@ class ShopItemView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         all_items = Shop.objects.filter(status=1).exclude(id=self.kwargs['shop_id'])
+        total_items = len(all_items)
+        sample_size = min(6, total_items)
         context['all_items'] = all_items
         context['review_form'] = ReviewForm()
+        context['random_items'] = sample(list(all_items), sample_size)
         return context
 
     def post(self, request, *args, **kwargs):

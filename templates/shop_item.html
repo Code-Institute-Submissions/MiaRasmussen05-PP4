@@ -131,4 +131,73 @@
     </div>
 </section>
 
+<section>
+    <div class="shop-item-page">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 justify-content-center">
+                    <h2>Other items you might be interrested in</h2>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner flex-gow-1 mb-5">
+                            <div class="carousel-item active" data-bs-interval="50000">
+                                <div class="row row-cols-3 g-3">
+                                    {% for item in random_items|slice:"0:3" %}
+                                    <div class=" col-6 col-md-4">
+                                        <a class="link" href="{% url 'shop_item' item.id %}">
+                                            <div class="card pb-4 pb-lg-2">
+                                                {% if item.image %}
+                                                <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                                                {% else %}
+                                                <img src="https://imgur.com/kUyQ94l.png" alt="Placeholder Image">
+                                                {% endif %}
+                                                <div class="card-body">
+                                                    <h3 class="card-title">{{ item.title }}</h3>
+                                                    <p class="card-text">£{{ item.price }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="50000">
+                                <div class="row row-cols-3 g-3">
+                                    {% for item in random_items|slice:"3:6" %}
+                                    <div class="col-6 col-md-4">
+                                        <a class="link" href="{% url 'shop_item' item.id %}">
+                                            <div class="card pb-4 pb-lg-2">
+                                                {% if item.image %}
+                                                <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                                                {% else %}
+                                                <img src="https://imgur.com/kUyQ94l.png" alt="Placeholder Image">
+                                                {% endif %}
+                                                <div class="card-body">
+                                                    <h3 class="card-title">{{ item.title }}</h3>
+                                                    <p class="card-text">£{{ item.price }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
