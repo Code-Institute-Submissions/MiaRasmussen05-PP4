@@ -28,7 +28,7 @@
                 <div class="col-12 profile-top mb-5">
                     <div>
                         {% if user.profile.image %}
-                        <img src="{{ user.profile.image.url }}" class="col-4 col-lg-2 rounded-circle"
+                        <img src="{{ profile.image.url }}" class="col-4 col-lg-2 rounded-circle"
                             alt="Profile Image">
                         {% else %}
                         <img src="https://imgur.com/kUyQ94l.png" class="col-4 col-lg-2 rounded-circle"
@@ -37,15 +37,15 @@
                         <strong class="username ms-3">{{ user.username }}</strong>
                     </div>
                 </div>
-                <p>First Name: {{ user.first_name }}</p>
+                <p>First Name: {{ user.profile.fiName }}</p>
                 <hr>
-                <p>Last Name: {{ user.last_name }}</p>
+                <p>Last Name: {{ user.profile.laName }}</p>
                 <hr>
-                <p>Email: {{ user.email }}</p>
+                <p>Email: {{ user.profile.email }}</p>
                 <hr>
-                <p>Age: {{ user.birth_date }}</p>
+                <p>Birthday: {{ user.profile.birth_date }}</p>
                 <hr>
-                <p>Bio: {{ user.bio }}</p>
+                <p>Bio: {{ user.profile.bio }}</p>
             </div>
         </div>
     </div>

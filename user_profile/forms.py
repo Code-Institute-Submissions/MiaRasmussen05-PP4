@@ -12,15 +12,19 @@ class ProfileForm(forms.ModelForm):
         widgets = {
             'fiName': forms.TextInput(attrs={
                 'placeholder': 'First name...',
+                'style': 'padding: 4px; width: 100%;'
             }),
             'laName': forms.TextInput(attrs={
                 'placeholder': 'Last name...',
+                'style': 'padding: 4px; width: 100%;'
             }),
             'email': forms.TextInput(attrs={
                 'placeholder': 'Email Address...',
+                'style': 'padding: 4px; width: 100%;'
             }),
             'birth_date': DateInput(attrs={
-                'type': 'date'
+                'type': 'date',
+                'style': 'padding: 4px; width: 100%;'
             }),
             'image': ClearableFileInput(attrs={
                 'accept': 'image/*'
@@ -28,18 +32,20 @@ class ProfileForm(forms.ModelForm):
             'bio': forms.Textarea(attrs={
                 'placeholder': 'Tell a bit about yourself...',
                 'rows': 5,
+                'style': 'padding: 10px; max-height: 300px; width: 100%;'
             }),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.image:
+            self.fields['image'].initial = self.instance.image.url
 
     def save(self, commit=True):
         profile = super().save(commit=False)
         if commit:
-            profile.user = self.instance
+            if self.cleaned_data.get('image'):
+                profile.image = self.cleaned_data['image']
+            profile.user = self.instance.user
             profile.save()
         return profile
-
-    def __init__(self, *args, **kwargs):
-        super(ProfileForm, self).__init__(*args, **kwargs)
-        # Set the initial value of the image field
-        if self.instance and self.instance.image:
-            self.fields['image_display'] = forms.ImageField(required=False, initial=self.instance.image, widget=forms.FileInput)

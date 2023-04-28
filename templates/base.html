@@ -83,19 +83,23 @@
                         <ul class="navbar-nav justify-content-end align-self-center">
                             {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle d-none d-lg-block pe-3 ps-lg-0 me-4" href="#"
+                                <a class="nav-link dropdown-toggle d-none d-lg-block pe-3 ps-lg-0 me-5 text-black" href="#"
                                     id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    Profile Image
-                                    <!-- image of user -->
+                                    {% if request.user.profile.image %}
+                                            <img src="{{ request.user.profile.image.url }}" class="profile-img"
+                                                alt="Profile Image">
+                                            {% else %}
+                                            <img src="https://imgur.com/kUyQ94l.png" class="profile-img"
+                                                alt="No image availible Placeholder">
+                                            {% endif %}
                                 </a>
                                 <a class="nav-link link dropdown-toggle d-block d-lg-none ps-3 pe-lg-0 me-4" href="#"
                                     id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    Username
-                                    <!-- name of user -->
+                                    {{ user.username }}
                                 </a>
-                                <ul class="dropdown-menu drop-menu border-0 rounded-0" aria-labelledby="offcanvasNavbarDropdown">
+                                <ul class="dropdown-menu drop-menu border-0" aria-labelledby="offcanvasNavbarDropdown">
                                     <li>
                                         <a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'profile' username=request.user.username %}">Profile</a>
                                     </li>

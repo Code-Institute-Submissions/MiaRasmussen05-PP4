@@ -58,8 +58,32 @@ body {
     text-decoration: none;
 }
 
-.slide {
-    margin-bottom: 500px;
+.headings {
+    font-size: 60px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.headings span {
+    font-size: 80px;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+/* CRUD Pages */
+
+.crud-box {
+    width: 600px;
+    background-color: #BBA58E;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #796352;
+}
+
+.go-back {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
 }
 
 /* Header */
@@ -90,22 +114,13 @@ body {
     background-color: transparent;
 }
 
+.profile-img {
+    width: 90px;
+    height: 90px;
+}
+
 .logout-nav {
     font-size: 16px;
-}
-
-.headings {
-    font-size: 60px;
-    font-weight: 400;
-    text-decoration: underline;
-    /* margin-top: 160px; */
-}
-
-.headings span {
-    font-size: 80px;
-    font-family: 'Great Vibes', cursive;
-    font-weight: 700;
-    letter-spacing: 5px;
 }
 
 /* Home Page */
@@ -302,4 +317,8 @@ footer .socials {
 
 .username {
     font-size: 28px;
+}
+
+.crud-box {
+    margin-bottom: 500px;
 }

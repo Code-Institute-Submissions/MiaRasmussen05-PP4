@@ -18,6 +18,11 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
     def get_object(self):
         return self.request.user.profile
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
+
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
@@ -43,13 +48,16 @@ class EditProfileView(LoginRequiredMixin, UpdateView):
     model = Profile
     form_class = ProfileForm
     template_name = 'edit_profile.html'
-    success_url = reverse_lazy('profile')
 
     def get_object(self):
         return self.request.user.profile
 
     def form_valid(self, form):
         profile = form.save(commit=False)
-        profile.user = self.request.user
+        user = self.request.user
+        profile.user = user
         profile.save()
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('profile', kwargs={'username': self.request.user.username})
