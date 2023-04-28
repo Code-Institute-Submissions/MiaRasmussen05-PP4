@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views import generic
-from django.views.generic import ListView, DetailView
+from django.views import generic, View
+from django.views.generic import ListView, DetailView, CreateView
 from django.contrib import messages
-from django.urls import reverse
+from django.contrib.auth.decorators import user_passes_test
+from django.urls import reverse, reverse_lazy
 from random import sample
 
 from .models import Shop, ShopCategory
@@ -87,3 +88,35 @@ class ShopItemView(DetailView):
             context = self.get_context_data(**kwargs)
             context['review_form'] = form
             return self.render_to_response(context)
+
+
+@user_passes_test(lambda u: u.is_staff)
+class ShopCreateView(CreateView):
+    model = Shop
+    template_name = 'shop.html'
+    fields = ['title', 'shop_category', 'item', 'image', 'description', 'price', 'status']
+    success_url = reverse_lazy('shop')
+    extra_context = {'categories': ShopCategory.objects.all()}
+
+
+@user_passes_test(lambda u: u.is_staff)
+class AddShopItemView(View):
+    template_name = 'shop.html'
+
+    def get(self, request, *args, **kwargs):
+        categories = ShopCategory.objects.all()
+        return render(request, self.template_name, {'categories': categories})
+
+    def post(self, request, *args, **kwargs):
+        title = request.POST.get('title')
+        shop_category_ids = request.POST.getlist('category')
+        categories = ShopCategory.objects.filter(id__in=shop_category_ids)
+        item = request.POST.get('item')
+        image = request.FILES.get('image')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+        Shop.objects.create(title=title, item=item, image=image, description=description, price=price, status=1)
+        for category in categories:
+            Shop.shop_category.through.objects.create(shop_id=shop.id, shopcategory_id=category.id)
+        messages.success(request, f"Product '{ title }' added successfully.")
+        return redirect('shop')
