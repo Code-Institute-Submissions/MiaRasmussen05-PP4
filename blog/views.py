@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.urls import reverse
 
 from .models import Shop, ShopCategory
+from .forms import ReviewForm
 
 
 def home(request):
@@ -65,4 +66,20 @@ class ShopItemView(DetailView):
         context = super().get_context_data(**kwargs)
         all_items = Shop.objects.filter(status=1).exclude(id=self.kwargs['shop_id'])
         context['all_items'] = all_items
+        context['review_form'] = ReviewForm()
         return context
+
+    def post(self, request, *args, **kwargs):
+        form = ReviewForm(request.POST)
+        shop_item = self.get_object()
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.comment = shop_item
+            review.user = request.user
+            review.save()
+            messages.success(request, 'Your review has successfully been submitted.')
+            return redirect('shop_item', shop_id=shop_item.id)
+        else:
+            context = self.get_context_data(**kwargs)
+            context['review_form'] = form
+            return self.render_to_response(context)

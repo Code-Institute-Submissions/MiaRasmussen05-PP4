@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <section>
     <div class="shop-item-page mt-4">
         <div class="container-fluid">
@@ -28,12 +30,10 @@
 
                         <div class="quantity d-flex">
                             <label for="quantity"></label>
-                            <button type="button" name="action" value="decrement"
-                                class="btn decrement">-</button>
+                            <button type="button" name="action" value="decrement" class="btn decrement">-</button>
                             <input class="text-center input-quantity" type="number" id="quantity" name="quantity"
                                 min="1" max="5" value="1">
-                            <button type="button" name="action" value="increment"
-                                class="btn increment">+</button>
+                            <button type="button" name="action" value="increment" class="btn increment">+</button>
                             <button class="limit border-0" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 <p class="text-muted d-flex align-items-center ms-4 mb-0">Limit 5
@@ -59,6 +59,25 @@
                 </div>
             </div>
             <hr>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-9 card bg-transparent border-0 mb-1 mt-5">
+                {% if user.is_authenticated %}
+
+                <h3>Leave a Review:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" class="mt-1">
+                    {{ review_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg mt-4">Submit</button>
+                </form>
+                {% endif %}
+            </div>
         </div>
     </div>
 </section>
