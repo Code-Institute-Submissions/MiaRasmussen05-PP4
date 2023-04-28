@@ -21,7 +21,10 @@ class ShopCategoryView(ListView):
 
     def get_queryset(self):
         selected_category = get_object_or_404(ShopCategory, id=self.kwargs['shop_category_id'])
-        queryset = super().get_queryset().filter(shop_category=selected_category)
+        if selected_category.name == 'Draft':
+            queryset = super().get_queryset().filter(status=0)
+        else:
+            queryset = super().get_queryset().filter(shop_category=selected_category, status=1)
         return queryset
 
     def get_context_data(self, **kwargs):

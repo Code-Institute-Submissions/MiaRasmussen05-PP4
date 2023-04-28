@@ -123,59 +123,60 @@
                 </div>
 
                 <div class="d-flex flex-wrap justify-content-center">
-                    {% for item in shop_items %}
-                    <div>
-                        <div class="card m-md-2">
-                            <a href="{% url 'shop_item' shop_id=item.id %}">
-                                {% if item.image %}
-                                <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
-                                {% else %}
-                                <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2"
-                                    alt="Placeholder Image">
-                                {% endif %}
-                            </a>
-
-                            <div class="card-body p-2">
-                                <div class="d-flex justify-content-between">
-                                    <a class="link" href="{% url 'shop_item' shop_id=item.id %}">
-                                        <h2 class="category-link title mb-3">{{ item.title }}</h2>
+                    {% if selected_category.name == 'Draft' %}
+                        {% for item in items %}
+                            <div>
+                                <div class="card m-md-2">
+                                    <a href="{% url 'shop_item' shop_id=item.id %}">
+                                        {% if item.image %}
+                                            <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
+                                        {% else %}
+                                            <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2" alt="Placeholder Image">
+                                        {% endif %}
                                     </a>
-                                    <p class="heart-likes"><i class="far fa-heart"></i></p>
+                                    <div class="card-body p-2">
+                                        <div class="d-flex justify-content-between">
+                                            <a class="link" href="{% url 'shop_item' shop_id=item.id %}">
+                                                <h2 class="category-link title mb-3">{{ item.title }}</h2>
+                                            </a>
+                                            <p class="heart-likes"><i class="far fa-heart"></i></p>
+                                        </div>
+                                        <p class="price mt-3 mb-2">£{{ item.price }}</p>
+                                        <form action="#" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <p class="price mt-3 mb-2">£{{ item.price }}</p>
-                                <form action="#" method="post">
-                                    {% csrf_token %}
-
-                                    <button type="submit"
-                                        class="btn btn-primary d-flex justify-content-center w-100">ADD TO
-                                        BAG</button>
-
-                                </form>
                             </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% if draft_products %}
-                    {% for category in draft_products %}
-                    <h4 class="mt-4">{{ category.name }}</h4>
-                    <ul>
-                        {% for product in category.shop_set.all %}
-                        <li>
-                            {{ product.title }} ({{ product.item }}) - {{ product.price }}
-                            <form method="post" action="{% url 'change_product_status' %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="product_id" value="{{ product.id }}">
-                                <select name="status" onchange="this.form.submit()">
-                                    <option value="0" {% if product.status == 0 %}selected{% endif %}>Draft</option>
-                                    <option value="1" {% if product.status == 1 %}selected{% endif %}>Published</option>
-                                </select>
-                            </form>
-                        </li>
                         {% endfor %}
-                    </ul>
-                    {% endfor %}
                     {% else %}
-                    <p>No draft products found.</p>
+                        {% for item in shop_items %}
+                            <div>
+                                <div class="card m-md-2">
+                                    <a href="{% url 'shop_item' shop_id=item.id %}">
+                                        {% if item.image %}
+                                            <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
+                                        {% else %}
+                                            <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2" alt="Placeholder Image">
+                                        {% endif %}
+                                    </a>
+                                    <div class="card-body p-2">
+                                        <div class="d-flex justify-content-between">
+                                            <a class="link" href="{% url 'shop_item' shop_id=item.id %}">
+                                                <h2 class="category-link title mb-3">{{ item.title }}</h2>
+                                            </a>
+                                            <p class="heart-likes"><i class="far fa-heart"></i></p>
+                                        </div>
+                                        <p class="price mt-3 mb-2">£{{ item.price }}</p>
+                                        <form action="#" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
                     {% endif %}
                 </div>
             </div>
