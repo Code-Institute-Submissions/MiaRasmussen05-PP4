@@ -113,3 +113,25 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class GalleryCategory(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class Images(models.Model):
+    image = CloudinaryField('image', blank=False)
+    title = models.CharField(max_length=255, validators=[MinLengthValidator(4)])
+    created_on = models.DateTimeField(auto_now_add=True)
+    description = models.TextField(blank=True)
+    category = models.ForeignKey(GalleryCategory, on_delete=models.CASCADE, related_name='images')
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return self.title

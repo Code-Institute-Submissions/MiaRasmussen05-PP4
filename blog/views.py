@@ -6,7 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.http import Http404
 from random import sample
 
-from .models import Shop, ShopCategory, Blog, Projects
+from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images
 from .forms import ReviewForm, CommentForm
 
 
@@ -205,3 +205,10 @@ class ProjectList(ListView):
     queryset = Projects.objects.filter(status=1).order_by('-created_on')
     template_name = 'portfolio.html'
     paginate_by = 12
+
+
+class GalleryList(ListView):
+    model = Images
+    queryset = Images.objects.filter(status=1).order_by('-created_on')
+    template_name = 'gallery.html'
+    paginate_by = 8
