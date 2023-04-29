@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <section>
     <div class="blog-post p-0 w-100 mt-5">
         <div class="container">
@@ -45,10 +47,10 @@
                                             {% csrf_token %}
                                             {% if liked %}
                                             <button type="submit" name="post_id" value="{{post.slug}}"
-                                                class="btn-like"><i class="fas fa-heart"></i></button>
+                                                class="btn-like bg-transparent border-0"><i class="fas fa-heart"></i></button>
                                             {% else %}
                                             <button type="submit" name="post_id" value="{{post.slug}}"
-                                                class="btn-like"><i class="far fa-heart"></i></button>
+                                                class="btn-like bg-transparent border-0"><i class="far fa-heart"></i></button>
                                             {% endif %}
                                         </form>
                                         {% else %}
@@ -76,6 +78,62 @@
         <div class="row">
             <div class="col">
                 <hr>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid blog-detail">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-9 card mb-4 mt-3 bg-transparent border-0">
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+    
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" class="mt-1">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-signup btn-lg mt-4">Submit</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-sm-9 card mb-4 mt-3">
+                <h3>Comments:</h3>
+                <div class="comments-wrapper mb-5 mb-md-0">
+                    <div class="card-body">
+                        {% for comment in comments %}
+                        <div class="row">
+                            <div class="d-flex">
+                                <div class="d-none d-md-block flex-shrink-0">
+                                    {% if comment.user.profile.image %}
+                                    <img src="{{ comment.user.profile.image.url }}" class="user-img" alt="Profile Image">
+                                    {% else %}
+                                    <img src="https://imgur.com/kUyQ94l.png" class="user-img"
+                                        alt="No image availible Placeholder">
+                                    {% endif %}
+                                </div>
+                                <div class="flex-grow-1 ms-3 col-12 col-md-9 col-xl-10">
+                                    <div class="d-flex justify-content-between settings">
+                                        <p class="font-weight-bold">
+                                            <a href="{% url 'profile' username=comment.user.username %}">
+                                                <strong>{{ comment.name }}</strong>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    {{ comment.body | linebreaks }}
+                                    <span class=" text-muted font-weight-normal">
+                                        {{ comment.created_on }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-3 mb-4">
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

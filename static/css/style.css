@@ -447,18 +447,37 @@ footer .socials {
 
 .btn-like {
     color: #E84610;
-    border: none;
-    background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
     color: #E84610;
-    background: transparent;
-    border: none;
 }
 
 .unfilled-bookmark {
     font-size: 25px;
     color: #9A005A;
+}
+
+.blog-detail .card {
+    box-shadow: none;
+}
+
+.blog-detail .card-body {
+    padding-bottom: 0;
+}
+
+
+.comments {
+    margin-left: 1%;
+    margin-bottom: 20px;
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+}
+
+.btn-signup {
+    float: right;
 }
