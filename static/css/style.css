@@ -653,3 +653,32 @@ footer .socials {
     max-height: 550px;
     border-radius: 10px;
 }
+
+/* Cart */
+
+.cart-counter {
+    font-size: 26px;
+}
+
+.cart-page img {
+    width: 170px;
+    height: 170px;
+}
+
+.icon {
+    color: #9A005A;
+    font-size: 24px;
+}
+
+.cart-item-price {
+    font-size: 20px;
+}
+
+.update-quantity-button {
+    width: 100px;
+}
+
+.order-total {
+    font-size: 19px;
+    font-weight: 700;
+}
