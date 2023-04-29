@@ -442,6 +442,15 @@ footer .socials {
     font-size: 22px;
 }
 
+.add-blog-form input {
+    min-width: 300px;
+}
+
+.add-blog-form textarea {
+    min-width: 350px;
+}
+
+
 
 /* Profile Page */
 
