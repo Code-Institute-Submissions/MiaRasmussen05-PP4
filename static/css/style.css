@@ -550,3 +550,23 @@ footer .socials {
     font-size: 15px;
     overflow: hidden;
 }
+
+/* Error pages */
+
+.error {
+    width: 100%;
+    height: 250px;
+    background-color: #000;
+}
+
+.error-page {
+    background: url('https://imgur.com/QV1z13w.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.another-error-page {
+    background: url('https://imgur.com/TDSUKGL.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}500Error{% endblock %}
+
+{% block content %}
+
+<div class="countainer-fluid">
+    <div class="row col-12 d-flex justify-content-center align-self-center ms-0">
+        <div class="mt-5">
+            <div class="d-flex justify-content-center">
+                <div class="col-10">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="container-fluid error-page error mb-5"></div>
+                    </div>
+                    <div class="col-12 text-center mt-3 mb-2">
+                        <h1 class="mb-4">Internal Server Error</h1>
+                        <p>
+                            The website is currently unable to handle this request please try again or contact us if the problem persists.
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <a class="btn" href="{% url 'home' %}">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

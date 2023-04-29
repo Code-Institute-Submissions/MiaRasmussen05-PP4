@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}404Error{% endblock %}
+
+{% block content %}
+
+<div class="countainer-fluid">
+    <div class="row col-12 d-flex justify-content-center align-self-center ms-0">
+        <div class="mt-5">
+            <div class="d-flex justify-content-center">
+                <div class="col-10">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="container-fluid another-error-page error mb-5"></div>
+                    </div>
+                    <div class="col-12 text-center mt-3 mb-3">
+                        <h1 class="mb-4">PAGE NOT FOUND!</h1>
+                        <p>
+                            The page you are looking for might have been removed or be temporarily unavailable.
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <a class="btn" href="{% url 'home' %}">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
