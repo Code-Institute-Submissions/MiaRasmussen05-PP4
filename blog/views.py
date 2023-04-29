@@ -299,6 +299,50 @@ class DeleteBlog(LoginRequiredMixin, DeleteView):
         return super().dispatch(request, *args, **kwargs)
 
 
+class EditCommentView(View):
+    template_name = 'edit_comment.html'
+
+    def get(self, request, comment_id):
+        comment = Comment.objects.get(id=comment_id)
+        form = CommentForm(instance=comment)
+        context = {'comment': comment, 'form': form}
+        return render(request, self.template_name, context)
+
+    def post(self, request, comment_id):
+        comment = Comment.objects.get(id=comment_id)
+        form = CommentForm(request.POST, instance=comment)
+
+        if form.is_valid():
+            form.save()
+            post_slug = comment.post.slug
+            messages.success(request, 'Comment edited successfully.')
+            return redirect('blog_post', slug=post_slug)
+
+        context = {'comment': comment, 'form': form}
+        return render(request, self.template_name, context)
+
+
+class DeleteCommentView(View):
+    template_name = 'delete.html'
+
+    def get(self, request, comment_id):
+        comment = Comment.objects.get(id=comment_id)
+        context = {
+            'delete_title': "Delete Comment",
+            'confirm_message': "Are you sure you want to delete this comment?",
+            'cancel_url': reverse_lazy('blog_post', kwargs={'slug': comment.post.slug}),
+            'comment': comment
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, comment_id):
+        comment = Comment.objects.get(id=comment_id)
+        post_slug = comment.post.slug
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully.')
+        return redirect('blog_post', slug=post_slug)
+
+
 class ProjectList(ListView):
     model = Projects
     queryset = Projects.objects.filter(status=1).order_by('-created_on')
