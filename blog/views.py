@@ -213,7 +213,7 @@ class GalleryView(ListView):
     queryset = Images.objects.all()
     template_name = 'gallery.html'
     context_object_name = 'images'
-    paginate_by = 1
+    paginate_by = 40
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

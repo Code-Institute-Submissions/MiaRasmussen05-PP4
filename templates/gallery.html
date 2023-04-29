@@ -8,8 +8,8 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-            <h1 class="headings"><span>G</span>allery</h1>
+        <div class="col-12 d-flex justify-content-center mt-4">
+            <h1 class="headings mt-4"><span>G</span>allery</h1>
         </div>
     </div>
 </div>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="modal-body">
                     <img src="{{ image.image.url }}" class="img-fluid">
-                    <p>{{ image.description }}</p>
+                    <p>{{ image.description|striptags }}</p>
                 </div>
             </div>
         </div>

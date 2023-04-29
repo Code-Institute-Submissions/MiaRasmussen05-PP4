@@ -570,3 +570,29 @@ footer .socials {
     background-position: center;
     background-size: contain;
 }
+
+/* Gallery */
+
+.category-links {
+    text-decoration: none;
+    font-size: 27px;
+    font-weight: 500;
+    color: #000;
+    margin: 20px 30px;
+}
+
+.gallery button {
+    border: none;
+    margin-bottom: 30px;
+}
+
+.gallery-form {
+    background-color: #9A005A;
+    border-radius: 5px;
+    color: #FFF;
+}
+
+.gallery img {
+    width: 400px;
+    height: 400px;
+}
