@@ -341,7 +341,7 @@ footer .socials {
     margin: 0 5px
 }
 
-.card-img-top {
+.blog .card-img-top {
     height: 290px;
     position: relative;
     border-radius: 20px;
@@ -386,4 +386,49 @@ footer .socials {
 
 .crud-box {
     margin-bottom: 500px;
+}
+
+/* Blog Post Pages */
+
+.blog-post {
+    height: 400px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.masthead-image {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-post .card-img-top {
+    height: 290px;
+    border-radius: 5px;
+}
+
+.masthead-image:after {
+    width: 180%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 85%;
+    background: #445261;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 5;
+}
+
+.masthead-text {
+    position: relative;
+    background-color: #445261;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.blog-post .post-title {
+    margin-top: 180px;
 }

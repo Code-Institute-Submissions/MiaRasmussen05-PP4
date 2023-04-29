@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block signalert %}so you can save your favorite blog posts{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="blog-post p-0 w-100 mt-5">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-6 masthead-text text-white">
+                    <h1 class="post-title ms-4">{{ post.title }}</h1>
+                    <p class="post-subtitle ms-4">{{ post.title }} | {{ post.created_on }}</p>
+                </div>
+                <div class="d-none d-md-block col-6 masthead-image">
+                    {% if post.image %}
+                    <img class="card-img-top" src="{{ post.image.url }}">
+                    {% else %}
+                    <img src="https://imgur.com/jVraxDv.png" class="card-img-top" alt="Placeholder Image">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

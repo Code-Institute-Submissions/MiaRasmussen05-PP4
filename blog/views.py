@@ -7,7 +7,7 @@ from django.http import Http404
 from random import sample
 
 from .models import Shop, ShopCategory, Blog
-from .forms import ReviewForm
+from .forms import ReviewForm, CommentForm
 
 
 def home(request):
