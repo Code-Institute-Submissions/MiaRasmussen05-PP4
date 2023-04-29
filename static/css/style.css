@@ -596,3 +596,17 @@ footer .socials {
     width: 400px;
     height: 400px;
 }
+
+/* Gallery Modal */
+
+.modal-header h4 {
+    font-size: 30px;
+}
+
+.modal-body p {
+    font-size: 18px;
+}
+
+.gallery .modal-body img {
+    height: auto;
+}
