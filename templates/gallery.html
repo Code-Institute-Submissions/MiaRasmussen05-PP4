@@ -6,4 +6,71 @@
 
 {% block content %}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <h1 class="headings"><span>G</span>allery</h1>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center mt-5 mb-1">
+                <div class="d-none d-md-block">
+                    <a href="{% url 'gallery' %}" class="category-links link">All</a>
+                    {% for category in categories %}
+                    <a href="{% url 'gallery_category' category.id %}" class="category-links link">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center mb-3">
+                <div class="d-md-none">
+                    <select class="form-select gallery-form" aria-label="Select gallery category"
+                        onchange="location = this.value;">
+                        <option selected>Select Category</option>
+                        <option value="{% url 'gallery' %}">All</option>
+                        {% for category in categories %}
+                        <option value="{% url 'gallery_category' category.id %}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid gallery">
+        <div class="row gallery-category d-flex justify-content-center">
+            {% if category %}
+    
+            {% for image in category.images.all %}
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{ image.id }}">
+                    <img src="{{ image.image.url }}" class="img-fluid">
+                </button>
+            </div>
+    
+            <div class="modal fade" id="exampleModal{{ image.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="text-center">{{ image.title }}</h4>
+                            <button type="button" class="btn-close d-flex justify-content-end" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{ image.image.url }}" class="img-fluid">
+                            <p>{{ image.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    
+            {% endif %}
+        </div>
+    </div>
+</section>
+
 {% endblock %}
