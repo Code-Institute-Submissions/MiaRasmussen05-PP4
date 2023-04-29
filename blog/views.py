@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
 from django.http import Http404
+from django.core.paginator import Paginator
 from random import sample
 
 from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images
@@ -207,30 +208,32 @@ class ProjectList(ListView):
     paginate_by = 12
 
 
-class GalleryList(ListView):
+class GalleryView(ListView):
     model = Images
-    queryset = Images.objects.filter(status=1).order_by('-created_on')
+    queryset = Images.objects.all()
     template_name = 'gallery.html'
     context_object_name = 'images'
-    paginate_by = 8
-
-
-class GalleryView(ListView):
-    model = GalleryCategory
-    template_name = 'gallery.html'
-    context_object_name = 'categories'
+    paginate_by = 1
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        all_images = Images.objects.all()
+        all_images = self.get_queryset()
+        categories = GalleryCategory.objects.all()
         category_id = self.kwargs.get('category_id')
         if category_id:
-            category = get_object_or_404(Categories, id=category_id)
+            category = get_object_or_404(GalleryCategory, id=category_id)
             images = Images.objects.filter(category=category)
         else:
             category = None
             images = all_images
+
+        paginator = Paginator(images, self.paginate_by)
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
         context['category'] = category
-        context['images'] = images
+        context['images'] = page_obj
         context['all_images'] = all_images
+        context['categories'] = categories
+
         return context
