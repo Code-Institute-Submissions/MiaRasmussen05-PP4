@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from random import sample
 
 from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images
-from .forms import ReviewForm, CommentForm, ShopForm, ImageForm
+from .forms import ReviewForm, CommentForm, ShopForm, ImageForm, ProjectForm
 
 
 def home(request):
@@ -242,6 +242,22 @@ class ProjectList(ListView):
     queryset = Projects.objects.filter(status=1).order_by('-created_on')
     template_name = 'portfolio.html'
     paginate_by = 12
+
+
+class AddProjectView(CreateView, LoginRequiredMixin):
+    model = Projects
+    template_name = 'portfolio.html'
+    fields = ['title', 'image', 'live_link', 'git_link', 'description', 'status']
+    success_url = reverse_lazy('portfolio')
+
+    def form_valid(self, form):
+        if not self.request.user.is_staff:
+            raise Http404
+        project = form.save(commit=False)
+        project.save()
+        form.save_m2m()
+        messages.success(self.request, f"Product '{project.title}' added successfully.")
+        return super().form_valid(form)
 
 
 class GalleryView(ListView):

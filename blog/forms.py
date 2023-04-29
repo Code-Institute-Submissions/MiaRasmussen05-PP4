@@ -1,4 +1,4 @@
-from .models import Review, Comment, Shop, GalleryCategory, Images
+from .models import Review, Comment, Shop, GalleryCategory, Images, Projects
 from django import forms
 from django.forms.widgets import ClearableFileInput
 
@@ -121,6 +121,49 @@ class ImageForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ImageForm, self).__init__(*args, **kwargs)
+        # Set the initial value of the image field
+        if self.instance and self.instance.image:
+            self.fields['image_display'] = forms.ImageField(required=False, initial=self.instance.image, widget=forms.FileInput)
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Projects
+        fields = ('title', 'image', 'description', 'live_link', 'git_link', 'status')
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'placeholder': 'Title...',
+                'style': 'padding: 4px; width: 100%;'
+            }),
+            'image': ClearableFileInput(attrs={
+                'accept': 'image/*'
+            }),
+            'description': forms.Textarea(attrs={
+                'placeholder': 'A bit about the product...',
+                'rows': 5,
+                'style': 'padding: 10px; max-height: 300px; width: 100%;'
+            }),
+            'live_link': forms.URLInput(attrs={
+                'placeholder': 'Live Link...',
+                'style': 'padding: 4px; width: 100%;'
+            }),
+            'git_link': forms.URLInput(attrs={
+                'placeholder': 'Live Link...',
+                'style': 'padding: 4px; width: 100%;'
+            }),
+            'status': forms.Select(attrs={
+                'style': 'padding: 4px; width: 100%;'
+            }),
+        }
+        labels = {
+            'title': 'Title:',
+            'description': 'Description:',
+            'live_link': 'Live Link:',
+            'git_link': 'Git Link:',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ProjectForm, self).__init__(*args, **kwargs)
         # Set the initial value of the image field
         if self.instance and self.instance.image:
             self.fields['image_display'] = forms.ImageField(required=False, initial=self.instance.image, widget=forms.FileInput)
