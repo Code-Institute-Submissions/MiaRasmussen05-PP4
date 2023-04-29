@@ -14,6 +14,10 @@ body {
     background-color: #ECE2D8;
 }
 
+main {
+    margin-bottom: 400px;
+}
+
 .alert-message {
     position: absolute;
     top: 150px;
@@ -461,16 +465,6 @@ footer .socials {
 
 .blog-detail .card {
     box-shadow: none;
-}
-
-.blog-detail .card-body {
-    padding-bottom: 0;
-}
-
-
-.comments {
-    margin-left: 1%;
-    margin-bottom: 20px;
 }
 
 .user-img {

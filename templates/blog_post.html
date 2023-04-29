@@ -87,7 +87,7 @@
     <div class="container-fluid blog-detail">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-9 card mb-4 mt-3 bg-transparent border-0">
-                <div class="card-body">
+                <div class="card-body p-0">
                     {% if user.is_authenticated %}
     
                     <h3>Leave a comment:</h3>
@@ -100,10 +100,10 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-12 col-sm-9 card mb-4 mt-3">
+            <div class="col-12 col-sm-9 card mb-4 mt-3 bg-transparent border-0">
                 <h3>Comments:</h3>
                 <div class="comments-wrapper mb-5 mb-md-0">
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         {% for comment in comments %}
                         <div class="row">
                             <div class="d-flex">
@@ -118,7 +118,7 @@
                                 <div class="flex-grow-1 ms-3 col-12 col-md-9 col-xl-10">
                                     <div class="d-flex justify-content-between settings">
                                         <p class="font-weight-bold">
-                                            <a href="{% url 'profile' username=comment.user.username %}">
+                                            <a class="a-link" href="{% url 'profile' username=comment.user.username %}">
                                                 <strong>{{ comment.name }}</strong>
                                             </a>
                                         </p>
