@@ -266,15 +266,10 @@ class AddBlogView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditBlog(LoginRequiredMixin, UpdateView):
+class EditBlog(UpdateView):
     model = Blog
     form_class = BlogForm
     template_name = 'edit_blog.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        if not self.request.user.is_staff:
-            raise Http404
-        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         slug = self.object.slug
@@ -293,13 +288,9 @@ class DeleteBlog(LoginRequiredMixin, DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['delete_title'] = (
-            "Delete Blog Post"
-        )
-        context['confirm_message'] = (
-            f"Are you sure you want to delete this blog post '{ self.object.title }'?"
-        )
-        context['cancel_url'] = reverse_lazy('blog')
+        context['delete_title'] = "Delete Blog Post"
+        context['confirm_message'] = f"Are you sure you want to delete this blog post '{ self.object.title }'?"
+        context['cancel_url'] = reverse_lazy('blog_post', kwargs={'slug': self.object.slug})
         return context
 
     def dispatch(self, request, *args, **kwargs):
