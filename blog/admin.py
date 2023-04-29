@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ShopCategory, Shop, Review, Blog, Comment, Projects
+from .models import ShopCategory, Shop, Review, Blog, Comment, Projects, GalleryCategory, Images
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -50,4 +50,19 @@ class ProjectsAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'created_on')
     list_display = ('title', 'status', 'created_on')
     search_fields = ['title', 'description']
+    summernote_fields = ('description')
+
+
+@admin.register(GalleryCategory)
+class GalleryCategoryAdmin(SummernoteModelAdmin):
+
+    search_fields = ['name']
+
+
+@admin.register(Images)
+class GalleryAdmin(SummernoteModelAdmin):
+
+    list_filter = ('status', 'created_on', 'category')
+    list_display = ('title', 'status', 'created_on')
+    search_fields = ['title', 'description', 'category']
     summernote_fields = ('description')

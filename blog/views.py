@@ -211,4 +211,26 @@ class GalleryList(ListView):
     model = Images
     queryset = Images.objects.filter(status=1).order_by('-created_on')
     template_name = 'gallery.html'
+    context_object_name = 'images'
     paginate_by = 8
+
+
+class GalleryView(ListView):
+    model = GalleryCategory
+    template_name = 'gallery.html'
+    context_object_name = 'categories'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_images = Images.objects.all()
+        category_id = self.kwargs.get('category_id')
+        if category_id:
+            category = get_object_or_404(Categories, id=category_id)
+            images = Images.objects.filter(category=category)
+        else:
+            category = None
+            images = all_images
+        context['category'] = category
+        context['images'] = images
+        context['all_images'] = all_images
+        return context
