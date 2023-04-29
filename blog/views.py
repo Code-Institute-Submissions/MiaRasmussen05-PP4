@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from django.views import generic, View
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
 from django.http import Http404
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
 from random import sample
 
 from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images
@@ -94,35 +95,60 @@ class ShopItemView(DetailView):
             return self.render_to_response(context)
 
 
-class AddShopItemView(View):
+class AddShopItemView(CreateView, LoginRequiredMixin):
     model = Shop
     template_name = 'shop.html'
+    fields = ['title', 'shop_category', 'item', 'image', 'quantity', 'description', 'price', 'status']
+    success_url = reverse_lazy('shop')
 
-    def get(self, request, *args, **kwargs):
-        categories = ShopCategory.objects.all()
-        return render(request, self.template_name, {'categories': categories})
-
-    def post(self, request, *args, **kwargs):
-        if not request.user.is_staff:
+    def form_valid(self, form):
+        if not self.request.user.is_staff:
             raise Http404
-        title = request.POST.get('title')
-        shop_category_ids = request.POST.getlist('category')
-        categories = ShopCategory.objects.filter(id__in=shop_category_ids)
-        item = request.POST.get('item')
-        image = request.FILES.get('image')
-        quantity = request.POST.get('quantity')
-        description = request.POST.get('description')
-        price = request.POST.get('price')
-        status = request.POST.get('status')
-        try:
-            new_shop = Shop.objects.create(title=title, item=item, image=image, description=description, price=price, status=status)
-        except Exception as e:
-            messages.warning(request, f"Failed to add product '{title}': {str(e)}")
-            return redirect('add_product')
-        for category in categories:
-            Shop.shop_category.through.objects.create(shop_id=new_shop.id, shop_category_id=category.id)
-        messages.success(request, f"Product '{ title }' added successfully.")
-        return redirect('shop')
+        shop = form.save(commit=False)
+        shop.save()
+        form.save_m2m()
+        messages.success(self.request, f"Product '{shop.title}' added successfully.")
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = ShopCategory.objects.all()
+        return context
+
+
+class EditShopItem(UpdateView):
+    model = Shop
+    form_class = ShopForm
+    template_name = 'edit_shopitem.html'
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Shop, pk=pk)
+
+    def get_success_url(self):
+        messages.success(self.request, f"Product '{ self.object.title }' updated successfully.")
+        return reverse_lazy('shop')
+
+
+class DeleteShopItem(DeleteView):
+    model = Shop
+    template_name = 'delete.html'
+    success_url = reverse_lazy('shop')
+
+    def get_success_url(self):
+        messages.success(self.request, f"Product '{ self.object.title }' deleted successfully.")
+        return self.success_url
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['delete_title'] = (
+            "Delete Shop Product"
+        )
+        context['confirm_message'] = (
+            f"Are you sure you want to delete this product '{ self.object.title }'?"
+        )
+        context['cancel_url'] = reverse_lazy('shop')
+        return context
 
 
 class BlogList(generic.ListView):

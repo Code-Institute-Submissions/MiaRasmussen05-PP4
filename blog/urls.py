@@ -8,7 +8,9 @@ urlpatterns = [
     path('shop/', views.ShopView.as_view(), name='shop'),
     path('shop/<int:shop_category_id>/', views.ShopCategoryView.as_view(), name='shop_category'),
     path('shop_item/<int:shop_id>/', views.ShopItemView.as_view(), name='shop_item'),
-    path('add/', views.AddShopItemView.as_view(), name='add_product'),
+    path('add_shop/', views.AddShopItemView.as_view(), name='add_product'),
+     path('shop_item/edit/<int:pk>/', views.EditShopItem.as_view(), name='edit_shop'),
+    path('shop_item/delete/<int:pk>/', views.DeleteShopItem.as_view(), name='delete_shop'),
 
     path("blog/", views.BlogList.as_view(), name="blog"),
     path("blog_post/", views.BlogList.as_view(), name="blog_list"),
