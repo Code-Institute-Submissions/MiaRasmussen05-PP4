@@ -44,7 +44,7 @@ class CommentForm(forms.ModelForm):
 class ShopForm(forms.ModelForm):
     class Meta:
         model = Shop
-        fields = ('title', 'item', 'image', 'description', 'price', 'shop_category')
+        fields = ('title', 'item', 'image', 'description', 'price', 'shop_category', 'status')
         widgets = {
             'title': forms.TextInput(attrs={
                 'placeholder': 'Title...',
@@ -67,6 +67,9 @@ class ShopForm(forms.ModelForm):
                 'style': 'padding: 4px; width: 100%;'
             }),
             'shop_category': forms.Select(attrs={
+                'style': 'padding: 4px; width: 100%;'
+            }),
+            'status': forms.Select(attrs={
                 'style': 'padding: 4px; width: 100%;'
             }),
         }
