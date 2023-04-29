@@ -114,6 +114,30 @@
                                                 </strong>
                                             </a>
                                         </p>
+                                        {% if request.user == review.user or user.is_staff %}
+                                        <div class="dropdown">
+                                            <button class="border-0 bg-transparent" type="button" id="settings" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                            </button>
+                                            <ul class="dropdown-menu settings" aria-labelledby="settings">
+                                                {% if request.user == review.user%}
+                                                <li>
+                                                    <a class="dropdown-item" href="{% url 'edit-review' review.id %}">
+                                                        <button class="dropdown-item">Edit Review</button>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+                                                {% if request.user == comment.user or user.is_staff %}
+                                                <li>
+                                                    <a class="dropdown-item" href="{% url 'delete-review' review.id %}">
+                                                        <button class="dropdown-item">Delete Review</button>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                        {% endif %}
                                     </div>
                                     {{ review.text | linebreaks }}
                                     <span class=" text-muted font-weight-normal">
@@ -193,7 +217,7 @@
                             <span class="visually-hidden">Next</span>
                         </a>
                     </div>
-    
+
                 </div>
             </div>
         </div>

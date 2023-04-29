@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Image{% endblock %}
+
+{% block content %}
+
+<div class="countainer-fluid mt-5">
+    <div class="row col-12 d-flex justify-content-center align-self-center ms-0">
+        <div class="mt-5 crud-box">
+            <div>
+                <button class="go-back col-1 mt-3" title="Go back">
+                    <a class="text-black" href="{{request.META.HTTP_REFERER}}"><i class="fas fa-reply"></i></a>
+                </button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form class="col-10" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="col-12 d-flex justify-content-center">
+                        <h1>Edit Review</h1>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center mt-4">
+                        <div class="justify-content-center">
+                            {{ form.as_p }}
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mb-5">
+                        <button class="btn form-btn mt-3 mb-4" type="submit">UPDATE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

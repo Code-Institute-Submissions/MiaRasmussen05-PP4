@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from random import sample
 from django.utils.text import slugify
 
-from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images, Comment
+from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images, Comment, Review
 from .forms import ReviewForm, CommentForm, ShopForm, ImageForm, ProjectForm, BlogForm
 
 
