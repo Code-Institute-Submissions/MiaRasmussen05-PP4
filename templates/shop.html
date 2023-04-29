@@ -124,80 +124,95 @@
 
                 <div class="d-flex flex-wrap justify-content-center">
                     {% if selected_category.name == 'Draft' %}
-                        {% for item in items %}
-                            <div>
-                                <div class="card m-md-2">
-                                    <a href="{% url 'shop_item' shop_id=item.id %}">
-                                        {% if item.image %}
-                                            <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
-                                        {% else %}
-                                            <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2" alt="Placeholder Image">
-                                        {% endif %}
+                    {% for item in items %}
+                    <div>
+                        <div class="card m-md-2">
+                            <a href="{% url 'shop_item' shop_id=item.id %}">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
+                                {% else %}
+                                <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2"
+                                    alt="Placeholder Image">
+                                {% endif %}
+                            </a>
+                            <div class="card-body p-2">
+                                <div class="d-flex justify-content-between">
+                                    <a class="link" href="{% url 'shop_item' shop_id=item.id %}">
+                                        <h2 class="category-link title mb-3">{{ item.title }}</h2>
                                     </a>
-                                    <div class="card-body p-2">
-                                        <div class="d-flex justify-content-between">
-                                            <a class="link" href="{% url 'shop_item' shop_id=item.id %}">
-                                                <h2 class="category-link title mb-3">{{ item.title }}</h2>
-                                            </a>
-                                            <p class="heart-likes"><i class="far fa-heart"></i></p>
-                                        </div>
-                                        <p class="price mt-3 mb-2">£{{ item.price }}</p>
-                                        <form action="#" method="post">
-                                            {% csrf_token %}
-                                            <button type="submit" class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>
-                                        </form>
-                                    </div>
+                                    <p class="heart-likes"><i class="far fa-heart"></i></p>
                                 </div>
+                                <p class="price mt-3 mb-2">£{{ item.price }}</p>
+                                <form action="#" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit"
+                                        class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>
+                                </form>
                             </div>
-                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
                     {% else %}
-                        {% for item in shop_items %}
-                            <div>
-                                <div class="card m-md-2">
-                                    <div class="col-12 d-flex justify-content-end">
-                                        {% if user.is_authenticated and user.is_staff %}
-                                        <div class="dropdown settings">
-                                            <button type="button" id="settings" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="fas fa-cog"></i>
-                                            </button>
-                                            <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="settings">
-                                                <li>
-                                                    <a class="dropdown-item" href="{% url 'edit_shop' item.id %}">
-                                                        <button class="dropdown-item">Edit Item</button>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="{% url 'delete_shop' item.id %}">
-                                                        <button class="dropdown-item">Delete Item</button>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    {% endif %}
-                                    </div>
-                                    <a href="{% url 'shop_item' shop_id=item.id %}">
-                                        {% if item.image %}
-                                            <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
-                                        {% else %}
-                                            <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2" alt="Placeholder Image">
-                                        {% endif %}
-                                    </a>
-                                    <div class="card-body p-2">
-                                        <div class="d-flex justify-content-between">
-                                            <a class="link" href="{% url 'shop_item' shop_id=item.id %}">
-                                                <h2 class="category-link title mb-3">{{ item.title }}</h2>
+                    {% for item in shop_items %}
+                    <div>
+                        <div class="card m-md-2">
+                            <div class="col-12 d-flex justify-content-end">
+                                {% if user.is_authenticated and user.is_staff %}
+                                <div class="dropdown">
+                                    <button type="button" id="settings" class="border-0 bg-transparent me-2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="settings">
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'edit_shop' item.id %}">
+                                                <button class="dropdown-item">Edit Item</button>
                                             </a>
-                                            <p class="heart-likes"><i class="far fa-heart"></i></p>
-                                        </div>
-                                        <p class="price mt-3 mb-2">£{{ item.price }}</p>
-                                        <form action="#" method="post">
-                                            {% csrf_token %}
-                                            <button type="submit" class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>
-                                        </form>
-                                    </div>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'delete_shop' item.id %}">
+                                                <button class="dropdown-item">Delete Item</button>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
+                                {% endif %}
                             </div>
-                        {% endfor %}
+                            {% if user.is_authenticated and user.is_staff %}
+                            <a href="{% url 'shop_item' item.id %}">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="card-img-top p-2 pt-0" alt="{{ item.title }}">
+                                {% else %}
+                                <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2 pt-0"
+                                    alt="Placeholder Image">
+                                {% endif %}
+                            </a>
+                            {% else %}
+                            <a href="{% url 'shop_item' item.id %}">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
+                                {% else %}
+                                <img src="https://imgur.com/kUyQ94l.png" class="card-img-top p-2"
+                                    alt="Placeholder Image">
+                                {% endif %}
+                            </a>
+                            {% endif %}
+                            <div class="card-body p-2">
+                                <div class="d-flex justify-content-between">
+                                    <a class="link" href="{% url 'shop_item' shop_id=item.id %}">
+                                        <h2 class="category-link title mb-3">{{ item.title }}</h2>
+                                    </a>
+                                    <p class="heart-likes"><i class="far fa-heart"></i></p>
+                                </div>
+                                <p class="price mt-3 mb-2">£{{ item.price }}</p>
+                                <form action="#" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit"
+                                        class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                     {% endif %}
                 </div>
             </div>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<div class="countainer-fluid mt-5">
+    <br>
+    <br>
+    <br>
+    <div class="row col-12 d-flex justify-content-center align-self-center ms-0">
+        <div class="mt-5 crud-box">
+            <div class="d-flex justify-content-center">
+                <form class="col-10" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="col-12 d-flex justify-content-center mt-4 mb-4">
+                        <h1>{{ delete_title }}</h1>
+                    </div>
+                    <br>
+                    <p class="d-flex justify-content-center mb-5">{{ confirm_message }}</p>
+                    <div class="d-flex justify-content-center mt-5 mb-4">
+                        <button class="btn form-btn me-2" type="submit">DELETE</button>
+                        <a class="btn cancel-btn ms-2" href="{{ cancel_url }}">CANCEL</a>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

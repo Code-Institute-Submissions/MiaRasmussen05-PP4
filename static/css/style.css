@@ -278,7 +278,7 @@ footer .socials {
 
 .shop .card {
     width: 300px;
-    height: 490px;
+    height: 97%;
 }
 
 .shop .card-img-top {
@@ -528,7 +528,7 @@ footer .socials {
 
 /* Portfolio Page */
 
-.card {
+.project-page .card {
     height: 93%;
     box-shadow: 0 0 3px #5f5f5f;
 }
