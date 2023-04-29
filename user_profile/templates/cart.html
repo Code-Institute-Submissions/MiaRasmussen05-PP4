@@ -42,6 +42,32 @@
 
                 {% endfor %}
             </div>
+            <div class="col-12 col-lg-4 d-flex">
+                <div class="col-12 pe-1 pe-sm-4 ps-1 ps-sm-3 ps-lg-0 mb-5 mb-lg-0">
+                    <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
+                        <p>Order value</p>
+                        <p>£{{ total }}</p>
+                    </div>
+                    <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
+                        <p>Shipping</p>
+                        {% if cart_items %}
+                            {% if total >= free_shipping %}
+                            <p>Free shipping</p>
+                            {% else %}
+                            <p>£{{ shipping_fee }}</p>
+                            {% endif %}
+                        {% else %}
+                        <p>£0</p>
+                        {% endif %}
+    
+                    </div>
+                    <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
+                        <p class="order-total">Order total</p>
+                        <p class="order-total">£{{ total_with_shipping }}</p>
+                    </div>
+                    <a href="#" class="btn btn-success w-100 mb-5 mb-lg-0">Proceed to Checkout</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
