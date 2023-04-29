@@ -116,7 +116,7 @@ class AddShopItemView(CreateView, LoginRequiredMixin):
         return context
 
 
-class EditShopItem(UpdateView):
+class EditShopItem(UpdateView, LoginRequiredMixin):
     model = Shop
     form_class = ShopForm
     template_name = 'edit_shopitem.html'
@@ -125,12 +125,17 @@ class EditShopItem(UpdateView):
         pk = self.kwargs.get('pk')
         return get_object_or_404(Shop, pk=pk)
 
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_staff:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         messages.success(self.request, f"Product '{ self.object.title }' updated successfully.")
         return reverse_lazy('shop')
 
 
-class DeleteShopItem(DeleteView):
+class DeleteShopItem(DeleteView, LoginRequiredMixin):
     model = Shop
     template_name = 'delete.html'
     success_url = reverse_lazy('shop')
@@ -149,6 +154,11 @@ class DeleteShopItem(DeleteView):
         )
         context['cancel_url'] = reverse_lazy('shop')
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_staff:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
 
 
 class BlogList(generic.ListView):
