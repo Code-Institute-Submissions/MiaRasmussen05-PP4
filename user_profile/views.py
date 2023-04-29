@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect, reverse
-from django.views.generic import DetailView, CreateView, UpdateView, ListView, TemplateView
+from django.views.generic import DetailView, CreateView, UpdateView, ListView, TemplateView, DeleteView
 from django.views import View
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib import messages
+from django.http import Http404
 from decimal import Decimal
 
 from blog.models import Shop, Blog
@@ -182,3 +183,13 @@ class EditCart(LoginRequiredMixin, UpdateView):
 
         request.session['cart'] = cart
         return redirect('view_cart')
+
+
+def delete_from_cart(request, item_id):
+    cart = request.session.get('cart', {})
+    shop_item = get_object_or_404(Shop, id=item_id)
+    if str(item_id) in cart:
+        del cart[str(item_id)]
+    messages.success(request, f"{shop_item.title} {shop_item.item} has been deleted from your cart.")
+    request.session['cart'] = cart
+    return redirect('view_cart')

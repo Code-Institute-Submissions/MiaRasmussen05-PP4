@@ -43,7 +43,7 @@
                             <div class="flex-grow-1 ms-4">
                                 <div class="col-12 d-flex justify-content-between mb-2">
                                     <a href="{% url 'shop_item' item.id %}" class="a-link">{{ item.title }}</a>
-                                    <a href="" class="icon ml-auto"><i
+                                    <a href="{% url 'delete_from_cart' item.id %}" class="icon ml-auto"><i
                                             class="fas fa-trash-alt"></i></a>
                                 </div>
                                 <div class="col-12 d-flex mt-2 mt-md-5">
