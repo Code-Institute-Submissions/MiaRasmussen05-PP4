@@ -23,6 +23,27 @@
                     <img src="https://imgur.com/jVraxDv.png" class="card-img-top" alt="Placeholder Image">
                     {% endif %}
                 </div>
+                <div class="col-12 d-flex justify-content-end settings blog-settings">
+                    {% if user.is_authenticated and user.is_staff %}
+                    <div class="dropdown">
+                        <button class="border-0 bg-transparent" type="button" id="settings" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="settings">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'edit_blog' post.slug %}">
+                                    <button class="dropdown-item">Edit Blog</button>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'delete_blog' post.slug %}">
+                                    <button class="dropdown-item">Delete Blog</button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
