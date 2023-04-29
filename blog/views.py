@@ -7,9 +7,10 @@ from django.http import Http404
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from random import sample
+from django.utils.text import slugify
 
 from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images
-from .forms import ReviewForm, CommentForm, ShopForm, ImageForm, ProjectForm
+from .forms import ReviewForm, CommentForm, ShopForm, ImageForm, ProjectForm, BlogForm
 
 
 def home(request):
@@ -247,6 +248,22 @@ class BlogLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('blog_post', args=[slug]))
+
+
+class AddBlogView(LoginRequiredMixin, CreateView):
+    model = Blog
+    template_name = 'add_blog.html'
+    fields = ['title', 'content', 'excerpt', 'image', 'status']
+    success_url = reverse_lazy('blog')
+
+    def form_valid(self, form):
+        if not self.request.user.is_staff:
+            raise Http404
+        blog = form.save(commit=False)
+        blog.slug = slugify(blog.title)
+        blog.save()
+        messages.success(self.request, f"Blog post '{blog.title}' added successfully.")
+        return super().form_valid(form)
 
 
 class ProjectList(ListView):
