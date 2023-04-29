@@ -266,6 +266,48 @@ class AddBlogView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class EditBlog(LoginRequiredMixin, UpdateView):
+    model = Blog
+    form_class = BlogForm
+    template_name = 'edit_blog.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_staff:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_success_url(self):
+        slug = self.object.slug
+        messages.success(self.request, f"Blog post '{ self.object.title }' updated successfully.")
+        return reverse_lazy('blog_post', kwargs={'slug': slug})
+
+
+class DeleteBlog(LoginRequiredMixin, DeleteView):
+    model = Blog
+    template_name = 'delete.html'
+    success_url = reverse_lazy('blog')
+
+    def get_success_url(self):
+        messages.success(self.request, f"Blog post '{ self.object.title }' deleted successfully.")
+        return self.success_url
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['delete_title'] = (
+            "Delete Blog Post"
+        )
+        context['confirm_message'] = (
+            f"Are you sure you want to delete this blog post '{ self.object.title }'?"
+        )
+        context['cancel_url'] = reverse_lazy('blog')
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_staff:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
+
+
 class ProjectList(ListView):
     model = Projects
     queryset = Projects.objects.filter(status=1).order_by('-created_on')
