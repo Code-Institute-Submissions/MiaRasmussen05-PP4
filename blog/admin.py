@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ShopCategory, Shop, Review, Blog, Comment
+from .models import ShopCategory, Shop, Review, Blog, Comment, Projects
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -42,3 +42,12 @@ class CommentAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'body', 'post', 'created_on')
     search_fields = ('name', 'email', 'body')
+
+
+@admin.register(Projects)
+class ProjectsAdmin(SummernoteModelAdmin):
+
+    list_filter = ('status', 'created_on')
+    list_display = ('title', 'status', 'created_on')
+    search_fields = ['title', 'description']
+    summernote_fields = ('description')

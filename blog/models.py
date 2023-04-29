@@ -97,3 +97,19 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class Projects(models.Model):
+    title = models.CharField(max_length=250, validators=[MinLengthValidator(4)], unique=True)
+    image = CloudinaryField('image', null=True, blank=True)
+    live_link = models.URLField(max_length=250, null=True, blank=True)
+    git_link = models.URLField(max_length=250, null=True, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    description = models.TextField(blank=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return self.title

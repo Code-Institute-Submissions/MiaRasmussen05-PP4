@@ -15,4 +15,6 @@ urlpatterns = [
     path("blog_post/", views.BlogList.as_view(), name="blog_list"),
     path('blog_post/<slug:slug>/', views.BlogDetail.as_view(), name='blog_post'),
     path('like/<slug:slug>', views.BlogLike.as_view(), name='blog_like'),
+
+    path('portfolio/', views.ProjectList.as_view(), name='portfolio'),
 ]

@@ -6,7 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.http import Http404
 from random import sample
 
-from .models import Shop, ShopCategory, Blog
+from .models import Shop, ShopCategory, Blog, Projects
 from .forms import ReviewForm, CommentForm
 
 
@@ -198,3 +198,10 @@ class BlogLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('blog_post', args=[slug]))
+
+
+class ProjectList(ListView):
+    model = Projects
+    queryset = Projects.objects.filter(status=1).order_by('-created_on')
+    template_name = 'portfolio.html'
+    paginate_by = 12
