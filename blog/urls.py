@@ -11,6 +11,8 @@ urlpatterns = [
     path('add_shop/', views.AddShopItemView.as_view(), name='add_product'),
     path('shop_item/edit/<int:pk>/', views.EditShopItem.as_view(), name='edit_shop'),
     path('shop_item/delete/<int:pk>/', views.DeleteShopItem.as_view(), name='delete_shop'),
+    path('edit-review/<int:pk>/', views.EditReview.as_view(), name='edit-review'),
+    path('delete-review/<int:pk>/', views.DeleteReview.as_view(), name='delete-review'),
 
     path("blog/", views.BlogList.as_view(), name="blog"),
     path("blog_post/", views.BlogList.as_view(), name="blog_list"),

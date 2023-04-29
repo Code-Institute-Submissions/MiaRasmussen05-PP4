@@ -96,6 +96,42 @@ class ShopItemView(DetailView):
             return self.render_to_response(context)
 
 
+class EditReview(UpdateView, LoginRequiredMixin):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'edit_review.html'
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Review, pk=pk)
+
+    def get_success_url(self):
+        shop_id = self.object.comment.id
+        messages.success(self.request, 'Review updated successfully.')
+        return reverse_lazy('shop_item', kwargs={'shop_id': shop_id})
+
+
+class DeleteReview(DeleteView, LoginRequiredMixin):
+    model = Review
+    template_name = 'delete.html'
+
+    def get_success_url(self):
+        shop_id = self.object.comment.id
+        messages.success(self.request, 'Review deleted successfully.')
+        return reverse_lazy('shop_item', kwargs={'shop_id': shop_id})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['delete_title'] = (
+            "Delete Review"
+        )
+        context['confirm_message'] = (
+            "Are you sure you want to delete this review?"
+        )
+        context['cancel_url'] = reverse_lazy('shop_item', kwargs={'shop_id': self.object.comment.id})
+        return context
+
+
 class AddShopItemView(CreateView, LoginRequiredMixin):
     model = Shop
     template_name = 'shop.html'
@@ -266,7 +302,7 @@ class AddBlogView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditBlog(UpdateView):
+class EditBlog(LoginRequiredMixin, UpdateView):
     model = Blog
     form_class = BlogForm
     template_name = 'edit_blog.html'
