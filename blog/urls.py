@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('gallery/', views.GalleryView.as_view(), name='gallery'),
     path('gallery/<int:category_id>/', views.GalleryView.as_view(), name='gallery_category'),
+    path('add-image/', views.AddImageView.as_view(), name='add_image'),
 
     path('contact/', views.contact, name='contact'),
 ]

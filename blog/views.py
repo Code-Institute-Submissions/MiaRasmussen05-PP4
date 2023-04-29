@@ -275,5 +275,25 @@ class GalleryView(ListView):
         return context
 
 
+class AddImageView(CreateView, LoginRequiredMixin):
+    model = Images
+    template_name = 'gallery.html'
+    fields = ['title', 'category', 'description', 'image', 'status']
+    success_url = reverse_lazy('gallery')
+
+    def form_valid(self, form):
+        if not self.request.user.is_staff:
+            raise Http404
+        image = form.save(commit=False)
+        image.save()
+        messages.success(self.request, f"Image '{image.title}' added successfully.")
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Categories.objects.all()
+        return context
+
+
 def contact(request):
     return render(request, 'contact.html')

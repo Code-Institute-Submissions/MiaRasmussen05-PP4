@@ -623,6 +623,17 @@ footer .socials {
     height: auto;
 }
 
+/* Add Image Form */
+
+.add-form-title {
+    text-align: center;
+}
+
+.add-form {
+    margin-left: 80px;
+}
+
+
 /* Contact Page */
 
 .contact .pink-square {
