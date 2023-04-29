@@ -283,8 +283,7 @@ footer .socials {
     font-size: 32px;
 }
 
-.shop .dropdown-item:hover,
-.profile-page .dropdown-item:hover {
+.settings .dropdown-item:hover {
     background-color: #AC927C;
 }
 

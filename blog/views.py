@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from random import sample
 
 from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images
-from .forms import ReviewForm, CommentForm, ShopForm
+from .forms import ReviewForm, CommentForm, ShopForm, ImageForm
 
 
 def home(request):
@@ -291,7 +291,7 @@ class AddImageView(CreateView, LoginRequiredMixin):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = Categories.objects.all()
+        context['categories'] = GalleryCategory.objects.all()
         return context
 
 
@@ -303,7 +303,7 @@ class EditGallery(UpdateView):
     def get_object(self, queryset=None):
         pk = self.kwargs.get('pk')
         return get_object_or_404(Images, pk=pk)
-    
+
     def dispatch(self, request, *args, **kwargs):
         if not self.request.user.is_staff:
             raise Http404

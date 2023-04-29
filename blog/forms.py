@@ -1,4 +1,4 @@
-from .models import Review, Comment, Shop
+from .models import Review, Comment, Shop, GalleryCategory, Images
 from django import forms
 from django.forms.widgets import ClearableFileInput
 
@@ -83,5 +83,41 @@ class ShopForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ShopForm, self).__init__(*args, **kwargs)
+        if self.instance and self.instance.image:
+            self.fields['image_display'] = forms.ImageField(required=False, initial=self.instance.image, widget=forms.FileInput)
+
+
+class ImageForm(forms.ModelForm):
+    category = forms.ModelChoiceField(queryset=GalleryCategory.objects.all())
+
+    class Meta:
+        model = Images
+        fields = ('image', 'title', 'description', 'category')
+        widgets = {
+            'image': ClearableFileInput(attrs={
+                'accept': 'image/*'
+            }),
+            'title': forms.TextInput(attrs={
+                'placeholder': 'Title...',
+                'style': 'padding: 4px; width: 100%;'
+            }),
+            'description': forms.Textarea(attrs={
+                'placeholder': 'A bit about the product...',
+                'rows': 5,
+                'style': 'padding: 10px; max-height: 300px; width: 100%;'
+            }),
+            'category': forms.Select(attrs={
+                'style': 'padding: 4px; width: 100%;'
+            }),
+        }
+        labels = {
+            'title': 'Title:',
+            'description': 'Description:',
+            'category': 'Category:',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ImageForm, self).__init__(*args, **kwargs)
+        # Set the initial value of the image field
         if self.instance and self.instance.image:
             self.fields['image_display'] = forms.ImageField(required=False, initial=self.instance.image, widget=forms.FileInput)
