@@ -149,6 +149,30 @@
                                                 <strong>{{ comment.name }}</strong>
                                             </a>
                                         </p>
+                                        {% if request.user == comment.user or user.is_staff %}
+                                    <div class="dropdown">
+                                        <button class="border-0 bg-transparent" type="button " id="settings" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <i class="fas fa-cog"></i>
+                                        </button>
+                                        <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="settings">
+                                            {% if request.user == comment.user%}
+                                            <li>
+                                                <a class="dropdown-item" href="{% url 'edit-comment' comment.id %}">
+                                                    <button class="dropdown-item">Edit Comment</button>
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                            {% if request.user == comment.user or user.is_staff %}
+                                            <li>
+                                                <a class="dropdown-item" href="{% url 'delete-comment' comment.id %}">
+                                                    <button class="dropdown-item">Delete Comment</button>
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
                                     </div>
                                     {{ comment.body | linebreaks }}
                                     <span class=" text-muted font-weight-normal">

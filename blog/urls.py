@@ -19,6 +19,8 @@ urlpatterns = [
     path('add_blog/', views.AddBlogView.as_view(), name='add_blog'),
     path('blog_post/edit/<slug:slug>/', views.EditBlog.as_view(), name='edit_blog'),
     path('blog_post/delete/<slug:slug>/', views.DeleteBlog.as_view(), name='delete_blog'),
+    path('edit-comment/<str:comment_id>/', views.EditCommentView.as_view(), name='edit-comment'),
+    path('delete-comment/<str:comment_id>/', views.DeleteCommentView.as_view(), name='delete-comment'),
 
     path('portfolio/', views.ProjectList.as_view(), name='portfolio'),
     path('add_project/', views.AddProjectView.as_view(), name='add_project'),
