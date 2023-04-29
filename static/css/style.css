@@ -24,7 +24,7 @@ main {
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
-  }
+}
 
 /* All Pages */
 
@@ -108,7 +108,9 @@ main {
     margin-left: 20px;
 }
 
-.offcanvas, .dropdown-menu, .bg-sandcolor {
+.offcanvas,
+.dropdown-menu,
+.bg-sandcolor {
     background-color: #BBA58E;
 }
 
@@ -174,7 +176,8 @@ main {
     color: #9A005A;
 }
 
-.deactive-button, .active-button {
+.deactive-button,
+.active-button {
     width: 90px;
     font-size: 20px;
 }
@@ -268,7 +271,8 @@ footer .socials {
     font-size: 32px;
 }
 
-.shop .dropdown-item:hover, .profile-page .dropdown-item:hover {
+.shop .dropdown-item:hover,
+.profile-page .dropdown-item:hover {
     background-color: #AC927C;
 }
 
@@ -398,7 +402,6 @@ footer .socials {
 }
 
 .blog .card-img-top {
-    height: 290px;
     position: relative;
     border-radius: 20px;
     box-shadow: 0 0 4px #5f5f5f;
@@ -456,7 +459,6 @@ footer .socials {
 }
 
 .blog-post .card-img-top {
-    height: 290px;
     border-radius: 5px;
 }
 
@@ -522,4 +524,29 @@ footer .socials {
 
 .btn-signup {
     float: right;
+}
+
+/* Portfolio Page */
+
+.card {
+    height: 93%;
+    box-shadow: 0 0 3px #5f5f5f;
+}
+
+.card-body a, .no-link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000;
+}
+
+.blog .card-img-top,
+.blog-post .card-img-top {
+    height: 290px;
+}
+
+.card-description {
+    height: 105px;
+    font-size: 15px;
+    overflow: hidden;
 }

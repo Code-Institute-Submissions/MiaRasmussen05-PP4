@@ -32,13 +32,13 @@
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">{{ project.title }}</h5>
                             </div>
-                            <p class="card-lang">{{ project.languages }}</p>
+                            <p class="card-description">{{ project.description|striptags }}</p>
                             {% if project.live_link %}
                             <a class="link" href="{{ project.live_link }}" target="_blank">Live Site</a>
                             {% endif %}
                             {% if project.git_link %}
                             <br>
-                            <a class="link" href="{{ project.git_link }}" target="_blank">View on GitHub</a>
+                            <a class="link d-block mt-2" href="{{ project.git_link }}" target="_blank">View on GitHub</a>
                             {% endif %}
                             {% if not project.git_link and not project.live_link %}
                             <p class="no-link">No Links Here</p>
@@ -46,7 +46,7 @@
                         </div>
 
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer mb-3">
                         <small class="text-muted">Created on {{ project.created_on|date:"F d, Y" }}</small>
                     </div>
                 </div>
