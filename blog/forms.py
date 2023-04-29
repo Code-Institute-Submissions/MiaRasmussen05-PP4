@@ -1,4 +1,4 @@
-from .models import Review, Comment, Shop, GalleryCategory, Images, Projects
+from .models import Review, Comment, Shop, GalleryCategory, Images, Projects, Blog
 from django import forms
 from django.forms.widgets import ClearableFileInput
 
