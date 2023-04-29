@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block signalert %}to be part of it all{% endblock %}
 
@@ -22,12 +22,10 @@
       <div class="container signall">
         <div class="row">
           <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            <h3>{% trans "Sign Up" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If
-              you
-              have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-              first.{% endblocktrans %}</p>
+            <p>{% blocktrans %}Welcome back. Do you already have an account? Then please <a
+              class="link" href="{{ login_url }}">login</a> instead.{% endblocktrans %}</p>
           </div>
         </div>
         <div class="row">
@@ -39,7 +37,7 @@
               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
               {% endif %}
               <div class="d-flex justify-content-center">
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-signup right" type="submit">{% trans "Sign Up" %}</button>
               </div>
             </form>
           </div>
