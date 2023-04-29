@@ -28,7 +28,7 @@
             <div class="col-12 col-lg-8">
                 {% for item in cart_items %}
                 <div class="d-flex justify-content-center">
-                <form class="col-11 col-lg-10" method="POST" action="">
+                <form class="col-11 col-lg-10" method="POST" action="{% url 'edit_cart' item.id %}">
                     {% csrf_token %}
                     <div class="row mb-3">
                         <div class="d-flex">
@@ -53,7 +53,7 @@
                                     <div class="d-flex">
                                         <label for="quantity"></label>
                                         <button type="button" name="action" value="decrement"
-                                            class="btn btn-outline-secondary decrement">-</button>
+                                            class="btn decrement">-</button>
                                         <input class="text-center input-quantity" type="number" id="quantity_{{ item.id }}"
                                             name="quantity" min="0" max="5" value="{{ item.quantity }}"
                                             data-cart-item-id="{{ item.id }}">

@@ -2,6 +2,9 @@ const incrementButton = document.querySelector(".increment");
 const decrementButton = document.querySelector(".decrement");
 const inputField = document.querySelector("#quantity");
 
+const incrementQuntityButtons = document.querySelectorAll(".increment");
+const decrementQuntityButtons = document.querySelectorAll(".decrement");
+
 function submitForm() {
     var form = document.getElementById("add-to-cart-form");
     var quantity = document.getElementById("quantity").value;
@@ -26,7 +29,24 @@ decrementButton.addEventListener("click", () => {
 });
 
 
-setTimeout(function () {
-    let messages = document.getElementById('messages');
-    messages.remove();
-}, 2500);
+incrementQuntityButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let currentItem = button.parentElement.querySelector("[data-cart-item-id]");
+        let currentValue = parseInt(currentItem.value);
+
+        if (currentValue < parseInt(currentItem.max)) {
+            currentItem.value = currentValue + 1;
+        }
+    });
+});
+
+decrementQuntityButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let currentItem = button.parentElement.querySelector("[data-cart-item-id]");
+        let currentValue = parseInt(currentItem.value);
+
+        if (currentValue > parseInt(currentItem.min)) {
+            currentItem.value = currentValue - 1;
+        }
+    });
+});

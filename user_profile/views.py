@@ -135,7 +135,7 @@ class CartView(LoginRequiredMixin, TemplateView):
         return context
 
 
-class AddToCartView(View):
+class AddToCartView(LoginRequiredMixin, View):
     def post(self, request, shop_id):
         cart = request.session.get('cart', {})
         quantity = int(request.POST.get('quantity', 1))
@@ -162,3 +162,23 @@ class AddToCartView(View):
             redirect_url = reverse('shop_item', kwargs={'shop_id': shop_id})
 
         return HttpResponseRedirect(redirect_url)
+
+
+class EditCart(LoginRequiredMixin, UpdateView):
+    def post(self, request, item_id):
+        cart = request.session.get('cart', {})
+        quantity = int(request.POST.get('quantity', 1))
+        shop_item = get_object_or_404(Shop, id=item_id)
+
+        if quantity <= 0:
+            del cart[str(item_id)]
+            messages.success(request, f"{shop_item.title} has been removed from your cart.")
+        elif quantity > 5:
+            messages.warning(request, f"You can only add up to 5 {shop_item.title} to your cart!")
+            cart[str(item_id)] = 5
+        else:
+            cart[str(item_id)] = quantity
+            messages.success(request, f"{shop_item.title} quantity has been updated to {quantity} in your cart!")
+
+        request.session['cart'] = cart
+        return redirect('view_cart')
