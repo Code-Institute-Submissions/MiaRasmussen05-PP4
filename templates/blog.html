@@ -14,4 +14,35 @@
     </div>
 </div>
 
+<div class="container-fluid blog">
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            {% for post in object_list %}
+            {% if forloop.counter == 1 %}
+            <div class="card p-0 mb-5">
+                <div class="image-container">
+                    {% if post.image %}
+                    <img class="card-img-top" src="{{ post.image.url }}">
+                    {% else %}
+                    <img src="https://imgur.com/jVraxDv.png" class="card-img-top" alt="Placeholder Image">
+                    {% endif %}
+                </div>
+                <a href="{% url 'blog_post' post.slug %}" class="post-link a-link">
+                    <div class="link pb-3 ps-4">
+                        <h2 class="card-title mb-4">{{ post.title }}</h2>
+                        <p class="card-text">{{ post.excerpt }}</p>
+                    </div>
+                </a>
+                <div class="col-12 d-flex justify-content-between">
+                    <p class="blog-date text-muted h6 pb-1 ps-3 mt-2">{{ post.created_on }} <i class="far fa-heart"></i>
+                        {{ post.number_of_likes }}
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}

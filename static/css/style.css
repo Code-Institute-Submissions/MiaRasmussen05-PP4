@@ -308,6 +308,45 @@ footer .socials {
     text-overflow: ellipsis;
 }
 
+/* Blog Page */
+
+.blog .card {
+    width: 98%;
+    height: 290px;
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.card-img-top {
+    height: 290px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 0 4px #5f5f5f;
+}
+
+.blog .post-link {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: #000;
+}
+
+.blog h2 {
+    font-size: 35px;
+}
+
+.blog .card-text {
+    font-size: 22px;
+}
+
+
 /* Profile Page */
 
 .profile-page img {
