@@ -260,6 +260,41 @@ class AddProjectView(CreateView, LoginRequiredMixin):
         return super().form_valid(form)
 
 
+class EditProject(UpdateView):
+    model = Projects
+    form_class = ProjectForm
+    template_name = 'edit_project.html'
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Projects, pk=pk)
+
+    def get_success_url(self):
+        messages.success(self.request, f"Project '{ self.object.title }' updated successfully.")
+        return reverse_lazy('portfolio')
+
+
+class DeleteProject(DeleteView):
+    model = Projects
+    template_name = 'delete.html'
+    success_url = reverse_lazy('portfolio')
+
+    def get_success_url(self):
+        messages.success(self.request, f"Project '{ self.object.title }' deleted successfully.")
+        return self.success_url
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['delete_title'] = (
+            "Delete Portfolio Project"
+        )
+        context['confirm_message'] = (
+            f"Are you sure you want to delete this project '{ self.object.title }'?"
+        )
+        context['cancel_url'] = reverse_lazy('portfolio')
+        return context
+
+
 class GalleryView(ListView):
     model = Images
     queryset = Images.objects.all()

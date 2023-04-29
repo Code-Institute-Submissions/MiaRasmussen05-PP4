@@ -19,6 +19,8 @@ urlpatterns = [
 
     path('portfolio/', views.ProjectList.as_view(), name='portfolio'),
     path('add_project/', views.AddProjectView.as_view(), name='add_project'),
+    path('project_card/edit/<int:pk>/', views.EditProject.as_view(), name='edit_project'),
+    path('project_card/delete/<int:pk>/', views.DeleteProject.as_view(), name='delete_project'),
 
     path('gallery/', views.GalleryView.as_view(), name='gallery'),
     path('gallery/<int:category_id>/', views.GalleryView.as_view(), name='gallery_category'),

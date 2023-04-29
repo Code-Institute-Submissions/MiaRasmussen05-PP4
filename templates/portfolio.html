@@ -96,6 +96,25 @@
                         <div class="card-body p-3">
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">{{ project.title }}</h5>
+                                {% if user.is_authenticated and user.is_staff %}
+                                <div class="dropdown settings">
+                                    <button type="button" id="settings" class="border-0 bg-transparent me-2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="settings">
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <button class="dropdown-item">Edit Project</button>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'delete_project' pk=project.pk %}">
+                                                <button class="dropdown-item">Delete Project</button>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {% endif %}
                             </div>
                             <p class="card-description">{{ project.description|striptags }}</p>
                             {% if project.live_link %}
