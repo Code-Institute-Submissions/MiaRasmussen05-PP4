@@ -26,4 +26,59 @@
     </div>
 </section>
 
+<section>
+    <div class="container blog-detail">
+        <div class="row">
+            <div class="col card mb-4  mt-3 left top bg-transparent border-0">
+                <div class="card-body">
+                    <p class="card-text ">
+                        {{ post.content | safe }}
+                    </p>
+
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-between">
+                            <div class="row col-10">
+                                <div class="col-1">
+                                    <strong class="blog-heart">
+                                        {% if user.is_authenticated %}
+                                        <form class="d_inline" action="{% url 'blog_like' post.slug %}" method="POST">
+                                            {% csrf_token %}
+                                            {% if liked %}
+                                            <button type="submit" name="post_id" value="{{post.slug}}"
+                                                class="btn-like"><i class="fas fa-heart"></i></button>
+                                            {% else %}
+                                            <button type="submit" name="post_id" value="{{post.slug}}"
+                                                class="btn-like"><i class="far fa-heart"></i></button>
+                                            {% endif %}
+                                        </form>
+                                        {% else %}
+                                        <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                        {% endif %}
+                                        <span class="text-secondary blog-likes">{{ post.number_of_likes }}</span>
+                                    </strong>
+
+                                </div>
+                                <div class="col-1">
+                                    {% with comments.count as total_comments %}
+                                    <strong class="text-secondary blog-comment"><i class="far fa-comments"></i>
+                                        {{ total_comments }}</strong>
+                                    {% endwith %}
+                                </div>
+                            </div>
+                            <a href="" title="Save">
+                                <i class="far fa-bookmark unfilled-bookmark"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

@@ -432,3 +432,33 @@ footer .socials {
 .blog-post .post-title {
     margin-top: 180px;
 }
+
+.post-subtitle {
+    color: lightgray;
+}
+
+.blog-heart {
+    display: flex;
+}
+
+.blog-heart .blog-likes {
+    padding-left: 3px;
+}
+
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
+.unfilled-bookmark {
+    font-size: 25px;
+    color: #9A005A;
+}
