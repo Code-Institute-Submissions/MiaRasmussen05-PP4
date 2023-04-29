@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from random import sample
 
 from .models import Shop, ShopCategory, Blog, Projects, GalleryCategory, Images
-from .forms import ReviewForm, CommentForm
+from .forms import ReviewForm, CommentForm, ShopForm
 
 
 def home(request):

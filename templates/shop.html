@@ -154,6 +154,27 @@
                         {% for item in shop_items %}
                             <div>
                                 <div class="card m-md-2">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        {% if user.is_authenticated and user.is_staff %}
+                                        <div class="dropdown settings">
+                                            <button type="button" id="settings" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                            </button>
+                                            <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="settings">
+                                                <li>
+                                                    <a class="dropdown-item" href="{% url 'edit_shop' item.id %}">
+                                                        <button class="dropdown-item">Edit Item</button>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{% url 'delete_shop' item.id %}">
+                                                        <button class="dropdown-item">Delete Item</button>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    </div>
                                     <a href="{% url 'shop_item' shop_id=item.id %}">
                                         {% if item.image %}
                                             <img src="{{ item.image.url }}" class="card-img-top p-2" alt="{{ item.title }}">
