@@ -8,14 +8,14 @@
 
 {% block content %}
 
-<div class="container sign-box">
+<div class="container sign-box mt-5">
   <div class="row">
-    <div class="col-3 pink-box d-flex justify-content-center flex-column align-items-end">
+    <div class="col-3 pink-box d-flex justify-content-center flex-column align-items-end p-0">
 
-      <button class="btn btn-primary" id="login-button" type="button">Login</button>
+      <a class="btn active-button" href="{{ login_url }}" id="login-button" type="button">Login</a>
       <br>
 
-      <button class="btn btn-primary" id="signup-button" type="button">Sign In</button>
+      <a class="btn deactive-button" href="{{ signup_url }}" id="signup-button" type="button">Sign In</a>
     </div>
     <div class="col-9 form-box">
 
@@ -26,7 +26,7 @@
 
             <p>{% blocktrans %}Welcome back! To leave a a part of everything, please log in. If
               you
-              have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
+              have not created an account yet, then <a class="link" href="{{ signup_url }}"><strong>sign up</strong></a>
               first.{% endblocktrans %}</p>
           </div>
         </div>

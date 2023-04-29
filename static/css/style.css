@@ -52,6 +52,12 @@ main {
     color: #000;
 }
 
+.form-btn:hover {
+    background-color: #796352;
+    border: 2px solid #796352;
+    color: #FFF;
+}
+
 .user-img {
     width: 100px;
     height: 100px;
@@ -125,6 +131,52 @@ main {
 
 .logout-nav {
     font-size: 16px;
+}
+
+/* Accounts */
+
+.signall {
+    position: relative;
+}
+
+.form-box {
+    padding: 30px 0 80px 0;
+}
+
+.sign-box {
+    border-radius: 10px;
+    box-shadow: 0 0 5px #000;
+}
+
+.signout {
+    box-shadow: none;
+}
+
+.pink-box {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #9A005A;
+}
+
+.pink-box .btn {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.pink-box .btn {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.active-button {
+    background-color: #ECE2D8;
+    border: 2px solid #ECE2D8;
+    color: #9A005A;
+}
+
+.deactive-button, .active-button {
+    width: 90px;
+    font-size: 20px;
 }
 
 /* Home Page */
@@ -386,10 +438,6 @@ footer .socials {
 
 .username {
     font-size: 28px;
-}
-
-.crud-box {
-    margin-bottom: 500px;
 }
 
 /* Blog Post Pages */

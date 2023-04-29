@@ -8,14 +8,14 @@
 
 {% block content %}
 
-<div class="container sign-box">
+<div class="container sign-box mt-5">
   <div class="row">
-    <div class="col-3 pink-box d-flex justify-content-center flex-column align-items-end">
+    <div class="col-3 pink-box d-flex justify-content-center flex-column align-items-end p-0">
 
-      <button class="btn btn-primary" id="login-button" type="button">Login</button>
+      <a class="btn deactive-button" href="{{ login_url }}" id="login-button" type="button">Login</a>
       <br>
 
-      <button class="btn btn-primary" id="signup-button" type="button">Sign In</button>
+      <a class="btn active-button" href="{{ signup_url }}" id="signup-button" type="button">Sign In</a>
     </div>
     <div class="col-9 form-box">
 
@@ -25,7 +25,7 @@
             <h3>{% trans "Sign Up" %}</h3>
 
             <p>{% blocktrans %}Welcome back. Do you already have an account? Then please <a
-              class="link" href="{{ login_url }}">login</a> instead.{% endblocktrans %}</p>
+              class="link" href="{{ login_url }}"><strong>login</strong></a> instead.{% endblocktrans %}</p>
           </div>
         </div>
         <div class="row">
