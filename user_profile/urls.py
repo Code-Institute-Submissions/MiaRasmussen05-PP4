@@ -8,4 +8,6 @@ urlpatterns = [
 
     path('bookmarks/<str:username>/', views.BookmarkListView.as_view(), name='bookmark_list'),
     path('bookmark/<slug:slug>/bookmark/', views.BookmarkView.as_view(), name='bookmark'),
+
+    path('profile/cart/', views.CartView.as_view(), name='view_cart'),
 ]

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import DetailView, CreateView, UpdateView, ListView
+from django.views.generic import DetailView, CreateView, UpdateView, ListView, TemplateView
 from django.views import View
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 
 from blog.models import Blog
 from .models import Profile
+from blog.models import Shop
 from .forms import ProfileForm
 
 
@@ -96,4 +97,39 @@ class BookmarkListView(ListView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['username'] = self.kwargs.get('username')
+        return context
+
+
+class CartView(LoginRequiredMixin, TemplateView):
+    template_name = 'cart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cart_items = []
+        total_quantity = 0
+        total = 0
+        shipping_fee = 2
+        free_shipping = 55
+        total_with_shipping = 0
+
+        for item_id, quantity in self.request.session.get('cart', {}).items():
+            shop_item = get_object_or_404(Shop, id=item_id)
+            cart_items.append({'id': item_id, 'title': shop_item.title, 'price': shop_item.price, 'quantity': quantity, 'total': shop_item.price * quantity, 'image': shop_item.image})
+            total += shop_item.price * quantity
+            total_with_shipping += shop_item.price * quantity
+            total_quantity += quantity
+
+        if len(cart_items) == 0:
+            total_with_shipping = 0
+        else:
+            if total >= free_shipping:
+                shipping_fee = 0
+            total_with_shipping += Decimal(str(shipping_fee))
+
+        context['cart_items'] = cart_items
+        context['total_quantity'] = total_quantity
+        context['total'] = total
+        context['shipping_fee'] = shipping_fee
+        context['total_with_shipping'] = total_with_shipping
+        context['free_shipping'] = free_shipping
         return context
