@@ -311,7 +311,7 @@ footer .socials {
 /* Blog Page */
 
 .blog .card {
-    width: 98%;
+    width: 100%;
     height: 290px;
     background-color: transparent;
     border: none;
@@ -319,6 +319,26 @@ footer .socials {
     box-shadow: none;
     padding: 0;
     margin-bottom: 50px;
+}
+
+.blog .tall-blog {
+    width: 49%;
+    height: 500px;
+    margin-left: 1%;
+}
+
+.blog .second-tall {
+    margin-left: 0.7%;
+}
+
+.blog .tall-blog img {
+    width: 100%;
+    height: 500px;
+}
+
+.blog .tall-blog .image-container {
+    width: 96%;
+    margin: 0 5px
 }
 
 .card-img-top {
@@ -336,6 +356,12 @@ footer .socials {
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     color: #000;
+}
+
+.blog .tall-blog .post-link {
+    width: 96%;
+    bottom: 0;
+    margin-left: 5px;
 }
 
 .blog h2 {
