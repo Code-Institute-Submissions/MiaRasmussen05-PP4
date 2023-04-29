@@ -204,7 +204,7 @@
                                     <p class="heart-likes"><i class="far fa-heart"></i></p>
                                 </div>
                                 <p class="price mt-3 mb-2">£{{ item.price }}</p>
-                                <form action="#" method="post">
+                                <form action="{% url 'add_to_cart' shop_id=item.id %}" method="post">
                                     {% csrf_token %}
                                     <button type="submit"
                                         class="btn btn-primary d-flex justify-content-center w-100">ADD TO BAG</button>

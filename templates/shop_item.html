@@ -25,7 +25,7 @@
                 <div class="col-12 col-md-4 shop-item-body mt-4">
                     <h1 class="mt-2 mb-4">{{ shop_item.title }}</h1>
                     <p class="mb-5">£{{ shop_item.price }}</p>
-                    <form id="add-to-cart-form" action="" method="post">
+                    <form id="add-to-cart-form" action="{% url 'add_to_cart' shop_id=shop_item.id %}" method="post">
                         {% csrf_token %}
 
                         <div class="quantity d-flex">

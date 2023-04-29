@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect, reverse
 from django.views.generic import DetailView, CreateView, UpdateView, ListView, TemplateView
 from django.views import View
 from django.urls import reverse_lazy
@@ -6,11 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.http import HttpResponseRedirect
+from django.contrib import messages
+from decimal import Decimal
 
-from blog.models import Blog
+from blog.models import Shop, Blog
 from .models import Profile
-from blog.models import Shop
 from .forms import ProfileForm
 
 
@@ -133,3 +133,32 @@ class CartView(LoginRequiredMixin, TemplateView):
         context['total_with_shipping'] = total_with_shipping
         context['free_shipping'] = free_shipping
         return context
+
+
+class AddToCartView(View):
+    def post(self, request, shop_id):
+        cart = request.session.get('cart', {})
+        quantity = int(request.POST.get('quantity', 1))
+        shop_item = get_object_or_404(Shop, id=shop_id)
+        current_quantity = cart.get(str(shop_id), 0)
+        new_quantity = current_quantity + quantity
+
+        if new_quantity > 5:
+            messages.warning(request, f"You can only add up to 5 {shop_item.title} {shop_item.item}'s to your cart! 5 {shop_item.title} {shop_item.item}'s now in your cart.")
+            cart[str(shop_id)] = 5
+        else:
+            cart[str(shop_id)] = new_quantity
+            if quantity > 1:
+                messages.success(request, f"{quantity} {shop_item.title} {shop_item.item}'s has been added to your cart.")
+            else:
+                messages.success(request, f"{quantity} {shop_item.title} {shop_item.item} has been added to your cart.")
+
+        request.session['cart'] = cart
+
+        previous_url = request.META.get('HTTP_REFERER')
+        if previous_url and '/shop/' in previous_url:
+            redirect_url = reverse('shop')
+        else:
+            redirect_url = reverse('shop_item', kwargs={'shop_id': shop_id})
+
+        return HttpResponseRedirect(redirect_url)

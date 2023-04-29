@@ -10,4 +10,5 @@ urlpatterns = [
     path('bookmark/<slug:slug>/bookmark/', views.BookmarkView.as_view(), name='bookmark'),
 
     path('profile/cart/', views.CartView.as_view(), name='view_cart'),
+    path('shop/add-to-cart/<int:shop_id>/', views.AddToCartView.as_view(), name='add_to_cart'),
 ]

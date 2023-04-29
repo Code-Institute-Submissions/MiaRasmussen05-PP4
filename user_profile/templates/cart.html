@@ -28,7 +28,7 @@
             <div class="col-12 col-lg-8">
                 {% for item in cart_items %}
                 <div class="d-flex justify-content-center">
-                <form class="col-11 col-lg-10" method="POST" action="{% url 'edit_cart' item.id %}">
+                <form class="col-11 col-lg-10" method="POST" action="">
                     {% csrf_token %}
                     <div class="row mb-3">
                         <div class="d-flex">
@@ -43,7 +43,7 @@
                             <div class="flex-grow-1 ms-4">
                                 <div class="col-12 d-flex justify-content-between mb-2">
                                     <a href="{% url 'shop_item' item.id %}" class="a-link">{{ item.title }}</a>
-                                    <a href="{% url 'delete_from_cart' item.id %}" class="icon ml-auto"><i
+                                    <a href="" class="icon ml-auto"><i
                                             class="fas fa-trash-alt"></i></a>
                                 </div>
                                 <div class="col-12 d-flex mt-2 mt-md-5">
