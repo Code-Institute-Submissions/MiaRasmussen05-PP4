@@ -237,3 +237,7 @@ class GalleryView(ListView):
         context['categories'] = categories
 
         return context
+
+
+def contact(request):
+    return render(request, 'contact.html')

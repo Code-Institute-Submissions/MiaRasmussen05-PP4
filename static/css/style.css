@@ -610,3 +610,11 @@ footer .socials {
 .gallery .modal-body img {
     height: auto;
 }
+
+/* Contact Page */
+
+.contact .pink-square {
+    max-width: 500px;
+    max-height: 550px;
+    border-radius: 10px;
+}

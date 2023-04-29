@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block signalert %}so you don't miss out on anything{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center mt-4">
+            <h1 class="headings mt-4"><span>C</span>ontact <span>M</span>e</h1>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container-fluid contact">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="mt-5 d-flex justify-content-center">
+                    <div class="pink-square p-3 text-black bg-sandcolor">
+                        <h4>Want to hire me?</h4>
+                        <p>
+                            Now that you are here, what about sending off a message in the form?
+                            Whether you're looking to hire me for your team, have a new project in mind, or a special
+                            photo, want a different version of an item in the store, then I am here to help. Let's
+                            discuss what I can do for you with my skill and experience so you can reach your goals.
+                        </p>
+                        <hr>
+                        <h4>Just want to send a message?</h4>
+                        <p>
+                            Do you have any inquries, comments, or feedback? Then use the form to get it out into the
+                            open, and I will do my best at answering it as soon as I can.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-6 col-sm-12 form">
+                <div class="d-flex flex-wrap justify-content-start mb-5 mt-4">
+    
+                    <form action="#" method="get" novalidate>
+                        <div class="row mb-3">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="fiName" class="form-label">First name *</label>
+                                <input id="fiName" type="text" class="form-control" placeholder="Jane"
+                                    aria-label="First name" required>
+                            </div>
+                            <div class="col">
+                                <label for="laName" class="form-label">First name *</label>
+                                <input id="laName" type="text" class="form-control" placeholder="Doe" aria-label="Last name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address *</label>
+                            <input type="email" class="form-control" id="email" placeholder="janeDoe@email.com"
+                                aria-label="Email address" required>
+                        </div>
+    
+                        <label for="formSelect">Reason for Contact *</label>
+                        <select class="form-select mb-3 mt-2" aria-label="Select reason for contact">
+                            <option selected>Please select...</option>
+                            <option value="1">Hire</option>
+                            <option value="2">Project</option>
+                            <option value="3">Photo</option>
+                            <option value="4">Sticker</option>
+                            <option value="5">Other</option>
+                        </select>
+    
+                        <div class="mb-3">
+                            <label for="teArea" class="form-label">Textarea *</label>
+                            <textarea class="form-control" id="teArea" placeholder="Write your message here..." rows="5"
+                                maxlength="1000" required></textarea>
+                        </div>
+
+                        <input type="submit" value="Send" class="btn btn-signup">
+                    </form>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

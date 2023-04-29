@@ -19,4 +19,6 @@ urlpatterns = [
 
     path('gallery/', views.GalleryView.as_view(), name='gallery'),
     path('gallery/<int:category_id>/', views.GalleryView.as_view(), name='gallery_category'),
+
+    path('contact/', views.contact, name='contact'),
 ]
