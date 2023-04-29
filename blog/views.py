@@ -295,5 +295,50 @@ class AddImageView(CreateView, LoginRequiredMixin):
         return context
 
 
+class EditGallery(UpdateView):
+    model = Images
+    form_class = ImageForm
+    template_name = 'edit_image.html'
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Images, pk=pk)
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_staff:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_success_url(self):
+        messages.success(self.request, f"Image '{ self.object.title }' updated successfully.")
+        return reverse_lazy('gallery')
+
+
+class DeleteGallery(DeleteView):
+    model = Images
+    template_name = 'delete.html'
+    success_url = reverse_lazy('gallery')
+
+    def get_success_url(self):
+        messages.success(self.request, f"Image '{ self.object.title }' deleted successfully.")
+        return self.success_url
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['delete_title'] = (
+            "Delete Image"
+        )
+        context['confirm_message'] = (
+            f"Are you sure you want to delete this image '{ self.object.title }'?"
+        )
+        context['cancel_url'] = reverse_lazy('gallery')
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_staff:
+            raise Http404
+        return super().dispatch(request, *args, **kwargs)
+
+
 def contact(request):
     return render(request, 'contact.html')
