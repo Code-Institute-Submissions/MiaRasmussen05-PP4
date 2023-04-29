@@ -92,7 +92,7 @@ class ImageForm(forms.ModelForm):
 
     class Meta:
         model = Images
-        fields = ('image', 'title', 'description', 'category')
+        fields = ('image', 'title', 'description', 'category', 'status')
         widgets = {
             'image': ClearableFileInput(attrs={
                 'accept': 'image/*'
@@ -107,6 +107,9 @@ class ImageForm(forms.ModelForm):
                 'style': 'padding: 10px; max-height: 300px; width: 100%;'
             }),
             'category': forms.Select(attrs={
+                'style': 'padding: 4px; width: 100%;'
+            }),
+            'status': forms.Select(attrs={
                 'style': 'padding: 4px; width: 100%;'
             }),
         }
