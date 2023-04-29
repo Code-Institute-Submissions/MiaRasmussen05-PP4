@@ -4,4 +4,58 @@
 
 {% block content %}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <h1 class="headings mb-0 mt-4"><span>B</span>ookmarked</h1>
+        </div>
+
+        <div class="col-12 d-flex justify-content-center profile-page mb-5">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Profile
+                </button>
+                <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><a class="dropdown-item" href="{% url 'profile' username=request.user.username %}">Profile</a>
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'bookmark_list' user.username %}">Favorites</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid d-flex justify-content-center mt-3 mb-5 blog">
+    <div class="col-10 bookmark">
+        <div class="row mb-5">
+
+            {% for post in bookmark %}
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="image-container">
+                        {% if post.image %}
+                        <img class="card-img-top" src="{{ post.image.url }}">
+                        {% else %}
+                        <img src="https://imgur.com/jVraxDv.png" class="card-img-top" alt="Placeholder Image">
+                        {% endif %}
+                    </div>
+                    <a href="{% url 'blog_post' post.slug %}" class="post-link link">
+                        <h2 class="card-title pb-3 ps-4">{{ post.title }}</h2>
+                        <p class="card-text pb-3 ps-4">{{ post.excerpt }}</p>
+                    </a>
+                    <div class="col-12 d-flex justify-content-between">
+                        <p class="blog-date text-muted h6 mt-2 ms-4">{{ post.created_on }} <i class="far fa-heart"></i>
+                            {{ post.number_of_likes }}
+                        </p>
+                        <a class="mt-2 me-2" href="{% url 'bookmark' post.slug %}" title="Unsave"> 
+                            <i class="fas fa-bookmark filled-bookmark"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}
