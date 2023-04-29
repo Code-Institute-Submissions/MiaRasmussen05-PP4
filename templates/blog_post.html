@@ -67,9 +67,15 @@
                                     {% endwith %}
                                 </div>
                             </div>
-                            <a href="" title="Save">
-                                <i class="far fa-bookmark unfilled-bookmark"></i>
-                            </a>
+                            {% if user.is_authenticated %}
+                        {% if bookmark %}
+                        <a href="{% url 'bookmark' post.slug %}" title="Unsave"> <i
+                                class="fas fa-bookmark filled-bookmark"></i></a>
+                        {% else %}
+                        <a href="{% url 'bookmark' post.slug %}" title="Save"> <i
+                                class="far fa-bookmark unfilled-bookmark"></i></a>
+                        {% endif %}
+                        {% endif %}
                         </div>
                     </div>
                 </div>

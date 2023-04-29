@@ -178,6 +178,11 @@ class BlogDetail(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        bookmark = bool
+
+        if post.bookmarked.filter(id=self.request.user.id).exists():
+            bookmark = True
+
         return render(
             request,
             "blog_post.html",
@@ -186,6 +191,7 @@ class BlogDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
+                "bookmark": bookmark,
                 "comment_form": CommentForm(),
             },
         )
@@ -197,6 +203,11 @@ class BlogDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+
+        bookmark = bool
+
+        if post.bookmarked.filter(id=self.request.user.id).exists():
+            bookmark = True
 
         comment_form = CommentForm(data=request.POST)
 
@@ -220,6 +231,7 @@ class BlogDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
+                "bookmark": bookmark,
                 "comment_form": comment_form,
             },
         )

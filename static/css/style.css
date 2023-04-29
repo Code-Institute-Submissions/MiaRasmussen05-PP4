@@ -519,7 +519,7 @@ footer .socials {
     color: #E84610;
 }
 
-.unfilled-bookmark {
+.unfilled-bookmark, .filled-bookmark {
     font-size: 25px;
     color: #9A005A;
 }

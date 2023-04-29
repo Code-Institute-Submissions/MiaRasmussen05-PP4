@@ -19,7 +19,7 @@
                 <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="dropdownMenu2">
                     <li><a class="dropdown-item" href="{% url 'profile' username=request.user.username %}">Profile</a>
                     </li>
-                    <li><a class="dropdown-item" href="">Favorites</a></li>
+                    <li><a class="dropdown-item" href="{% url 'bookmark_list' user.username %}">Favorites</a></li>
                 </ul>
             </div>
         </div>
