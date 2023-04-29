@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ShopCategory, Shop, Review
+from .models import ShopCategory, Shop, Review, Blog, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -25,3 +25,20 @@ class ReviewAdmin(SummernoteModelAdmin):
     list_filter = ('created_on', 'text', 'comment', 'user', 'rating')
     list_display = ('user', 'rating', 'text', 'comment', 'created_on')
     search_fields = ['user', 'rating', 'text']
+
+
+@admin.register(Blog)
+class BlogAdmin(SummernoteModelAdmin):
+
+    list_filter = ('status', 'created_on')
+    list_display = ('title', 'slug', 'status', 'created_on')
+    prepopulated_fields = {'slug': ('title',)}
+    search_fields = ['title', 'content']
+    summernote_fields = ('content')
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+
+    list_display = ('name', 'body', 'post', 'created_on')
+    search_fields = ('name', 'email', 'body')

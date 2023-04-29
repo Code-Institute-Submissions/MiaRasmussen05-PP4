@@ -1,4 +1,4 @@
-from .models import Review
+from .models import Review, Comment
 from django import forms
 
 
@@ -21,4 +21,20 @@ class ReviewForm(forms.ModelForm):
         labels = {
             'rating': 'Stars:',
             'text': 'Review:',
+        }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)
+        widgets = {
+            'body': forms.Textarea(attrs={
+                'placeholder': 'Share your thoughts...',
+                'rows': 5, 'maxlength': '1000',
+                'style': 'padding: 10px; max-height: 200px; width: 100%;'
+            }),
+        }
+        labels = {
+            'body': ''
         }

@@ -12,4 +12,7 @@ urlpatterns = [
     path('add/', views.AddShopItemView.as_view(), name='add_product'),
 
     path("blog/", views.BlogList.as_view(), name="blog"),
+    path("blog_post/", views.BlogList.as_view(), name="blog_list"),
+    path('blog_post/<slug:slug>/', views.BlogDetail.as_view(), name='blog_post'),
+    path('like/<slug:slug>', views.BlogLike.as_view(), name='blog_like'),
 ]

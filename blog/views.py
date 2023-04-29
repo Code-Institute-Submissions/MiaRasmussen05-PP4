@@ -161,6 +161,20 @@ class BlogDetail(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.user = request.user
+            comment.save()
+            messages.success(request, 'Comment added successfully.')
+            comment_form = CommentForm()
+
+            return redirect('blog_post', slug=post.slug)
+
         return render(
             request,
             "blog_post.html",
@@ -172,3 +186,15 @@ class BlogDetail(View):
                 "comment_form": comment_form,
             },
         )
+
+
+class BlogLike(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Blog, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('blog_post', args=[slug]))
