@@ -11,7 +11,7 @@ from django.http import Http404
 from decimal import Decimal
 
 from blog.models import Shop, Blog
-from .models import Profile
+from .models import Profile, Order
 from .forms import ProfileForm
 
 
@@ -193,3 +193,12 @@ def delete_from_cart(request, item_id):
     messages.success(request, f"{shop_item.title} {shop_item.item} has been deleted from your cart.")
     request.session['cart'] = cart
     return redirect('view_cart')
+
+
+class OrderListView(LoginRequiredMixin, ListView):
+    model = Order
+    template_name = 'order_list.html'
+    context_object_name = 'orders'
+    
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user)
