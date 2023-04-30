@@ -4,6 +4,8 @@ from cloudinary.models import CloudinaryField
 
 from blog.models import Shop
 
+import uuid
+
 
 STATUS = ((0, "Pending"), (1, "Processing"), (2, "Shipped"), (3, "Delivered"),)
 
@@ -29,6 +31,7 @@ class Order(models.Model):
     quantity = models.PositiveIntegerField()
     date_ordered = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    order_number = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
     def __str__(self):
         return f"{self.user.username}'s order for {self.quantity} x {self.item.title}"

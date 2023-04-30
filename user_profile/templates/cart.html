@@ -107,7 +107,13 @@
                         <p class="order-total">Order total</p>
                         <p class="order-total">£{{ total_with_shipping }}</p>
                     </div>
-                    <a href="#" class="btn btn-success w-100 mb-5 mb-lg-0">Proceed to Checkout</a>
+                    <form method="post" action="{% url 'create_order' %}">
+                        {% csrf_token %}
+                        {% for item_id, quantity in cart.items %}
+                          <input type="hidden" name="cart_items[]" value="{{ item_id }}:{{ quantity }}">
+                        {% endfor %}
+                        <button type="submit" class="btn btn-success w-100 mb-5 mb-lg-0">Place your order</button>
+                      </form>
                 </div>
             </div>
         </div>

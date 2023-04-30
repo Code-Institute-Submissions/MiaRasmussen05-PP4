@@ -11,8 +11,8 @@ from django.http import Http404
 from decimal import Decimal
 
 from blog.models import Shop, Blog
-from .models import Profile, Order
-from .forms import ProfileForm
+from .models import Profile, Order, OrderItem
+from .forms import ProfileForm, CreateOrderForm
 
 
 class ProfileDetailView(LoginRequiredMixin, DetailView):
@@ -197,8 +197,53 @@ def delete_from_cart(request, item_id):
 
 class OrderListView(LoginRequiredMixin, ListView):
     model = Order
-    template_name = 'order_list.html'
+    template_name = 'order.html'
     context_object_name = 'orders'
-    
+
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user)
+
+
+class CreateOrderView(LoginRequiredMixin, CreateView):
+    model = Order
+    form_class = CreateOrderForm
+    template_name = 'order.html'
+    success_url = reverse_lazy('cart')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        cart_items = self.request.POST.getlist('cart_items[]')
+        order_items = []
+        for item in cart_items:
+            item_id, quantity = item.split(':')
+            shop_item = get_object_or_404(Shop, id=item_id)
+            order_item = OrderItem(
+                order=form.instance,
+                item=shop_item,
+                quantity=quantity,
+                price=shop_item.price
+            )
+            order_items.append(order_item)
+        OrderItem.objects.bulk_create(order_items)
+
+        del self.request.session['cart']
+
+        messages.success(self.request, 'Your order was placed successfully!')
+
+        return super().form_valid(form)
+
+        def post(self, request, *args, **kwargs):
+            form = self.get_form()
+            if form.is_valid():
+                return self.form_valid(form)
+            else:
+                return self.form_invalid(form)
+
+
+class OrderDetailView(LoginRequiredMixin, DetailView):
+    model = Order
+    template_name = 'order_detail.html'
+    context_object_name = 'order'
+
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)

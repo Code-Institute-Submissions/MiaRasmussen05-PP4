@@ -1,4 +1,4 @@
-from .models import Profile
+from .models import Profile, Order
 from django import forms
 from django.forms import DateInput
 from django.contrib.auth.models import User
@@ -49,3 +49,19 @@ class ProfileForm(forms.ModelForm):
             profile.user = self.instance.user
             profile.save()
         return profile
+
+
+class CreateOrderForm(forms.ModelForm):
+    order_number = forms.UUIDField(widget=forms.HiddenInput())
+
+    class Meta:
+        model = Order
+        fields = ['profile']
+
+    def save(self, commit=True):
+        order = super().save(commit=False)
+        order.user = self.instance.user
+        order.order_number = self.cleaned_data['order_number']
+        if commit:
+            order.save()
+        return order
