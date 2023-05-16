@@ -15,9 +15,8 @@ class Profile(models.Model):
     fiName = models.CharField(max_length=150, null=True, blank=True, default='')
     laName = models.CharField(max_length=150, null=True, blank=True, default='')
     email = models.CharField(max_length=250, null=True, blank=True, default='')
-    birth_date = models.DateField(null=True, blank=True, default='')
     image = CloudinaryField('image', null=True, blank=True)
-    bio = models.TextField(max_length=1000, null=True, blank=True, default='')
+    bio = models.TextField(max_length=1000, null=True, blank=True, default=None)
     orders = models.ManyToManyField('Order', blank=True, related_name='profile_orders')
 
     def __str__(self):

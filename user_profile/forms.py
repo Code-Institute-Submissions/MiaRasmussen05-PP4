@@ -8,7 +8,7 @@ from django.forms.widgets import ClearableFileInput
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('fiName', 'laName', 'email', 'birth_date', 'image', 'bio',)
+        fields = ('fiName', 'laName', 'email', 'image', 'bio',)
         widgets = {
             'fiName': forms.TextInput(attrs={
                 'placeholder': 'First name...',
@@ -20,10 +20,6 @@ class ProfileForm(forms.ModelForm):
             }),
             'email': forms.TextInput(attrs={
                 'placeholder': 'Email Address...',
-                'style': 'padding: 4px; width: 100%;'
-            }),
-            'birth_date': DateInput(attrs={
-                'type': 'date',
                 'style': 'padding: 4px; width: 100%;'
             }),
             'image': ClearableFileInput(attrs={
