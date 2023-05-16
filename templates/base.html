@@ -109,7 +109,7 @@
                                         <a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'bookmark_list' user.username %}">Favorites</a>
                                     </li>
                                     <li><a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'view_cart' %}">My Cart</a></li>
-                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="#">My Orders</a></li>
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'create_order' %}">My Orders</a></li>
                                     <li><a class="dropdown-item link p-0 mb-2 ms-3"
                                             href="{% url 'edit_profile' %}">Edit</a></li>
                                     <li>
@@ -121,10 +121,10 @@
                             </li>
                             {% else %}
                             <li class="nav-item">
-                                <a class="nav-link link mt-5 mt-lg-0" href="{% url 'account_login' %}">Login</a>
+                                <a class="nav-link link mt-5 mt-lg-0 ms-3" href="{% url 'account_login' %}">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link" href="{% url 'account_signup' %}">Sign Up</a>
+                                <a class="nav-link link ms-3" href="{% url 'account_signup' %}">Sign Up</a>
                             </li>
                             {% endif %}
                         </ul>
@@ -161,7 +161,7 @@
                         ready to answer any questions you may have.
                     </p>
                 </div>
-                <div class="col-6 col-lg-4 text-md-center mt-3 mt-lg-1">
+                <div class="col-12 col-sm-6 col-lg-4 text-center mt-3 mt-lg-1">
                     <h2 class="pb-3">Keep connected</h2>
                     <a class="socials px-2" href="https://www.linkedin.com/" target="_blank" rel="noopener"
                         aria-label="Visit Mia Rasmussen's LinkedIn page (opens in a new tab)"><i
@@ -176,7 +176,7 @@
                         aria-label="Visit Mia Rasmussen's Instagram page (opens in a new tab)"><i
                             class="fab fa-instagram"></i></a>
                 </div>
-                <div class="col-6 col-lg-3 text-md-center mt-3 mt-lg-1">
+                <div class="col-12 col-sm-6 col-lg-3 text-center mt-5 mt-sm-3 mt-lg-1">
                     <h2 class="pb-4">Let's chat!</h2>
                     <p>
                         <a class="footer-contact p-1" href="#">Contact Me &raquo;</a>

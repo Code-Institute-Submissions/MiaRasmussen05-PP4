@@ -304,6 +304,10 @@ footer .socials {
     text-overflow: ellipsis;
 }
 
+.heart-likes {
+    display: none;
+}
+
 .price {
     font-size: 23px;
 }
@@ -465,6 +469,10 @@ footer .socials {
 
 .username {
     font-size: 28px;
+}
+
+.profile-page p {
+    font-size: 24px;
 }
 
 /* Blog Post Pages */
@@ -681,4 +689,311 @@ footer .socials {
 .order-total {
     font-size: 19px;
     font-weight: 700;
+}
+
+@media screen and (max-width: 1280px) {
+    .gallery img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .profile-page p {
+        font-size: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 1060px) {
+    .services div {
+        width: 320px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 991px) { 
+    .masthead-text {
+        height: 290px;
+    }
+
+    .blog-post .post-title {
+        font-size: 28px;
+    }
+
+    .carousel-item .card {
+        width: 100%;
+        height: 400px;
+    }
+
+    .carousel-item {
+        height: 400px;
+    }
+
+    .bookmark .card-title {
+        font-size: 24px;
+    }
+
+    .blog .card {
+        height: 200px;
+        margin-bottom: 50px;
+    }
+    
+    .blog .tall-blog img {
+        height: 300px;
+    }
+
+    .blog .tall-blog  {
+        height: 300px;
+    }
+
+    .blog .card-img-top {
+        height: 200px;
+    }
+
+    .blog h2 {
+        font-size: 28px;
+    }
+
+    .blog .card-text {
+        font-size: 18px;
+    }
+
+    .blog .blog-date {
+        font-size: 14px;
+    }
+
+    .crud-box {
+        margin-bottom: 100px;
+    } 
+
+}
+
+@media screen and (max-width: 767px) { 
+    .services div {
+        width: 260px;
+        height: 150px;
+    }
+
+    .footeralert {
+        font-size: 12px;
+    }
+
+    .contact .form {
+        display: flex;
+        justify-content: center;
+    }
+
+    .headings {
+        font-size: 50px;
+    }
+
+    .headings span {
+        font-size: 70px;
+    }
+
+    .masthead-text {
+        border-radius: 5px;
+    }
+
+    .profile-page p {
+        font-size: 18px;
+    }    
+
+    .crud-box {
+        width: 400px;
+    }
+
+    .crud-box h1 {
+        font-size: 30px;
+    }
+
+    .shop .card {
+        width: 300px;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .logo {
+        width: 180px;
+        margin-left: 5px;
+    }
+
+    footer span {
+        display: none;
+    }
+
+    .headings {
+        font-size: 35px;
+    }
+
+    .headings span {
+        font-size: 55px;
+    }
+
+    .add-blog .add-form {
+        width: 350px;
+    }
+
+    .blog h2 {
+        font-size: 22px;
+    }
+
+    .blog .card-text {
+        font-size: 16px;
+    }
+
+    .blog .blog-date {
+        font-size: 12px;
+    }
+
+    .cart-counter {
+        font-size: 20px;
+    }
+
+    .cart-page img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .a-link {
+        font-size: 18px;
+    }
+    
+    .icon {
+        font-size: 20px;
+    }
+    
+    .cart-item-price {
+        font-size: 18px;
+    }
+
+    .input-quantity {
+        width: 40px;
+    }
+    
+    .update-quantity-button {
+        width: 70px;
+        font-size: 14px;
+    }
+
+    .hero-wrapper h1 {
+        font-size: 16px;
+    }
+
+    .about-me h2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .services {
+        margin-bottom: 260px;
+    }
+
+    .crud-box {
+        width: 380px;
+        margin-bottom: 250px;
+    }
+
+    .shop {
+        margin-bottom: 650px;
+    }
+
+    .shop-item-page, .project, .gallery {
+        margin-bottom: 600px;
+    }
+
+    .blog-pagination {
+        margin-bottom: 580px;
+    }
+
+    .comments-wrapper {
+        margin-bottom: 200px;
+    }
+
+    .contact {
+        margin-bottom: 530px;
+    }
+
+    .profile-page {
+        margin-bottom: 300px;
+    }
+
+    .bookmark {
+        margin-bottom: 150px;
+    }
+
+    .cart-page {
+        margin-bottom: 550px;
+    }
+
+    .order-page {
+        margin-bottom: 650px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .blog .tall-blog {
+        width: 94%;
+        height: 200px;
+        margin-left: 3.5%;
+    }
+
+    .blog .tall-blog img {
+        height: 200px;
+    }
+
+    .gallery h4 {
+        font-size: 18px;
+    }
+
+    .gallery .modal-body p {
+        font-size: 15px;
+    }
+
+    .contact {
+        margin-bottom: 600px;
+    }
+
+    .profile-page p {
+        font-size: 16px;
+    }
+
+    .bookmark {
+        margin-bottom: 180px;
+    }
+
+    .cart-page {
+        margin-bottom: 600px;
+    }
+
+    .cart-item-price {
+        font-size: 16px;
+    }
+
+    .crud-box {
+        width: 95%;
+    }
+
+    .crud-box h1 {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .services div {
+        width: 100vw;
+    }
+    .about-me h2 {
+        font-size: 19px;
+    }
+
+    .shop .card {
+        width: 280px;
+    }
+
+    .blog-pagination {
+        margin-bottom: 700px;
+    }
 }
