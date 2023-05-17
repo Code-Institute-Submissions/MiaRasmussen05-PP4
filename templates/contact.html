@@ -40,7 +40,7 @@
             <div class="col-md-6 col-sm-12 form">
                 <div class="d-flex flex-wrap justify-content-start mb-5 mt-4">
     
-                    <form class="mt-5 mt-md-0" action="#" method="get" novalidate>
+                    <form class="mt-5 mt-md-0" novalidate onsubmit="return sendMail(this);">
                         <div class="row mb-3">
                             <div class="col-sm-12 col-md-6">
                                 <label for="fiName" class="form-label">First name *</label>
@@ -60,13 +60,13 @@
                         </div>
     
                         <label for="formSelect">Reason for Contact *</label>
-                        <select class="form-select mb-3 mt-2" aria-label="Select reason for contact">
+                        <select class="form-select mb-3 mt-2" id="reason" aria-label="Select reason for contact">
                             <option selected>Please select...</option>
-                            <option value="1">Hire</option>
-                            <option value="2">Project</option>
-                            <option value="3">Photo</option>
-                            <option value="4">Sticker</option>
-                            <option value="5">Other</option>
+                            <option value="Hire">Hire</option>
+                            <option value="Project">Project</option>
+                            <option value="Photo">Photo</option>
+                            <option value="Sticker">Sticker</option>
+                            <option value="Other">Other</option>
                         </select>
     
                         <div class="mb-3">
@@ -75,7 +75,7 @@
                                 maxlength="1000" required></textarea>
                         </div>
 
-                        <input type="submit" value="Send" class="btn btn-signup">
+                        <button type="submit" class="btn btn-signup">Send</button>
                     </form>
     
                 </div>

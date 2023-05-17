@@ -23,6 +23,14 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("BnDDIXB9aNu7MwTJA");
+        })();
+    </script>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
@@ -106,10 +114,13 @@
                                             href="{% url 'profile' username=request.user.username %}">Profile</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'bookmark_list' user.username %}">Favorites</a>
+                                        <a class="dropdown-item link p-0 mb-2 ms-3"
+                                            href="{% url 'bookmark_list' user.username %}">Favorites</a>
                                     </li>
-                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'view_cart' %}">My Cart</a></li>
-                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'create_order' %}">My Orders</a></li>
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'view_cart' %}">My
+                                            Cart</a></li>
+                                    <li><a class="dropdown-item link p-0 mb-2 ms-3" href="{% url 'create_order' %}">My
+                                            Orders</a></li>
                                     <li><a class="dropdown-item link p-0 mb-2 ms-3"
                                             href="{% url 'edit_profile' %}">Edit</a></li>
                                     <li>
@@ -209,6 +220,7 @@
     </script>
 
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/email.js' %}"></script>
 </body>
 
 </html>
