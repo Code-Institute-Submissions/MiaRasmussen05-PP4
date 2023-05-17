@@ -62,7 +62,7 @@ class TestModels(TestCase):
         )
 
         self.gallery_category = GalleryCategory.objects.create(
-            name='Category 1')
+            name='Category 2')
 
         self.image = Images.objects.create(
             image='image.jpg',
@@ -77,8 +77,8 @@ class TestModels(TestCase):
         """
         Tests the string representation of the ShopCategory model
         """
-        shop_category = ShopCategory.objects.get(name='Category 1')
-        self.assertEqual(str(shop_category), 'Category 1')
+        expected_str = "Category 1"
+        self.assertEqual(str(self.shop_category), expected_str)
 
     def test_shop_str(self):
         """
@@ -143,7 +143,7 @@ class TestModels(TestCase):
 
     def test_blog_bookmarked(self):
         """
-        Tests bookmarking the Blog model
+        Tests bookmarking for the Blog model
         """
         user1 = self.user
 
@@ -157,3 +157,24 @@ class TestModels(TestCase):
         """
         expected_str = "Comment Cool blog post! by Jane"
         self.assertEqual(str(self.comment), expected_str)
+
+    def test_project_str(self):
+        """
+        Tests the string representation of the Projects model
+        """
+        expected_str = "Project 1"
+        self.assertEqual(str(self.projects), expected_str)
+
+    def test_gallery_category_str(self):
+        """
+        Tests the string representation of the GalleryCategory model
+        """
+        expected_str = "Category 2"
+        self.assertEqual(str(self.gallery_category), expected_str)
+
+    def test_image_str(self):
+        """
+        Tests the string representation of the Images model
+        """
+        expected_str = "Image 1"
+        self.assertEqual(str(self.image), expected_str)
