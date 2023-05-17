@@ -47,3 +47,55 @@ class TestUrls(TestCase):
     def test_DeleteReview_url(self):
         url = reverse('delete-review', kwargs={'pk': 1})
         self.assertEquals(resolve(url).func.view_class, DeleteReview)
+
+    def test_BlogList_url(self):
+        url = reverse('blog')
+        self.assertEquals(resolve(url).func.view_class, BlogList)
+
+    def test_BlogList_post_url(self):
+        url = reverse('blog_list')
+        self.assertEquals(resolve(url).func.view_class, BlogList)
+
+    def test_BlogDetail_url(self):
+        url = reverse('blog_post', kwargs={'slug': 1})
+        self.assertEquals(resolve(url).func.view_class, BlogDetail)
+
+    def test_BlogLike_url(self):
+        url = reverse('blog_like', kwargs={'slug': 1})
+        self.assertEquals(resolve(url).func.view_class, BlogLike)
+
+    def test_AddBlogView_url(self):
+        url = reverse('add_blog')
+        self.assertEquals(resolve(url).func.view_class, AddBlogView)
+
+    def test_EditBlog_url(self):
+        url = reverse('edit_blog', kwargs={'slug': 1})
+        self.assertEquals(resolve(url).func.view_class, EditBlog)
+
+    def test_DeleteBlog_url(self):
+        url = reverse('delete_blog', kwargs={'slug': 1})
+        self.assertEquals(resolve(url).func.view_class, DeleteBlog)
+
+    def test_EditCommentView_url(self):
+        url = reverse('edit-comment', kwargs={'comment_id': 1})
+        self.assertEquals(resolve(url).func.view_class, EditCommentView)
+
+    def test_DeleteCommentView_url(self):
+        url = reverse('delete-comment', kwargs={'comment_id': 1})
+        self.assertEquals(resolve(url).func.view_class, DeleteCommentView)
+
+    def test_ProjectList_url(self):
+        url = reverse('portfolio')
+        self.assertEquals(resolve(url).func.view_class, ProjectList)
+
+    def test_AddProjectView_url(self):
+        url = reverse('add_project')
+        self.assertEquals(resolve(url).func.view_class, AddProjectView)
+
+    def test_EditProject_url(self):
+        url = reverse('edit_project', kwargs={'pk': 1})
+        self.assertEquals(resolve(url).func.view_class, EditProject)
+
+    def test_DeleteProject_url(self):
+        url = reverse('delete_project', kwargs={'pk': 1})
+        self.assertEquals(resolve(url).func.view_class, DeleteProject)
