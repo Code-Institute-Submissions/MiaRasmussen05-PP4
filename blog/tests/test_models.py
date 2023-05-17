@@ -15,7 +15,7 @@ class TestModels(TestCase):
     def setUp(self):
         User = get_user_model()
         self.user = User.objects.create_user(
-            username='mia', email='test@test.com', password='miapassword'
+            username='jane', email='test@test.com', password='janepassword'
         )
 
         self.shop_category = ShopCategory.objects.create(name='Category 1')
@@ -116,3 +116,44 @@ class TestModels(TestCase):
             price=-10.0,
         )
         self.assertEqual(invalid_shop.price, -10.0)
+
+    def test_review_str(self):
+        """
+        Tests the string representation of the Review model
+        """
+        expected_str = "Review 5 - Nice Item!!! by jane"
+        self.assertEqual(str(self.review), expected_str)
+
+    def test_blog_str(self):
+        """
+        Tests the string representation of the Blog model
+        """
+        expected_str = "Blog 1"
+        self.assertEqual(str(self.blog), expected_str)
+
+    def test_blog_likes(self):
+        """
+        Tests adding likes to the Blog model
+        """
+        user1 = self.user
+
+        self.blog.likes.add(user1)
+
+        self.assertEqual(self.blog.likes.count(), 1)
+
+    def test_blog_bookmarked(self):
+        """
+        Tests bookmarking the Blog model
+        """
+        user1 = self.user
+
+        self.blog.bookmarked.add(user1)
+
+        self.assertEqual(self.blog.bookmarked.count(), 1)
+
+    def test_comment_str(self):
+        """
+        Tests the string representation of the Comment model
+        """
+        expected_str = "Comment Cool blog post! by Jane"
+        self.assertEqual(str(self.comment), expected_str)
