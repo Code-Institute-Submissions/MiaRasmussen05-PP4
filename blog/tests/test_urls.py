@@ -99,3 +99,27 @@ class TestUrls(TestCase):
     def test_DeleteProject_url(self):
         url = reverse('delete_project', kwargs={'pk': 1})
         self.assertEquals(resolve(url).func.view_class, DeleteProject)
+
+    def test_GalleryView_url(self):
+        url = reverse('gallery')
+        self.assertEquals(resolve(url).func.view_class, GalleryView)
+
+    def test_GalleryView_category_url(self):
+        url = reverse('gallery_category', kwargs={'category_id': 1})
+        self.assertEquals(resolve(url).func.view_class, GalleryView)
+
+    def test_AddImageView_url(self):
+        url = reverse('add_image')
+        self.assertEquals(resolve(url).func.view_class, AddImageView)
+
+    def test_EditGallery_url(self):
+        url = reverse('edit_image', kwargs={'pk': 1})
+        self.assertEquals(resolve(url).func.view_class, EditGallery)
+
+    def test_DeleteGallery_url(self):
+        url = reverse('delete_image', kwargs={'pk': 1})
+        self.assertEquals(resolve(url).func.view_class, DeleteGallery)
+
+    def test_contact_url(self):
+        url = reverse('contact')
+        self.assertEquals(resolve(url).func, contact)
