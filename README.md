@@ -138,12 +138,16 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
   <details>
   <summary>Wireframes Home Page</summary>
   <a href="https://imgur.com/A6zbaaR"><img src="https://imgur.com/A6zbaaR.png" title="source: imgur.com" /></a>
+  <summary>Wireframes Home Page Smaller Screens</summary>
+  <a href="https://imgur.com/XrrBtxL"><img src="https://imgur.com/XrrBtxL.png" title="source: imgur.com" /></a>
   </details>
   <br>
 
   <details>
   <summary>Wireframes Shop Page</summary>
   <a href="https://imgur.com/YrbD5ys"><img src="https://imgur.com/YrbD5ys.png" title="source: imgur.com" /></a>
+  <summary>Wireframes Shop Page Smaller Screens</summary>
+  <a href="https://imgur.com/q4JOj8H"><img src="https://imgur.com/q4JOj8H.png" title="source: imgur.com" /></a>
   </details>
   <br>
 
@@ -168,12 +172,46 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
   <details>
   <summary>Wireframes Contact Page</summary>
   <a href="https://imgur.com/MUi2Uzf"><img src="https://imgur.com/MUi2Uzf.png" title="source: imgur.com" /></a>
+  <summary>Wireframes Contact Page Smaller Screens</summary>
+  <a href="https://imgur.com/WeasHyd"><img src="https://imgur.com/WeasHyd.png" title="source: imgur.com" /></a>
   </details>
   <br>
 
   <details>
   <summary>Wireframes Login/Sign up</summary>
   <a href="https://imgur.com/2gJe4OR"><img src="https://imgur.com/2gJe4OR.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Navbar Logged In</summary>
+  <a href="https://imgur.com/32jbVQJ"><img src="https://imgur.com/32jbVQJ.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Profile Page</summary>
+  <a href="https://imgur.com/aJmOVHm"><img src="https://imgur.com/aJmOVHm.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Favorites Page</summary>
+  <a href="https://imgur.com/aYT55rB"><img src="https://imgur.com/aYT55rB.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Cart Page</summary>
+  <a href="https://imgur.com/NXVXHYl"><img src="https://imgur.com/NXVXHYl.png" title="source: imgur.com" /></a>
+  <summary>Wireframes Cart Page Smaller Screens</summary>
+  <a href="https://imgur.com/wDfj4jO"><img src="https://imgur.com/wDfj4jO.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Orders Page</summary>
+  <a href="https://imgur.com/MWypwgw"><img src="https://imgur.com/MWypwgw.png" title="source: imgur.com" /></a>
   </details>
   <br>
 
