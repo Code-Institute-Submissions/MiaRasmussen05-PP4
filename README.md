@@ -242,11 +242,11 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
 
    ## Existing Features
 
-- __Logo__
+__Logo__
 
 ![Logo](https://imgur.com/23njbGW.png)
 
-- __Navigation Bar__
+__Navigation Bar__
 
 Logged Out
 
@@ -256,50 +256,50 @@ Logged In
 
 ![Color Pallet](https://imgur.com/LQzJN26.png)
 
-- __The Home Page__
+__The Home Page__
 
-The home page is the first page a user sees, it shows a bit about the admin and about their services.
+- The home page is the first page a user sees, it shows a bit about the admin and about their services.
 
 ![Home Page](https://imgur.com/nQsGty5.png)
 
-- __Footer__
+__Footer__
 
 ![Footer big screens](https://imgur.com/lgUPnvU.png)
 
 ![Footer small screens](https://imgur.com/gDiibUG.png)
 
-- __The Shop Page__
+__The Shop Page__
 
 - The shop page is where the user can look through the content of the shop items.
-- They are all clickble and leads the user to that shop items own page. 
+- They are all clickable and lead the user to that shop item's own page. 
 - Users can also add shop items directly to the cart. 
 - The admin can on this page add a new shop item, or edit or delete already made items. 
 
 ![Shop Page](https://imgur.com/7WRYFBI.png)
 
-- __The Shop Items Pages__
+__The Shop Items Pages__
 
-- The shop items detail pages is where the user can look through the content and get more detail on the item.
-- It shows an image of the clicked item, price, name, and a description of the item.
-- A user can here decide how many of the item they want. Up until the limit is reach for that item if there is a limit.
+- The shop items detail pages are where the user can look through the content and get more detail on the item.
+- It shows an image of the clicked item, its price, name, and a little description of the item.
+- A user can here decide how many of the items they want. Up until the limit is reached for that item if there is a limit.
 
 ![Shop Item Page](https://imgur.com/HoC7iPL.png)
 
-- When then user scrolls down they can see the reviews of this item.
+- When the user scrolls down they can see the reviews of this item.
 - The review is made up of 0-5 stars and a little text.
 - If the user is already logged in then they can also leave their own review on the item.
-- Users can delete and edit their own review, where the admin also can delete all review if they are disrespectful towards other users.
+- Users can delete and edit their own reviews, whereas the admin also can delete all reviews if they are disrespectful towards other users.
 
 ![Shop Item Review Section](https://imgur.com/0jxKXCw.png)
 
-- Here after is a carosuel with 3 items in both sections. Where a user can click one of the random 6 items in it to be taken to that items page.
+- Hereafter is a carousel with 3 items in both sections. Where a user can click one of the random 6 items in it to be taken to that items page.
 
 ![Shop Item Carousel Section](https://imgur.com/VFaGN0r.png)
 
-- __The Blog Page__
+__The Blog Page__
 
-- The blog page is where the user can look through the content of the the blog post, that shows the title and when it was created and how many likes it got. It might also have a little 2-3 lines of resume of what it is about.
-- They are all clickble and leads the user to that blog posts own page. 
+- The blog page is where the user can look through the content of the blog post, which shows the title and when it was created, and how many likes it got. It might also have a little 2-3 lines of resume of what it is about.
+- They are all clickable and lead the user to that blog post's own page. 
 - The admin can on this page click on a button to add a new blog post. 
 
 ![Blog Page](https://imgur.com/vN7JZQE.png)
@@ -308,25 +308,45 @@ The home page is the first page a user sees, it shows a bit about the admin and 
 
 ![Add Blog Post Page](https://imgur.com/JHI2f5e.png)
 
-- __The Blog Post Page__
+__The Blog Post Page__
 
-- The blog post detail pages is where the user can read the blog post written by the admin. 
-- Here logged in users can like or remove there like again from the blog post, here they can also add a bookmark to the blog post to save it to later.
+- The blog post detail page is where the user can read the blog post written by the admin. 
+- Here logged in users can like or remove their likes again from the blog post, here they can also add a bookmark to the blog post to save it for later.
 
 ![Blog Post Page](https://imgur.com/sTGvRWb.png)
 
-- When then user scrolls down they can see the comments section for this post.
+- When the user scrolls down they can see the comments section for this post.
 - If the user is already logged in then they can also leave their own comment about the content in the post.
-- Users can delete and edit their own comments, where the admin also can delete all comments if they are disrespectful towards other users.
+- Users can delete and edit their own comments, whereas the admin also can delete all comments if they are disrespectful towards other users.
 
 ![Blog Post Comment Section](https://imgur.com/J4ZfLvq.png)
 
-- __The Portfolio Page__
+__The Portfolio Page__
 
-- The portfolio page is where the user can view the web devolpment projects made by the admin. 
-- Here they can see the title, links for live version and github if it has any, with a little description of the project.
+- The portfolio page is where the user can view the web development projects made by the admin. 
+- Here they can see the title, links for the live version, and GitHub if it has any, with a little description of the project.
+- The admin can also here add, edit, and delete projects.
 
 ![Portfolio Page](https://imgur.com/n5b2wvj.png)
+
+__The Gallery Page__
+
+- The gallery page is where the user can go through the admins photos, added into differnt categories or all at once.
+- The admin can also here add new photos to the page.
+
+![Gallery Page](https://imgur.com/4kZuVht.png)
+
+- Each photo is clickable where a modal shows up with a bigger version of the photo, with its name and a little description if it has any.
+- Here the admin can edit, and delete the clicked photo.
+
+![Photo modal](https://imgur.com/jfPyRoH.png)
+
+__The Contact Page__
+
+- The contact page is where the user can contact the admin with what inqueri they got for projects, or just questions.
+- When the user clicks send, an email gets send to the admin with the information. And the user gets an email to confirm that that admin has gotten their email.
+
+![Contact Page](https://imgur.com/h9rjKwB.png)
 
 
    - ### CRUD
