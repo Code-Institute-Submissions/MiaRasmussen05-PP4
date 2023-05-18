@@ -270,16 +270,63 @@ The home page is the first page a user sees, it shows a bit about the admin and 
 
 - __The Shop Page__
 
-The shop page is where the user can look through the content and either click on the shop items page or just add it directly to the cart. The admin can on this page add a new shop item, edit or delete. 
+- The shop page is where the user can look through the content of the shop items.
+- They are all clickble and leads the user to that shop items own page. 
+- Users can also add shop items directly to the cart. 
+- The admin can on this page add a new shop item, or edit or delete already made items. 
 
 ![Shop Page](https://imgur.com/7WRYFBI.png)
 
+- __The Shop Items Pages__
+
+- The shop items detail pages is where the user can look through the content and get more detail on the item.
+- It shows an image of the clicked item, price, name, and a description of the item.
+- A user can here decide how many of the item they want. Up until the limit is reach for that item if there is a limit.
+
+![Shop Item Page](https://imgur.com/HoC7iPL.png)
+
+- When then user scrolls down they can see the reviews of this item.
+- The review is made up of 0-5 stars and a little text.
+- If the user is already logged in then they can also leave their own review on the item.
+- Users can delete and edit their own review, where the admin also can delete all review if they are disrespectful towards other users.
+
+![Shop Item Review Section](https://imgur.com/0jxKXCw.png)
+
+- Here after is a carosuel with 3 items in both sections. Where a user can click one of the random 6 items in it to be taken to that items page.
+
+![Shop Item Carousel Section](https://imgur.com/VFaGN0r.png)
+
 - __The Blog Page__
 
-The blog page is where the user can look through the blog post and find either a new one to read or click on it to read again. The admin can on this page click on the button to add a new blog post.
+- The blog page is where the user can look through the content of the the blog post, that shows the title and when it was created and how many likes it got. It might also have a little 2-3 lines of resume of what it is about.
+- They are all clickble and leads the user to that blog posts own page. 
+- The admin can on this page click on a button to add a new blog post. 
 
 ![Blog Page](https://imgur.com/vN7JZQE.png)
 
+- This will let the admin go to the add blog post page where they where can start and publish the new blog post.
+
+![Add Blog Post Page](https://imgur.com/JHI2f5e.png)
+
+- __The Blog Post Page__
+
+- The blog post detail pages is where the user can read the blog post written by the admin. 
+- Here logged in users can like or remove there like again from the blog post, here they can also add a bookmark to the blog post to save it to later.
+
+![Blog Post Page](https://imgur.com/sTGvRWb.png)
+
+- When then user scrolls down they can see the comments section for this post.
+- If the user is already logged in then they can also leave their own comment about the content in the post.
+- Users can delete and edit their own comments, where the admin also can delete all comments if they are disrespectful towards other users.
+
+![Blog Post Comment Section](https://imgur.com/J4ZfLvq.png)
+
+- __The Portfolio Page__
+
+- The portfolio page is where the user can view the web devolpment projects made by the admin. 
+- Here they can see the title, links for live version and github if it has any, with a little description of the project.
+
+![Portfolio Page](https://imgur.com/n5b2wvj.png)
 
 
    - ### CRUD
