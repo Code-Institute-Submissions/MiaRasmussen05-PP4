@@ -767,7 +767,12 @@ footer .socials {
 
 }
 
-@media screen and (max-width: 767px) { 
+@media screen and (max-width: 767px) {
+    .alert-message {
+        text-align: center;
+        width: 70%;
+    }
+
     .services div {
         width: 260px;
         height: 150px;
@@ -886,6 +891,48 @@ footer .socials {
 }
 
 @media screen and (max-width: 575px) {
+    .form-box {
+        margin-left: 15%;
+    }
+
+    .signall {
+        font-size: 14px;
+        margin-bottom: 200px;
+    }
+    
+    .sign-box {
+        border-radius: none;
+        box-shadow: none;
+    }
+    
+    .signout {
+        box-shadow: none;
+    }
+    
+    .pink-box {
+        width: 96%!important;
+        height: 70px;
+        flex-direction: row!important;
+        align-items: flex-end!important;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 0;
+        background-color: #9A005A;
+        margin-left: 2%;
+    }
+    
+    .pink-box .btn {
+        border-top-right-radius: 0.25rem;
+        border-bottom-left-radius: 0px;
+    }
+    
+    .deactive-button,
+    .active-button {
+        width: 150px;
+        font-size: 18px;
+    }
+
     .services {
         margin-bottom: 260px;
     }
@@ -893,6 +940,10 @@ footer .socials {
     .crud-box {
         width: 380px;
         margin-bottom: 250px;
+    }
+
+    .btn {
+        font-size: 15px;
     }
 
     .shop {
@@ -909,6 +960,19 @@ footer .socials {
 
     .comments-wrapper {
         margin-bottom: 200px;
+    }
+
+    .add-blog-form {
+        margin-left: 2%;
+        margin-bottom: 200px;
+    }
+
+    .add-blog-form input {
+        min-width: 80%;
+    }
+    
+    .add-blog-form textarea {
+        min-width: 90%;
     }
 
     .contact {
@@ -930,9 +994,31 @@ footer .socials {
     .order-page {
         margin-bottom: 650px;
     }
+
+    .error-page-wrapper {
+        margin-bottom: 600px;
+    }
 }
 
 @media screen and (max-width: 400px) {
+    .alert-message {
+        text-align: center;
+        width: 85%;
+    }
+
+    .form-box {
+        margin-left: 12%;
+    }
+
+    .pink-box {
+        height: 60px;
+    }
+
+    .deactive-button,
+    .active-button {
+        width: 120px;
+        height: 44px;
+    }
 
     .blog .tall-blog {
         width: 94%;
@@ -942,6 +1028,10 @@ footer .socials {
 
     .blog .tall-blog img {
         height: 200px;
+    }
+
+    .add-blog-form {
+        margin-bottom: 250px;
     }
 
     .gallery h4 {
@@ -979,6 +1069,10 @@ footer .socials {
     .crud-box h1 {
         font-size: 26px;
     }
+
+    .error-page-wrapper {
+        margin-bottom: 630px;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -990,10 +1084,14 @@ footer .socials {
     }
 
     .shop .card {
-        width: 280px;
+        width: 275px;
     }
 
     .blog-pagination {
         margin-bottom: 700px;
+    }
+
+    .error-page-wrapper {
+        margin-bottom: 650px;
     }
 }
