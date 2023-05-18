@@ -247,7 +247,59 @@ The blog page is where the user can look through the blog post and find either a
 
    - ### CRUD
 
+   - __As a Visiting User:__
+    - __READ__: A visiting user can view all the pages but can not interact with the cart, comments, or reviews.
+
+  - __As a Site User:__
+    
+    __CREATE__: 
+    - A site user can by login in create their own profile page. 
+    - They can interact with the comments on a blog post.
+    - Like blog posts and save them. 
+    - Add reviews to the shop items.
+    - Add shop items to their carts.
+
+    - __READ__:
+    - A site user can read everything on the pages.
+
+    - __UPDATE__:
+    - Site users can update their comments on a blog post.
+    - They can update their reviews on shop items.
+    - Update their carts.
+    - Update their profiles.
+
+    - __DELETE__:
+    - Site users can delete their own comments on blog posts.
+    - Delete their reviews on shop items.
+
+
+  - __As Site Admin:__
+    - __CREATE__:
+    - The admin can create content on all pages: Shop, Blog, Gallery, and Portfolio.
+  
+    - __READ__:
+    - The admin like the site user can read all content on the site.
+
+    - __UPDATE__:
+    - The admin can update content on all pages: Shop, Blog Post, Gallery, and Portfolio.
+
+    - __DELETE__: 
+    - The admin can delete content on all pages: Shop, Blog Post, Gallery, and Portfolio.
+    - Admin can also delete comments and reviews from other users if they are against regulations. 
+
    - ### Other Features
+   - Users are able to register and sign into the site through django-allauth
+   
+   ![Success message](https://imgur.com/SU8CvOH.png)
+
+   - Success messages have been added to inform the User or admin when they have:
+   - Signed in
+   - Logged in
+   - Logged out
+   - Adds content to any page
+   - Edites content on any page
+   - Deletes content from any page
+   - The user that contacts the admin gets an email send back to them.
 
    - ### Future Features
 
