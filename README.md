@@ -368,13 +368,127 @@ The blog page is where the user can look through the blog post and find either a
 
 # Deployment
 
+## Installing Django and Supporting Libraries:
+
+- First __Install Django__ and __gunicorn__: pip3 install 'django<4' gunicorn
+- __Install Django database__ and __pyscopg2__: pip3 install dj_database_url psycopg2
+- Then __Install Cloudinary:__ pip3 install dj3-cloudinary-storage
+- And then create the requirements.txt file by writing: pip3 freeze --local > requirements.txt
+
+## Creating the Django Project and App:
+
+- After installing the needed Libraries then 
+ you create __the Django project:__ django-admin startproject <NAME> .
+- Create the <NAME> app: python3 manage.py startapp <NAME>
+- Then add the <NAME> app to __"INSTALLED_APPS"__ in the settings.py file
+
+## Create the Heroku App:
+
+- Log in on Heroku and then go to the Dashboard
+- Click "__New__" and select then "__Create new app__" from the drop-down menu in Heroku
+- Add a new unique app name (UNIQUE-NAME) and choose the relevant region
+- Click the "__Create app__" button
+
+## Creating (ElephantSQL) the PostgreSQL database:
+
+- Log on to ElephantSQL
+- Then click "__Create New Instance__"
+- Set up a then plan by giving it a name and then select the "Tiny Turtle" for the free plan.
+- Then click "__Select Region__" and choose the appropriate data centre which is the nearest by location
+- Click "__Review__"
+- Check over all details and then click "__Create Instance__"
+- Back to the dashboard and click on the name of the newly created database
+- Copy the database URL from the page from the details section
+
+## Create env.py file:
+
+- You need to create env.py file, and then checking it is included in the .gitignore file
+- Add then "__import os__" to env.py file at the top
+- Set the environment variables
+
+- For DATABASE_URL to the URL copied from ElephantSQL: os.environ["DATABASE_URL"]="<copiedURL>"
+- Set SECRET_KEY variable can be any multiple letters from 20 +: os.environ["SECRET_KEY"]="MY_SECRET_KEY"
+- Add any others that is needed as well
+
+## Modifying Settings:
+
+- First connect the Django project to the env.py file by adding the following to the top of the settings.py file:
+
+  import os
+  import dj_database_url
+  if os.path.isfile('env.py'):
+      import env
+
+- Then you replace the insecure secret key provided by Django in the settings.py file with: SECRET_KEY = os.environ.get("SECRET_KEY")="MY_SECRET_KEY"
+- Connect to the new database by first commenting out the provided DATABASE variable in the file and then under it adding:
+
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+- Make sure to save the settings.py file after
+
+## Connecting Cloudinary:
+
+- Log on to Cloudinary
+- From the Cloudinary dashboard, you copy the API Environment variable
+- Add this to the env.py file: os.environ["CLOUDINARY_URL"] = "<COPIED_CARIABLE>"
+- Then in the INSTALLED_APPS list of the settings.py file, above django.contrib.staticfiles you add: __'cloudinary_storage',__
+- Then you add, below django.contrib.staticfiles: __'cloudinary',__
+- Add to the settings.py, to make sure to define Cloudinary as the static file and media storage:
+
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+## Add Heroku Config Vars:
+
+- In Heroku dashboard you need to add a few things 
+- Go to settings tab on Heroku
+- Then add five new config vars:
+    1. DATABASE_URL (value "<copiedURL>")
+    2. SECRET_KEY (value "MY_SECRET_KEY")
+    3. PORT (value "8000")
+    4. DISABLE_COLLECTSTATIC (value "1") 
+    - The last step will be removed again before deployment
+    5. CLOUDINARY_URL (value "<COPIED_CARIABLE>")
+
+## Allowing Heroku as the Host:
+
+- Add under the BASE_DIR line of the settings.py file, replace the templates directory with: TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+- Then within the TEMPLATES array of settings.py file, you then replace the templates directory with: 'DIRS': [TEMPLATES_DIR],
+- You then in the settings.py file, add your Heroku Hostname to the ALLOWED_HOSTS: ALLOWED_HOSTS = ['NAME_OF_HEROKU_APP.herokuapp.com', 'localhost']
+- You then need to create three new folders in the top level directory: "__media__", "__static__" and "__templates__"
+- Create the Procfile and only add: web: gunicorn PROJ_NAME.wsgi
+- Save and commit
+- Push the project to Github again
+- Connect your github account to your Heroku through the Deploy tab on Heroku
+- Connect your github project repository, and then click on the "Deploy" button that makes most sence to you "Auto" or "Manual"
+
 # Credits
 
-   ## Resources Used
+## Resources Used
+- Code Institutes 'Hello Django Videos'
+- Code Institutes 'I Think Therefore I Blog Videos'
+- [Stack overflow](https://stackoverflow.com/questions/15845116/how-to-set-min-length-for-models-textfield) learning max_lenth in models.
 
-   ## Content 
+- [Stack overflow](https://stackoverflow.com/questions/4101258/how-do-i-add-a-placeholder-on-a-charfield-in-django) to learn how to put a placholder on a CHarField in a form.
 
-   ## Honourable mentions
+- [Learning about Electronics](http://www.learningaboutelectronics.com/Articles/How-to-add-a-price-field-to-a-database-table-in-Django.php) to learn how to add price in models.
+
+- [dev](https://dev.to/greenteabiscuit/deleting-the-form-field-label-in-django-1i20) how to add the labels dictionary in the form.
+
+- [Geeksforgeeks](https://www.geeksforgeeks.org/python-random-sample-function/) learning about using random sample function.
+
+- [Youtube](https://www.youtube.com/watch?v=J7xaESAddDQ&t=67s) on how to update and edit a blog post.
+
+- [Youtube](https://www.youtube.com/watch?v=H4QPHLmsZMU) on how to create a bookmark.
+
+## Content 
+- All images, logo, and text have been made and written by me.
+
+## Honourable mentions
+- [Thomas Faulkner/Tom F](https://github.com/TuckerFaulk/) for the big help with understanding the big work behind what needs to go in the README.
 
 
    [Back to Top](#contents)## Credits
