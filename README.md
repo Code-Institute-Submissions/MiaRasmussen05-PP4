@@ -254,7 +254,7 @@ Logged Out
 
 Logged In
 
-![Color Pallet](https://imgur.com/LQzJN26.png)
+![Logged in nav bar](https://imgur.com/LQzJN26.png)
 
 __The Home Page__
 
@@ -385,6 +385,54 @@ __The Order Page__
 - The user should be able to update and delete it from here as well.
 
 ![Order Page](https://imgur.com/K9rm5tn.png)
+
+__Add Buttons__
+
+- On the shop, blog, portfolio, and gallery pages there is an add button all with different names on them. 
+
+![Add Button](https://imgur.com/XDG9JUI.png)
+
+- Other than the blog add button all the other buttons open a modal for the admin so they can add items to the page. 
+
+![Add Image](https://imgur.com/fKKDXpA.png)
+
+<details>
+  <summary>Add Project</summary>
+  <a href="https://imgur.com/pAAuWlI"><img src="https://imgur.com/pAAuWlI.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Add Shop Item</summary>
+  <a href="https://imgur.com/Jb7X6ej"><img src="https://imgur.com/Jb7X6ej.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  __Edit Pages__
+
+- On the shop, blog post, portfolio, and gallery pages there is a settings button for editing and deleting that item.
+
+![Settings Button With Menu](https://imgur.com/r6Sl9Vz.png)
+
+- Other than that each item has different content in them all pages are 100% the same.
+
+Edit
+![Edit Image](https://imgur.com/nkGfHbh.png)
+
+Delete
+![Delete Page](https://imgur.com/VWgXXrH.png)
+
+  __Account Pages__
+
+Login
+![Login Page](https://imgur.com/jg37roJ.png)
+
+Sign Up
+![Sign Up Page](https://imgur.com/5vE4KNW.png)
+
+Logout
+![Logout Page](https://imgur.com/GUOfypi.png)
+
 
    ## CRUD
 
