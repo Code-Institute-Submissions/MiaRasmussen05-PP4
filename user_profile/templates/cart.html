@@ -112,7 +112,8 @@
                         {% for item_id, quantity in cart.items %}
                           <input type="hidden" name="cart_items[]" value="{{ item_id }}:{{ quantity }}">
                         {% endfor %}
-                        <button type="submit" class="btn btn-success w-100 mb-5 mb-lg-0">Place your order</button>
+                        <button type="submit" class="btn btn-success w-100 mb-2 mb-lg-0">Place your order</button>
+                        <p class="text-muted disclaimer">Disclaimer:  This was made for a project and does not offer any actual purchases. </p>
                       </form>
                 </div>
             </div>

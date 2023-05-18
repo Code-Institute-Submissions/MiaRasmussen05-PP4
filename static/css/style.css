@@ -239,6 +239,7 @@ main {
 .services div {
     width: 420px;
     height: 300px;
+    font-size: 20px;
     background-color: #9A005A;
 }
 
@@ -691,6 +692,10 @@ footer .socials {
     font-weight: 700;
 }
 
+.disclaimer {
+    font-size: 12px;
+}
+
 @media screen and (max-width: 1280px) {
     .gallery img {
         width: 300px;
@@ -706,11 +711,20 @@ footer .socials {
 @media screen and (max-width: 1060px) {
     .services div {
         width: 320px;
-        height: 200px;
+        height: 240px;
+        font-size: 18px;
+    }
+
+    .services div h3 {
+        font-size: 22px;
     }
 }
 
 @media screen and (max-width: 991px) { 
+    .img-me-wrapper {
+        margin-bottom: 0px!important;
+    } 
+
     .masthead-text {
         height: 290px;
     }
@@ -775,7 +789,14 @@ footer .socials {
 
     .services div {
         width: 260px;
-        height: 150px;
+        height: 190px;
+        font-size: 16px;
+    }
+
+    .services div h3 {
+        font-size: 20px;
+        margin-top: 0px!important;
+        margin-bottom: 10px!important;
     }
 
     .footeralert {
@@ -797,6 +818,10 @@ footer .socials {
 
     .masthead-text {
         border-radius: 5px;
+    }
+
+    .shop-item-page .card-img-top {
+        height: 500px;
     }
 
     .profile-page p {
@@ -950,8 +975,12 @@ footer .socials {
         margin-bottom: 650px;
     }
 
-    .shop-item-page, .project, .gallery {
+    .shop-carousel-page, .project, .gallery {
         margin-bottom: 600px;
+    }
+
+    .shop-item-page .card-img-top {
+        height: 400px;
     }
 
     .blog-pagination {
@@ -1018,6 +1047,10 @@ footer .socials {
     .active-button {
         width: 120px;
         height: 44px;
+    }
+
+    .shop-item-page .card-img-top {
+        height: 300px;
     }
 
     .blog .tall-blog {
