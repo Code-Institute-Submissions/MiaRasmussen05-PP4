@@ -179,17 +179,71 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
   <br>
 
   ## Surface
-    - ## Visual Design
+
+    ### __Visual Design__
 
     ### Typography
 
+    I went for the automatic font style to be my main font, but for the headings on my pages I went for a new font for the first letter to add a little style, the style chosen was 'Great Vibes' with a secondary font of 'cursive'.
+
     ### Color Scheme
 
+    I went for a warm color scheme with brown colors with burgundy for the main color that is used to show buttons and some backgrounds to make all of these easily distinguishable between the browns.
+    The color pallet was made with [Coolors](https://coolors.co/).
+
+    ![Color Pallet](https://imgur.com/2MnPgXG.png)
+
   # Agile Methodology
+
+  An Agile approach was taken for the management of this project.
+
+  - User stories were written for each of the site's features.
+
+  - The user stories were then managed in a Kanban board, which was created in GitHub Projects.
 
 # Features
 
    ## Existing Features
+
+- __Logo__
+
+![Logo](https://imgur.com/23njbGW.png)
+
+- __Navigation Bar__
+
+Logged Out
+
+![Logged out nav bar](https://imgur.com/U834sV5.png)
+
+Logged In
+
+![Color Pallet](https://imgur.com/LQzJN26.png)
+
+- __The Home Page__
+
+The home page is the first page a user sees, it shows a bit about the admin and about their services.
+
+![Home Page](https://imgur.com/nQsGty5.png)
+
+- __Footer__
+
+![Footer big screens](https://imgur.com/lgUPnvU.png)
+
+![Footer small screens](https://imgur.com/gDiibUG.png)
+
+- __The Shop Page__
+
+The shop page is where the user can look through the content and either click on the shop items page or just add it directly to the cart. The admin can on this page add a new shop item, edit or delete. 
+
+![Shop Page](https://imgur.com/7WRYFBI.png)
+
+- __The Blog Page__
+
+The blog page is where the user can look through the blog post and find either a new one to read or click on it to read again. The admin can on this page click on the button to add a new blog post.
+
+![Blog Page](https://imgur.com/vN7JZQE.png)
+
+
 
    - ### CRUD
 
