@@ -113,11 +113,70 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
 
   - __Delete Comment:__ I can delete all comments to keep the content friendly and respectful, while users can only delete their own.
 
-  ## Scope 
+   ## Scope
+  An MVP (Minimum Viable Product) approach was taken to the development of this site. The main features deemed as basic requirements for this site were:
+  
+  - Account Registration
+  - CRUD Functionality (Both for Site User and Site Admin)
+  - Device Responsiveness
+  
+  For a more detailed explanation of all existing features see [Existing Features](#existing-features). [Future Features](#future-features) were still within the possible scope of this project, they were not necessary at this point in time for the site to still work.
+
   ## Structure
+
+  ### Site Navigation Flowchart
+
+  Both Flow charts where made to see the structure of navigation on the page. The flowcharts were created with [Lucid](https://lucid.app/documents#/dashboard).
+
+  ![Flowchart for admin](https://imgur.com/TVj2EKQ.png)
+
+  ![Flowchart for users](https://imgur.com/wzskQyz.png)
+
   ## Skeleton
 
-- ## Wireframes
+  ### Wireframes
+
+  <details>
+  <summary>Wireframes Home Page</summary>
+  <a href="https://imgur.com/A6zbaaR"><img src="https://imgur.com/A6zbaaR.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Shop Page</summary>
+  <a href="https://imgur.com/YrbD5ys"><img src="https://imgur.com/YrbD5ys.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Blog Page</summary>
+  <a href="https://imgur.com/6FX8UKu"><img src="https://imgur.com/6FX8UKu.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Portfolio Page</summary>
+  <a href="https://imgur.com/iBGtkiu"><img src="https://imgur.com/iBGtkiu.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Gallery Page</summary>
+  <a href="https://imgur.com/JgzC7c8"><img src="https://imgur.com/JgzC7c8.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Contact Page</summary>
+  <a href="https://imgur.com/MUi2Uzf"><img src="https://imgur.com/MUi2Uzf.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Login/Sign up</summary>
+  <a href="https://imgur.com/2gJe4OR"><img src="https://imgur.com/2gJe4OR.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
 
   ## Surface
     - ## Visual Design
