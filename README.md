@@ -33,8 +33,7 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
 
 [Technology](#technology)
 - [Languages Used](#languages-used)
-- [Libraries Used](#libraries-used)
-- [Programs Used](#programs-used)
+- [Libraries and Programs Used](#libraries-and-programs-used)
 
 [Testing](#testing)
 - [Automated Testing](#automated-testing)
@@ -303,13 +302,55 @@ The blog page is where the user can look through the blog post and find either a
 
    - ### Future Features
 
+     - Site users can like shop items and images in gallery that then gets saved in favorites as well.
+
+     - Site users can see each others profiles to see hat others have saved.
+
+     - Site users can add stars for the photos in gallery give it a score.
+
+     - Admin will be able to add a section only visible for logged in users on different pages with special content.
+
    ## Technology
 
    - ### Languages Used
+     - HTML
+     - CSS
+     - JavaScript
+     - Python
+     - Django
+     - Unitest (Django’s unit tests)
 
-   - ### Libraries Used
+   - ### Libraries and Programs Used
 
-   - ### Programs Used
+     - Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
+
+     - [GitHub](https://github.com/) - Was used to store the project code and display the project in GitHub Pages.
+
+     - [Figma](https://www.figma.com/) - Was used to create the wireframes.
+
+     - [Coolors](https://coolors.co/) - Was used for creating a pallet of the colors used.
+
+     - [Lucid](https://lucid.app/) - Was used to create the flowcharts.
+
+     - [Font Awesome](https://fontawesome.com/) - Was used to add icons for the social links in the footer.
+
+     - Google Dev Tools- Were used to test and troubleshoot the webpage as well as fix problems with responsive design and styling.
+
+     - [Google Fonts](https://fonts.google.com/) - Where used to import every font used in the website.
+
+     - [Shields](https://shields.io/) - Was used to add different shields into the README. 
+
+     - [Favicon](https://favicon.io/) - Was used to take the logo and make it into a favicon.
+
+     - [Google Fonts](https://fonts.google.com/) - Where used to import every font used in the website.
+
+     - [Heroku](heroku.com) - Where used for Deployment.
+
+     - [Bootstrap](https://getbootstrap.com/) - Where used for CSS and some HTML.
+
+     - [ElephantSQL](https://www.elephantsql.com/) - Where used for PostgreSQL database hosting.
+
+     - [Cloudinary](https://console.cloudinary.com/) - Where used to save static media files.
 
    ## Testing
 
