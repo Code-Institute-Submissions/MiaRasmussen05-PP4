@@ -331,7 +331,7 @@ __The Portfolio Page__
 
 __The Gallery Page__
 
-- The gallery page is where the user can go through the admins photos, added into differnt categories or all at once.
+- The gallery page is where the user can go through the admin's photos, added into different categories or all at once.
 - The admin can also here add new photos to the page.
 
 ![Gallery Page](https://imgur.com/4kZuVht.png)
@@ -343,13 +343,50 @@ __The Gallery Page__
 
 __The Contact Page__
 
-- The contact page is where the user can contact the admin with what inqueri they got for projects, or just questions.
-- When the user clicks send, an email gets send to the admin with the information. And the user gets an email to confirm that that admin has gotten their email.
+- The contact page is where the user can contact the admin with what inquiries they got for projects, or just questions.
+- When the user clicks send, an email gets sent to the admin with the information. And the user gets an email to confirm that that admin has gotten their email.
 
 ![Contact Page](https://imgur.com/h9rjKwB.png)
 
+__The Profile Page__
 
-   - ### CRUD
+- When a user signs up a profile page is automatically created.
+- A user can through the menu to go to edit the profile page.
+- Here they can add a profile image, and decide to add their first, or last name, email, or a little bio.
+
+![Profile Page](https://imgur.com/psrFBFZ.png)
+
+__The Favorites Page__
+
+- When a user has any bookmarks saved they will show up on this page.
+- Here they can remove the bookmark on the blog post from the bookmarked page again.
+- Or they can click on the blog post to go to its page to read it, see the comments, or write their own comment.
+
+![Bookmark Page](https://imgur.com/RmIL578.png)
+
+__The Cart Page__
+
+- When a user has added a shop item to the cart this is where it will show up.
+- Here they can change the quantity between 0 and 5 which is the limit. 
+- If they update it to 0 it will be removed but a user can also remove 5 items at a time by clicking the trash can.
+- On this page, the order value, shipping amount, or if the user can get free shipping shows as well, and the total of the order gets shown.
+- You can also see how many items in total there are in your cart by seeing the number in the left corner. 
+
+Empty Cart
+![Cart Page Empty](https://imgur.com/klYnFdU.png)
+
+Item in Cart
+![Cart Page](https://imgur.com/jXJozTe.png)
+
+__The Order Page__
+
+- The order page is where in theory the cart items order sheet will show up when you click place order.
+- Each order should be clickable that goes to a page where you can see all the detail for the order.
+- The user should be able to update and delete it from here as well.
+
+![Order Page](https://imgur.com/K9rm5tn.png)
+
+   ## CRUD
 
    - __As a Visiting User:__
     - __READ__: A visiting user can view all the pages but can not interact with the cart, comments, or reviews.
@@ -405,7 +442,7 @@ __The Contact Page__
    - Deletes content from any page
    - The user that contacts the admin gets an email send back to them.
 
-   - ### Future Features
+   ## Future Features
 
      - Site users can like shop items and images in gallery that then gets saved in favorites as well.
 
@@ -415,9 +452,9 @@ __The Contact Page__
 
      - Admin will be able to add a section only visible for logged in users on different pages with special content.
 
-   ## Technology
+  # Technology
 
-   - ### Languages Used
+  - ## Languages Used
      - HTML
      - CSS
      - JavaScript
@@ -425,7 +462,7 @@ __The Contact Page__
      - Django
      - Unitest (Django’s unit tests)
 
-   - ### Libraries and Programs Used
+   - ## Libraries and Programs Used
 
      - Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
 
@@ -457,19 +494,19 @@ __The Contact Page__
 
      - [Cloudinary](https://console.cloudinary.com/) - Where used to save static media files.
 
-   ## Testing
+   # Testing
 
-   - ### Automated Testing
+   ## Automated Testing
 
-   - ### Manual Test Cases
+   ## Manual Test Cases
 
-   - ### Code Validation
+   ## Code Validation
 
-   - ### Lighthouse
+   ## Lighthouse
 
-   - ### Debugging
+   ## Debugging
 
-   - ### Test on Different Browsers and Screen Sizes
+   ## Test on Different Browsers and Screen Sizes
 
 # Deployment
 
