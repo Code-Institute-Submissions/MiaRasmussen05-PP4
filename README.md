@@ -41,6 +41,7 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
 - [Code Validation](#code-validation)
 - [Lighthouse](#lighthouse)
 - [Debugging](#debugging)
+- [Unfixed Bugs](#unfixed-bugs)
 - [Test on Different Browsers and Screen Sizes](#test-on-different-browsers-and-screen-sizes)
 
 [Deployment](#deployment)
@@ -564,9 +565,42 @@ Logout
 
    ## Code Validation
 
+   ### HTML
+   - All HTML files were put into the W3C HTML Validator to check for errors and warnings. No errors or warnings were returned. 
+
+  ![HTML Validation](https://imgur.com/BvvFyT9.png)
+
+   ### CSS
+   - My CSS file was put into the W3C CSS Validator to check for errors and warnings. No errors or warnings were returned. 
+
+  ![CSS Validation](https://imgur.com/Z0pJhG4.png)
+
+   ### JS
+   - Both my JS files and my script in my base file were put into the JSHint Validator to check for errors and warnings. No errors were returned.
+
+  ![JS Validation](https://imgur.com/jfPF4jY.png)
+
+   ### Python
+   - All my Python files were put through the CI Python Linter and no the only thing that was returned were the long lines.
+
+   ![Python Validation](https://imgur.com/PxyVJcm.png)
+
    ## Lighthouse
 
    ## Debugging
+   Most Bugs were gone after 5 minutes but these 2 took me quite a bit to figure out and fix.
+
+   - NoReverseMatch was one of the bugs there irritated me the most, but this one I thought I understood but in the beginning no matter what I did, it just didn't work and kept coming. I fixed it when I found out it was because the name attribute was spelled wrong, where I had ended it with an s.
+
+  ![NoReverseMatch Error](https://imgur.com/fTqEBcx.png)
+
+  - TemplateSyntaxError was the most irritating thing to debug. I spend way too long finding out that it also counts if I have a commented-out endblock or endfor and so on. So these don't just stop hurting the code when they are commented out but they need to be deleted completely.
+
+  ![NoReverseMatch Error](https://imgur.com/7dItchh.png)
+   
+   ## Unfixed Bugs
+
+   - One bug I did not have the time to figure out why was happening, because of some problems, where the place your order. So in my cart, there is a button to place an order but it just moves the user to the order list and does not actually make an order from the items in the cart.
 
    ## Test on Different Browsers and Screen Sizes
 
