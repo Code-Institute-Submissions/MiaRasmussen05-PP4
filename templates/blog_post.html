@@ -26,18 +26,19 @@
                 <div class="col-12 d-flex justify-content-end settings blog-settings">
                     {% if user.is_authenticated and user.is_staff %}
                     <div class="dropdown">
-                        <button class="border-0 bg-transparent" type="button" id="settings" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="border-0 bg-transparent" id="settingsBlog" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="fas fa-cog"></i>
                         </button>
-                        <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="settings">
+                        <ul class="dropdown-menu settings-dropdown-menu">
                             <li>
                                 <a class="dropdown-item" href="{% url 'edit_blog' post.slug %}">
-                                    <button class="dropdown-item">Edit Blog</button>
+                                    <div class="dropdown-item">Edit Blog</div>
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{% url 'delete_blog' post.slug %}">
-                                    <button class="dropdown-item">Delete Blog</button>
+                                    <div class="dropdown-item">Delete Blog</div>
                                 </a>
                             </li>
                         </ul>
@@ -49,46 +50,49 @@
     </div>
 </section>
 
-<section>
-    <div class="container blog-detail">
-        <div class="row">
-            <div class="col card mb-4  mt-3 left top bg-transparent border-0">
-                <div class="card-body">
-                    <p class="card-text ">
-                        {{ post.content | safe }}
-                    </p>
+<div class="container blog-detail">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left top bg-transparent border-0">
+            <div class="card-body">
+                <p class="card-text ">
+                    {{ post.content | safe }}
+                </p>
 
-                    <div class="row">
-                        <div class="col-12 d-inline-flex justify-content-between">
-                            <div class="row col-10">
-                                <div class="d-md-flex col-md-1">
-                                    <strong class="blog-heart">
-                                        {% if user.is_authenticated %}
-                                        <form class="d_inline" action="{% url 'blog_like' post.slug %}" method="POST">
-                                            {% csrf_token %}
-                                            {% if liked %}
-                                            <button type="submit" name="post_id" value="{{post.slug}}"
-                                                class="btn-like bg-transparent border-0"><i class="fas fa-heart"></i></button>
-                                            {% else %}
-                                            <button type="submit" name="post_id" value="{{post.slug}}"
-                                                class="btn-like bg-transparent border-0"><i class="far fa-heart"></i></button>
-                                            {% endif %}
-                                        </form>
+                <div class="row">
+                    <div class="col-12 d-inline-flex justify-content-between">
+                        <div class="row col-10">
+                            <div class="d-md-flex col-md-1">
+                                <div class="blog-heart">
+                                    {% if user.is_authenticated %}
+                                    <form class="d_inline" action="{% url 'blog_like' post.slug %}" method="POST">
+                                        {% csrf_token %}
+                                        {% if liked %}
+                                        <button type="submit" name="post_id" value="{{post.slug}}"
+                                            class="btn-like bg-transparent border-0"><i
+                                                class="fas fa-heart"></i></button>
                                         {% else %}
-                                        <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                        <button type="submit" name="post_id" value="{{post.slug}}"
+                                            class="btn-like bg-transparent border-0"><i
+                                                class="far fa-heart"></i></button>
                                         {% endif %}
+                                    </form>
+                                    {% else %}
+                                    <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                    {% endif %}
+                                    <strong>
                                         <span class="text-secondary blog-likes">{{ post.number_of_likes }}</span>
                                     </strong>
+                                </div>
 
-                                </div>
-                                <div class="d-md-flex col-md-2">
-                                    {% with comments.count as total_comments %}
-                                    <strong class="text-secondary blog-comment"><i class="far fa-comments"></i>
-                                        {{ total_comments }}</strong>
-                                    {% endwith %}
-                                </div>
                             </div>
-                            {% if user.is_authenticated %}
+                            <div class="d-md-flex col-md-2">
+                                {% with comments.count as total_comments %}
+                                <strong class="text-secondary blog-comment"><i class="far fa-comments"></i>
+                                    {{ total_comments }}</strong>
+                                {% endwith %}
+                            </div>
+                        </div>
+                        {% if user.is_authenticated %}
                         {% if bookmark %}
                         <a href="{% url 'bookmark' post.slug %}" title="Unsave"> <i
                                 class="fas fa-bookmark filled-bookmark"></i></a>
@@ -97,18 +101,17 @@
                                 class="far fa-bookmark unfilled-bookmark"></i></a>
                         {% endif %}
                         {% endif %}
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <hr>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
         </div>
     </div>
-</section>
+</div>
 
 <section>
     <div class="container-fluid blog-detail">
@@ -116,7 +119,7 @@
             <div class="col-12 col-sm-9 card mb-4 mt-3 bg-transparent border-0">
                 <div class="card-body p-0">
                     {% if user.is_authenticated %}
-    
+
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
                     <form method="post" class="mt-1">
@@ -136,7 +139,8 @@
                             <div class="d-flex">
                                 <div class="d-none d-md-block flex-shrink-0">
                                     {% if comment.user.profile.image %}
-                                    <img src="{{ comment.user.profile.image.url }}" class="user-img" alt="Profile Image">
+                                    <img src="{{ comment.user.profile.image.url }}" class="user-img"
+                                        alt="Profile Image">
                                     {% else %}
                                     <img src="https://imgur.com/kUyQ94l.png" class="user-img"
                                         alt="No image availible Placeholder">
@@ -150,29 +154,30 @@
                                             </a>
                                         </p>
                                         {% if request.user == comment.user or user.is_staff %}
-                                    <div class="dropdown">
-                                        <button class="border-0 bg-transparent" type="button " id="settings" data-bs-toggle="dropdown"
-                                            aria-expanded="false">
-                                            <i class="fas fa-cog"></i>
-                                        </button>
-                                        <ul class="dropdown-menu settings-dropdown-menu" aria-labelledby="settings">
-                                            {% if request.user == comment.user%}
-                                            <li>
-                                                <a class="dropdown-item" href="{% url 'edit-comment' comment.id %}">
-                                                    <button class="dropdown-item">Edit Comment</button>
-                                                </a>
-                                            </li>
-                                            {% endif %}
-                                            {% if request.user == comment.user or user.is_staff %}
-                                            <li>
-                                                <a class="dropdown-item" href="{% url 'delete-comment' comment.id %}">
-                                                    <button class="dropdown-item">Delete Comment</button>
-                                                </a>
-                                            </li>
-                                            {% endif %}
-                                        </ul>
-                                    </div>
-                                    {% endif %}
+                                        <div class="dropdown">
+                                            <button class="border-0 bg-transparent" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                            </button>
+                                            <ul class="dropdown-menu settings-dropdown-menu">
+                                                {% if request.user == comment.user%}
+                                                <li>
+                                                    <a class="dropdown-item" href="{% url 'edit-comment' comment.id %}">
+                                                        <div class="dropdown-item">Edit Comment</div>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+                                                {% if request.user == comment.user or user.is_staff %}
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{% url 'delete-comment' comment.id %}">
+                                                        <div class="dropdown-item">Delete Comment</div>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                        {% endif %}
                                     </div>
                                     {{ comment.body | linebreaks }}
                                     <span class=" text-muted font-weight-normal">

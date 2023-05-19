@@ -34,12 +34,11 @@
                             <input class="text-center input-quantity" type="number" id="quantity" name="quantity"
                                 min="1" max="5" value="1">
                             <button type="button" name="action" value="increment" class="btn increment">+</button>
-                            <button class="limit border-0" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <div class="limit border-0" role="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 <p class="text-muted d-flex align-items-center ms-4 mb-0">Limit 5
                                     <i class="fas fa-exclamation-circle text-muted ms-2"></i>
                                 </p>
-                            </button>
+                            </div>
                         </div>
 
                         <div class="collapse" id="collapseExample">
@@ -116,22 +115,22 @@
                                         </p>
                                         {% if request.user == review.user or user.is_staff %}
                                         <div class="dropdown">
-                                            <button class="border-0 bg-transparent" type="button" id="settings" data-bs-toggle="dropdown"
+                                            <button class="border-0 bg-transparent" data-bs-toggle="dropdown"
                                                 aria-expanded="false">
                                                 <i class="fas fa-cog"></i>
                                             </button>
-                                            <ul class="dropdown-menu settings" aria-labelledby="settings">
+                                            <ul class="dropdown-menu settings">
                                                 {% if request.user == review.user%}
                                                 <li>
                                                     <a class="dropdown-item" href="{% url 'edit-review' review.id %}">
-                                                        <button class="dropdown-item">Edit Review</button>
+                                                        <div class="dropdown-item">Edit Review</div>
                                                     </a>
                                                 </li>
                                                 {% endif %}
                                                 {% if request.user == comment.user or user.is_staff %}
                                                 <li>
                                                     <a class="dropdown-item" href="{% url 'delete-review' review.id %}">
-                                                        <button class="dropdown-item">Delete Review</button>
+                                                        <div class="dropdown-item">Delete Review</div>
                                                     </a>
                                                 </li>
                                                 {% endif %}

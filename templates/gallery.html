@@ -49,8 +49,7 @@
                 {% endif %}
 
                 <!-- Modal add image -->
-                <div class="modal fade" id="add_img" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="add_img" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header border-0 p-0 pt-2 pe-2">
@@ -64,23 +63,23 @@
                                         {% csrf_token %}
                                         <div class="add-form">
                                             <label class="mb-4" for="title">Title:</label>
-                                            <input type="text" name="title" required>
+                                            <input id="title" type="text" name="title" required>
                                             <br>
                                             <label class="mt-2 mb-4" for="category">Category:</label>
-                                            <select name="category">
+                                            <select id="category" name="category">
                                                 {% for category in categories %}
                                                 <option value="{{ category.id }}">{{ category.name }}</option>
                                                 {% endfor %}
                                             </select>
                                             <br>
                                             <label class="mt-2 mb-4" for="description">Description:</label>
-                                            <textarea name="description"></textarea>
+                                            <textarea id="description" name="description"></textarea>
                                             <br>
                                             <label class="mt-2 mb-4" for="image">Image:</label>
-                                            <input type="file" name="image" accept="image/*" required>
+                                            <input id="image" type="file" name="image" accept="image/*" required>
                                             <br>
                                             <label class="mt-2 mb-4" for="status">Status:</label>
-                                            <select name="status">
+                                            <select id="status" name="status">
                                                 <option value="0">Draft</option>
                                                 <option value="1">Published</option>
                                             </select>
@@ -105,12 +104,11 @@
             {% for image in images %}
             <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{ image.id }}">
-                    <img src="{{ image.image.url }}" class="img-fluid">
+                    <img src="{{ image.image.url }}" class="img-fluid" alt="Title of the image is {{ image.title }}">
                 </button>
             </div>
 
-            <div class="modal fade" id="exampleModal{{ image.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="exampleModal{{ image.id }}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header border-0 p-2 pb-0">
@@ -119,7 +117,7 @@
                                 data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body p-0 px-2">
-                            <img src="{{ image.image.url }}" class="img-fluid w-100">
+                            <img src="{{ image.image.url }}" class="img-fluid w-100" alt="">
                             <div class="col-12 d-flex justify-content-end">
                                 {% if user.is_authenticated and user.is_staff %}
                                 {% if user.is_authenticated and user.is_staff %}

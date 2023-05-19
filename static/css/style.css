@@ -926,7 +926,7 @@ footer .socials {
     }
     
     .sign-box {
-        border-radius: none;
+        border-radius: 0;
         box-shadow: none;
     }
     

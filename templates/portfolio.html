@@ -33,7 +33,7 @@
     </div>
 
     <!-- Modal add image -->
-    <div class="modal fade" id="add_project" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="add_project" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -47,22 +47,22 @@
                             {% csrf_token %}
                             <div class="add-form">
                                 <label class="mb-4" for="title">Title:</label>
-                                <input type="text" name="title" required>
+                                <input id="title" type="text" name="title" required>
                                 <br>
                                 <label class="mt-2 mb-4" for="image">Image:</label>
-                                <input type="file" name="image" accept="image/*">
+                                <input id="image" type="file" name="image" accept="image/*">
                                 <br>
                                 <label class="mb-4" for="description">Description:</label>
-                                <input type="text" name="description">
+                                <input id="description" type="text" name="description">
                                 <br>
                                 <label class="mt-2 mb-4" for="live_link">Live Link:</label>
-                                <input type="text" name="live_link">
+                                <input id="live_link" type="text" name="live_link">
                                 <br>
                                 <label class="mt-2 mb-4" for="git_link">Git Link:</label>
-                                <input type="text" name="git_link">
+                                <input id="git_link" type="text" name="git_link">
                                 <br>
                                 <label class="mt-2 mb-4" for="status">Status:</label>
-                                <select name="status">
+                                <select id="status" name="status">
                                     <option value="0">Draft</option>
                                     <option value="1">Published</option>
                                 </select>

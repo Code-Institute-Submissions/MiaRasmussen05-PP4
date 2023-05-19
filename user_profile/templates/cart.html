@@ -22,12 +22,11 @@
     </div>
 </section>
 
-<section>
-    <div class="container-fluid cart-page">
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                {% for item in cart_items %}
-                <div class="d-flex justify-content-center">
+<div class="container-fluid cart-page">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            {% for item in cart_items %}
+            <div class="d-flex justify-content-center">
                 <form class="col-11 col-lg-10" method="POST" action="{% url 'edit_cart' item.id %}">
                     {% csrf_token %}
                     <div class="row mb-3">
@@ -47,16 +46,14 @@
                                             class="fas fa-trash-alt"></i></a>
                                 </div>
                                 <div class="col-12 d-sm-flex mt-2 mt-md-5">
-                                    <strong>
-                                        <p class="cart-item-price mt-2 me-5">£{{ item.price }}</p>
-                                    </strong>
+                                    <p class="cart-item-price mt-2 me-5"><strong>£{{ item.price }}</strong></p>
                                     <div class="d-flex">
                                         <label for="quantity"></label>
-                                        <button type="button" name="action" value="decrement"
+                                        <button id="quantity" type="button" name="action" value="decrement"
                                             class="btn decrement">-</button>
-                                        <input class="text-center input-quantity" type="number" id="quantity_{{ item.id }}"
-                                            name="quantity" min="0" max="5" value="{{ item.quantity }}"
-                                            data-cart-item-id="{{ item.id }}">
+                                        <input class="text-center input-quantity" type="number"
+                                            id="quantity_{{ item.id }}" name="quantity" min="0" max="5"
+                                            value="{{ item.quantity }}" data-cart-item-id="{{ item.id }}">
                                         <button type="button" name="action" value="increment"
                                             class="btn btn-outline-primary increment">+</button>
                                     </div>
@@ -69,7 +66,7 @@
                     </div>
                     <hr>
                 </form>
-                </div>
+            </div>
             {% empty %}
             <div class="container-fluid mt-5 mb-5">
                 <div class="row">
@@ -81,44 +78,45 @@
                     </div>
                 </div>
             </div>
-    
+
             {% endfor %}
-            </div>
-            <div class="col-12 col-lg-4 d-flex">
-                <div class="col-12 pe-1 pe-sm-4 ps-1 ps-sm-3 ps-lg-0 mb-5 mb-lg-0">
-                    <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
-                        <p>Order value</p>
-                        <p>£{{ total }}</p>
-                    </div>
-                    <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
-                        <p>Shipping</p>
-                        {% if cart_items %}
-                            {% if total >= free_shipping %}
-                            <p>Free shipping</p>
-                            {% else %}
-                            <p>£{{ shipping_fee }}</p>
-                            {% endif %}
-                        {% else %}
-                        <p>£0</p>
-                        {% endif %}
-    
-                    </div>
-                    <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
-                        <p class="order-total">Order total</p>
-                        <p class="order-total">£{{ total_with_shipping }}</p>
-                    </div>
-                    <form method="post" action="{% url 'create_order' %}">
-                        {% csrf_token %}
-                        {% for item_id, quantity in cart.items %}
-                          <input type="hidden" name="cart_items[]" value="{{ item_id }}:{{ quantity }}">
-                        {% endfor %}
-                        <button type="submit" class="btn btn-success w-100 mb-2 mb-lg-0">Place your order</button>
-                        <p class="text-muted disclaimer">Disclaimer:  This was made for a project and does not offer any actual purchases. </p>
-                      </form>
+        </div>
+        <div class="col-12 col-lg-4 d-flex">
+            <div class="col-12 pe-1 pe-sm-4 ps-1 ps-sm-3 ps-lg-0 mb-5 mb-lg-0">
+                <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
+                    <p>Order value</p>
+                    <p>£{{ total }}</p>
                 </div>
+                <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
+                    <p>Shipping</p>
+                    {% if cart_items %}
+                    {% if total >= free_shipping %}
+                    <p>Free shipping</p>
+                    {% else %}
+                    <p>£{{ shipping_fee }}</p>
+                    {% endif %}
+                    {% else %}
+                    <p>£0</p>
+                    {% endif %}
+
+                </div>
+                <div class="d-flex justify-content-between ms-3 me-3 ms-lg-0 me-lg-1">
+                    <p class="order-total">Order total</p>
+                    <p class="order-total">£{{ total_with_shipping }}</p>
+                </div>
+                <form method="post" action="{% url 'create_order' %}">
+                    {% csrf_token %}
+                    {% for item_id, quantity in cart.items %}
+                    <input type="hidden" name="cart_items[]" value="{{ item_id }}:{{ quantity }}">
+                    {% endfor %}
+                    <button type="submit" class="btn btn-success w-100 mb-2 mb-lg-0">Place your order</button>
+                    <p class="text-muted disclaimer">Disclaimer: This was made for a project and does not offer any
+                        actual purchases. </p>
+                </form>
             </div>
         </div>
     </div>
-</section>
+</div>
+
 
 {% endblock %}

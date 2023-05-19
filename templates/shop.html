@@ -64,8 +64,7 @@
                     </div>
 
                     <!-- Modal add shop -->
-                    <div class="modal fade" id="add_shop" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
+                    <div class="modal fade" id="add_shop" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -80,32 +79,32 @@
                                             {% csrf_token %}
                                             <div class="add-form">
                                                 <label class="mb-4" for="title">Title:</label>
-                                                <input type="text" name="title" required>
+                                                <input id="title" type="text" name="title" required>
                                                 <br>
                                                 <label class="mb-4" for="item">Item:</label>
-                                                <input type="text" name="item" required>
+                                                <input id="item" type="text" name="item" required>
                                                 <br>
                                                 <label class="mt-2 mb-4" for="image">Image:</label>
-                                                <input type="file" name="image" accept="image/*" required>
+                                                <input id="image" type="file" name="image" accept="image/*" required>
                                                 <br>
                                                 <label class="mt-2 mb-4" for="description">Description:</label>
-                                                <textarea name="description"></textarea>
+                                                <textarea id="description" name="description"></textarea>
                                                 <br>
                                                 <label class="mb-4" for="price">Price:</label>
-                                                <input type="number" name="price" step="0.01" min="0" required>
+                                                <input id="price" type="number" name="price" step="0.01" min="0" required>
                                                 <br>
                                                 <label class="mb-4" for="quantity">Quantity:</label>
-                                                <input type="number" name="quantity" step="1" min="0" required>
+                                                <input id="quantity" type="number" name="quantity" step="1" min="0" required>
                                                 <br>
                                                 <label class="mt-2 mb-4" for="category">Category:</label>
-                                                <select name="shop_category">
+                                                <select id="category" name="shop_category">
                                                     {% for category in categories %}
                                                     <option value="{{ category.id }}">{{ category.name }}</option>
                                                     {% endfor %}
                                                 </select>
                                                 <br>
                                                 <label class="mt-2 mb-4" for="status">Status:</label>
-                                                <select name="status">
+                                                <select id="status" name="status">
                                                     <option value="0">Draft</option>
                                                     <option value="1">Published</option>
                                                 </select>
