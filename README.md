@@ -702,6 +702,54 @@ Logout
       <img src="https://imgur.com/n5b2wvj.png" title="source: imgur.com" />
     </details>
     <br>
+  
+  - [#20](https://github.com/MiaRasmussen05/PP4/issues/20)
+  __I can view the images in the gallery so that I can click on an image to learn more about it and just look through images.__
+
+    - All users can view the content of the gallery page. Where they can see all images or see the images that are one of the categories. 
+    - All images are clickable where a modal shows up with a little description of the image and the photos name.
+
+    <details>
+      <summary>Gallery Page</summary>
+      <img src="https://imgur.com/4kZuVht.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#21](https://github.com/MiaRasmussen05/PP4/issues/21)
+  __I can view other peoples profiles so that I can see who posted on blog posts and added reviews in shop__
+
+    - In the future, all logged-in users can click on another user's name from a comment or review and then see that user's profile and what they have saved.
+
+    <details>
+      <summary>Profile Page</summary>
+      <img src="https://imgur.com/psrFBFZ.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#22](https://github.com/MiaRasmussen05/PP4/issues/22)
+  __I can add, view, update, an delete items from my cart so that I can decide what I order directly in the cart.__
+
+    - Logged-in users can add items from the shop to their carts, here they can then update the number if they put in too many or put more in if they decide they want more.
+    - There are 2 ways for the user to delete the items from their cart and that is by updating the number to 2 or clicking the trashcan.
+
+    <details>
+      <summary>Cart Page</summary>
+      <img src="https://imgur.com/klYnFdU.png" title="source: imgur.com" />
+      <img src="https://imgur.com/jXJozTe.png" title="source: imgur.com" />
+    </details>
+    <br>
+
+  - [#23](https://github.com/MiaRasmussen05/PP4/issues/23)
+  __I can read, edit and delete my orders until they get send so that if I change my mind then I can update or delete my orders.__
+
+    - Logged-in users will be able to in the future, click on the button in the cart to place their order and then it will make an order and put it in the user's order history.
+    - In there they can update it and delete it until it has been sent.
+
+    <details>
+      <summary>Order History Page</summary>
+      <img src="https://imgur.com/K9rm5tn.png" title="source: imgur.com" />
+    </details>
+    <br>
 
    ## Code Validation
 
