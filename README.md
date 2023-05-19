@@ -359,7 +359,7 @@ __The Gallery Page__
 __The Contact Page__
 
 - The contact page is where the user can contact the admin with what inquiries they got for projects, or just questions.
-- When the user clicks send, an email gets sent to the admin with the information. And the user gets an email to confirm that that admin has gotten their email.
+- When the user clicks send, an email gets sent to the admin with the information. And the user gets an email to confirm that that admin has gotten their email. (This only happens when the user is logged in, because the program used is EmailJS.)
 
 ![Contact Page](https://imgur.com/h9rjKwB.png)
 
@@ -563,6 +563,46 @@ Logout
 
    ## Manual Test Cases
 
+   Site User:
+
+  - [#1](https://github.com/MiaRasmussen05/PP4/issues/1)
+  __I can Register an Account so that I can access the system to create my own profile, shop and be apart of the communication on the site.__
+
+    <details>
+      <summary>Account Features</summary>
+      <img src="https://imgur.com/jg37roJ.png" title="source: imgur.com" /></a>
+      <img src="https://imgur.com/GUOfypi.png" title="source: imgur.com" /></a>
+      <img src="https://imgur.com/5vE4KNW.png" title="source: imgur.com" /></a>
+    </details>
+    <br>
+  
+  - [#2](https://github.com/MiaRasmussen05/PP4/issues/2)
+  __I can Edit my personal profile so that I can choose my profile image, as well as decide if I want to add my name, email and bio.__
+
+    <details>
+      <summary>Edit Profile</summary>
+      <img src="https://imgur.com/zi8Euv7.png" title="source: imgur.com" /></a>
+    </details>
+    <br>
+  
+  - [#3](https://github.com/MiaRasmussen05/PP4/issues/3)
+  __I can view a list of the items in the shop so that I can decide if I want to buy any item.__
+  
+    <details>
+      <summary>Shop Page</summary>
+      <img src="https://imgur.com/BdL1uMN.png" title="source: imgur.com" /></a>
+    </details>
+    <br>
+  
+  - [#8](https://github.com/MiaRasmussen05/PP4/issues/8)
+  __I can add a review to a shop item so that I can be apart of the rating and keeping items up to quality.__
+
+    <details>
+      <summary>Review Section</summary>
+      <img src="https://imgur.com/0jxKXCw.png" title="source: imgur.com" /></a>
+    </details>
+    <br>
+
    ## Code Validation
 
    ### HTML
@@ -587,6 +627,14 @@ Logout
 
    ## Lighthouse
 
+   - All pages achieved a great score for accessibility performance.
+
+  <details>
+  <summary>Lighthouse Validation</summary>
+  <a href="https://imgur.com/ULQZ90P"><img src="https://imgur.com/ULQZ90P.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
    ## Debugging
    Most Bugs were gone after 5 minutes but these 2 took me quite a bit to figure out and fix.
 
@@ -603,6 +651,9 @@ Logout
    - One bug I did not have the time to figure out why was happening, because of some problems, where the place your order. So in my cart, there is a button to place an order but it just moves the user to the order list and does not actually make an order from the items in the cart.
 
    ## Test on Different Browsers and Screen Sizes
+
+   - This website was tested on Chrome, Firefox, Edge, and Safari. 
+   - It was tested with 300px idth to larger then 1200px widt, runnin with no problems.
 
 # Deployment
 
