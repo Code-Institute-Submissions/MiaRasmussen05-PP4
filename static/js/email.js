@@ -4,7 +4,7 @@ function sendMail(contactForm) {
         "from_fiName": contactForm.fiName.value,
         "from_laName": contactForm.laName.value,
         "from_email": contactForm.email.value,
-        "for_reason": contactForm.reason.value,
+        "for_reason": contactForm.formSelect.value,
         "inquiry_request": contactForm.teArea.value
     })
     .then(
