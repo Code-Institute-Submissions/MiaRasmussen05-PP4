@@ -567,39 +567,92 @@ Logout
 
   - [#1](https://github.com/MiaRasmussen05/PP4/issues/1)
   __I can Register an Account so that I can access the system to create my own profile, shop and be apart of the communication on the site.__
+    
+    - Users can find the login, sign up and logout pages links in the navbar.
 
     <details>
       <summary>Account Features</summary>
-      <img src="https://imgur.com/jg37roJ.png" title="source: imgur.com" /></a>
-      <img src="https://imgur.com/GUOfypi.png" title="source: imgur.com" /></a>
-      <img src="https://imgur.com/5vE4KNW.png" title="source: imgur.com" /></a>
+      <img src="https://imgur.com/jg37roJ.png" title="source: imgur.com" />
+      <img src="https://imgur.com/GUOfypi.png" title="source: imgur.com" />
+      <img src="https://imgur.com/5vE4KNW.png" title="source: imgur.com" />
     </details>
     <br>
   
   - [#2](https://github.com/MiaRasmussen05/PP4/issues/2)
   __I can Edit my personal profile so that I can choose my profile image, as well as decide if I want to add my name, email and bio.__
 
+    - Users can in their navbar find the link to the edit profile page. Where they here can edit what they want to edit on their profile.
+
     <details>
       <summary>Edit Profile</summary>
-      <img src="https://imgur.com/zi8Euv7.png" title="source: imgur.com" /></a>
+      <img src="https://imgur.com/zi8Euv7.png" title="source: imgur.com" />
     </details>
     <br>
   
   - [#3](https://github.com/MiaRasmussen05/PP4/issues/3)
   __I can view a list of the items in the shop so that I can decide if I want to buy any item.__
+
+    - The shop page is open for all users to look throught. It has images, prices and names of the items. As well as the user can change between categories if it is something special they are looking for.
   
     <details>
       <summary>Shop Page</summary>
-      <img src="https://imgur.com/BdL1uMN.png" title="source: imgur.com" /></a>
+      <img src="https://imgur.com/BdL1uMN.png" title="source: imgur.com" />
     </details>
     <br>
   
   - [#8](https://github.com/MiaRasmussen05/PP4/issues/8)
   __I can add a review to a shop item so that I can be apart of the rating and keeping items up to quality.__
 
+    - Logged in users can, when they are on a shop item page, leave a review for anyone to read. 
+
     <details>
       <summary>Review Section</summary>
-      <img src="https://imgur.com/0jxKXCw.png" title="source: imgur.com" /></a>
+      <img src="https://imgur.com/0jxKXCw.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#9](https://github.com/MiaRasmussen05/PP4/issues/9)
+  __I can read individual reviews on the shop item so that I can make a qualified decision about the item.__
+
+    - All users can read through the reviews left by logged in users.
+
+    <details>
+      <summary>Review Section</summary>
+      <img src="https://imgur.com/0jxKXCw.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#10](https://github.com/MiaRasmussen05/PP4/issues/10)
+  __I can edit my own review so that I can change it again, or update it later.__
+
+    - The logged in user that has left a review can update the review later.
+
+    <details>
+      <summary>Review Settings</summary>
+      <img src="https://imgur.com/6bSKRic.png" title="source: imgur.com" />
+      <img src="https://imgur.com/ecVXkVy.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#13](https://github.com/MiaRasmussen05/PP4/issues/13)
+  __I can add a comment to a blog post so that I can be apart of the conversation.__
+    
+    - Logged in users can, when they are on a blog post, leave a comment for anyone to read. 
+
+    <details>
+      <summary>Comment Section</summary>
+      <img src="https://imgur.com/J4ZfLvq.png" title="source: imgur.com" />
+    </details>
+    <br>
+
+  - [#14](https://github.com/MiaRasmussen05/PP4/issues/14)
+  __I can read individual comments on a blog post so that I can read the conversation.__
+
+    - All users can read through the comments left by logged in users.
+
+    <details>
+      <summary>Review Section</summary>
+      <img src="https://imgur.com/0jxKXCw.png" title="source: imgur.com" />
     </details>
     <br>
 
