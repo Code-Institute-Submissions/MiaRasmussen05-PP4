@@ -561,6 +561,12 @@ Logout
 
    ## Automated Testing
 
+   The automated testing was completed using Django’s unit tests Python standard library module Unittest for the Django files: "models.py", "urls.py", and "views.py".
+
+   All 57 I carried out have passed: 
+
+  ![Automated Testing](https://imgur.com/ImbOY8z.png)
+
    ## Manual Test Cases
 
    Site User:
