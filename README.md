@@ -655,6 +655,53 @@ Logout
       <img src="https://imgur.com/0jxKXCw.png" title="source: imgur.com" />
     </details>
     <br>
+  
+  - [#15](https://github.com/MiaRasmussen05/PP4/issues/15)
+  __I can edit my own comment so that I can change it again, or update it later.__
+
+    - The logged in user that has left a comment can update the comment later.
+    
+    <details>
+      <summary>Comment Settings</summary>
+      <img src="https://imgur.com/4LM3pIz.png" title="source: imgur.com" />
+      <img src="https://imgur.com/3GqFBkd.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#17](https://github.com/MiaRasmussen05/PP4/issues/17)
+  __I can like or unlike a blog post so that I can interact with the content.__
+
+    - A logged in user can like or unlike a blog post.
+
+    <details>
+      <summary>Like/Unlike</summary>
+      <img src="https://imgur.com/vvqBbAC.png" title="source: imgur.com" />
+      <img src="https://imgur.com/x8AiTeW.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#18](https://github.com/MiaRasmussen05/PP4/issues/18)
+  __I can bookmark or remove bookmark again on blog posts to add on favourites page on profile so that I can decide which to save specially for remove again.__
+
+    - A logged in user can bookmark or remove a bookmark from a blog post.
+
+    <details>
+      <summary>Bookmark</summary>
+      <img src="https://imgur.com/ku3NChd.png" title="source: imgur.com" />
+      <img src="https://imgur.com/X8Zrg9q.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#19](https://github.com/MiaRasmussen05/PP4/issues/19)
+  __I can view the projects in the portfolio so that I can decide to click on a link to watch it more closely.__
+
+    - All users can view the content of the protfolio page. Where they can see an image from the project, the name of the project, links if it has any, and a little description of that project.
+
+    <details>
+      <summary>Project Page</summary>
+      <img src="https://imgur.com/n5b2wvj.png" title="source: imgur.com" />
+    </details>
+    <br>
 
    ## Code Validation
 
