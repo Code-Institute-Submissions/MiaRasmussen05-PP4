@@ -30,6 +30,10 @@ class TestViews(TestCase):
             title='Item 3', shop_category=self.shop_category,
             price=2.00, status=0)
 
+        self.name = 'Jane Doe'
+        self.email = 'janedoe@example.com'
+        self.comment = 'Testing comment!'
+
     def test_home_view(self):
         """
         Test the home view for the index page
@@ -65,3 +69,59 @@ class TestViews(TestCase):
         self.assertIn(self.shop_category, response.context['categories'])
 
         self.assertIsNone(response.context['selected_category'])
+
+    def test_shop_item_view(self):
+        """
+        Test the ShopItemView for displaying shop item details
+        """
+        url = reverse('shop_item', kwargs={'shop_id': self.shop1.id})
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'shop_item.html')
+        self.assertEqual(response.context['shop_item'], self.shop1)
+        self.assertEqual(len(response.context['all_items']), 1)
+        self.assertEqual(response.context['all_items'][0], self.shop2)
+
+    def test_blog_list_view(self):
+        """
+        Test the BlogList view for listing blog posts
+        """
+        response = self.client.get(reverse('blog_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog.html')
+
+    def test_blog_detail_view(self):
+        """
+        Test the BlogDetail view for displaying a blog post
+        """
+        blog_post = Blog.objects.create(
+            title='Test Blog Post',
+            slug='test-blog-post',
+            status=1,
+        )
+
+        url = reverse('blog_post', kwargs={'slug': blog_post.slug})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog_post.html')
+
+    def test_blog_detail_view_post(self):
+        """
+        Test the BlogDetail view for posting a comment on a blog post
+        """
+        blog_post = Blog.objects.create(
+            title='Test Blog Post',
+            slug='test-blog-post',
+            status=1,
+        )
+
+        url = reverse('blog_post', kwargs={'slug': blog_post.slug})
+        self.client.login(username='jane', password='janepassword')
+
+        response = self.client.post(url, {
+            'name': self.name,
+            'email': self.email,
+            'comment': self.comment,
+        })
+        self.assertEqual(response.status_code, 200)
