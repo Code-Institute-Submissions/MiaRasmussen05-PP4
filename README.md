@@ -751,6 +751,97 @@ Logout
     </details>
     <br>
 
+  Site Admin:
+
+  - [#4](https://github.com/MiaRasmussen05/PP4/issues/4)
+  __I can create, read, update and delete blog posts so that I can manage my blog content at all times.__
+
+    - The admin can add, read, update, and delete all blog posts on the blog page.
+
+    <details>
+      <summary>Blog Post Mangement</summary>
+      <img src="https://imgur.com/vN7JZQE.png" title="source: imgur.com" />
+      <img src="https://imgur.com/JHI2f5e.png" title="source: imgur.com" />
+      <img src="https://imgur.com/FCULUAI.png" title="source: imgur.com" />
+      <img src="https://imgur.com/oiszpF8.png" title="source: imgur.com" />
+      <img src="https://imgur.com/IlXFARF.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#5](https://github.com/MiaRasmussen05/PP4/issues/5)
+  __I can create, read, update and delete items in shop so that I can mange the shop items at all times.__
+
+    - The admin can add, read, update, and delete all shop items on the shop page.
+
+    <details>
+      <summary>Shop Items Mangement</summary>
+      <img src="https://imgur.com/7WRYFBI.png" title="source: imgur.com" />
+      <img src="https://imgur.com/Jb7X6ej.png" title="source: imgur.com" />
+      <img src="https://imgur.com/r6Sl9Vz.png" title="source: imgur.com" />
+      <img src="https://imgur.com/h5zPRTs.png" title="source: imgur.com" />
+      <img src="https://imgur.com/EROttcw.png" title="source: imgur.com" />
+    </details>
+    <br>
+
+  - [#7](https://github.com/MiaRasmussen05/PP4/issues/7)
+  __I can add categories to the shop so that shop items goes in the right place, to be easier to find for a site user.__
+
+    - The admin can add more categories so items on the shop page, as well as the gallery page, go to the right place.
+
+    <details>
+      <summary>Categories</summary>
+      <img src="https://imgur.com/4kZuVht.png" title="source: imgur.com" />
+      <img src="https://imgur.com/7WRYFBI.png" title="source: imgur.com" />
+    </details>
+    <br>
+
+  - [#11](https://github.com/MiaRasmussen05/PP4/issues/11)
+  __I can create, read, update and delete projects for my portfolio so that I can easily manage what is shown and what is not.__
+
+    - The admin can add, read, update, and delete all projects on the portfolio page.
+
+    <details>
+      <summary>Project Mangement</summary>
+      <img src="https://imgur.com/n5b2wvj.png" title="source: imgur.com" />
+      <img src="https://imgur.com/pAAuWlI.png" title="source: imgur.com" />
+      <img src="https://imgur.com/av7UKBh.png" title="source: imgur.com" />
+      <img src="https://imgur.com/E40p63p.png" title="source: imgur.com" />
+      <img src="https://imgur.com/GswPwzo.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#12](https://github.com/MiaRasmussen05/PP4/issues/12)
+  __I can create, view, update and delete my images in gallery so that new images is added often and information is kept up to date.__
+
+    - The admin can add, read, update, and delete all photos on the gallery page.
+
+    <details>
+      <summary>Gallery Mangement</summary>
+      <img src="https://imgur.com/4kZuVht.png" title="source: imgur.com" />
+      <img src="https://imgur.com/fKKDXpA.png" title="source: imgur.com" />
+      <img src="https://imgur.com/wwxZI3V.png" title="source: imgur.com" />
+      <img src="https://imgur.com/oaz58om.png" title="source: imgur.com" />
+      <img src="https://imgur.com/0QaQ35m.png" title="source: imgur.com" />
+    </details>
+    <br>
+  
+  - [#24](https://github.com/MiaRasmussen05/PP4/issues/24)
+  __I can view all orders made by site users so that I can keep up to date with what has been ordered or removed.__
+
+    - In the future, the Admin will have their own page for all orders made from all users. So they can keep an eye out for everything.
+  
+  - [#25](https://github.com/MiaRasmussen05/PP4/issues/25)
+  __I can delete all comments and reviews made so that I can keep the conversation and language appropriate.__
+
+    - The Admin can delete but not edit all other user's comments and reviews in case a user is not treating other people with respect, and keeping every up with the rules.
+
+    <details>
+      <summary>Delete</summary>
+      <img src="https://imgur.com/y1RbYc6.png" title="source: imgur.com" />
+      <img src="https://imgur.com/sUjxGnG.png" title="source: imgur.com" />
+    </details>
+    <br>
+
    ## Code Validation
 
    ### HTML
