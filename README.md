@@ -215,6 +215,20 @@ This website was created for my 4th Portfolio Project with Code Institute. I dec
   </details>
   <br>
 
+  ### Databases
+
+  I went over the information I could think I would need in each databases. I did this so I could structue the models to reduce and improve data.
+
+  ![Models for shop](https://imgur.com/qLfM2GX.png)
+
+  ![Models for blog](https://imgur.com/tOPVCuX.png)
+
+  ![Model for projects](https://imgur.com/LVKvdNL.png)
+
+  ![Models for gallery](https://imgur.com/JvewcSd.png)
+
+  ![Models for user profile](https://imgur.com/PLnqHfE.png)
+
   ## Surface
 
     ### __Visual Design__
